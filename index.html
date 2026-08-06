@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Presentasi MIS SCMA IT MIS - MyMagic Aplikasi Produksi Magic Laundry Indonesia">
-    <meta name="author" content="Magic Laundry Indonesia - IT MIS Team">
-    <meta name="keywords" content="Magic Laundry, MyMagic, Aplikasi Produksi, MIS, SCMA, IT Management">
-    <title>MyMagic - Presentasi MIS SCMA IT MIS | Magic Laundry Indonesia</title>
+    <meta name="description" content="Weekly Report Divisi MIS - PT. Sinar Cemaramas Abadi">
+    <meta name="author" content="PT. Sinar Cemaramas Abadi - Divisi MIS">
+    <meta name="keywords" content="Weekly Report, SCMA, Divisi MIS, IT Software Engineer, Sinar Cemaramas Abadi">
+    <title>Weekly Report - Divisi MIS | PT. Sinar Cemaramas Abadi</title>
     <style>
         * {
             margin: 0;
@@ -246,6 +246,43 @@
             border-radius: 4px;
             font-weight: 600;
             color: #1565c0;
+        }
+
+        .status-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: #fdf1da;
+            color: #8a6d1a;
+            border: 1px solid #eba925;
+        }
+
+        .thumbnail-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #eba925, #c9861a);
+        }
+
+        .slide-placeholder-visual {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #eba925, #c9861a);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
         }
 
         @keyframes fadeIn {
@@ -539,49 +576,53 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <h1>📊 Presentasi MIS SCMA IT MIS</h1>
-                <p>Magic Laundry Indonesia | MyMagic - Aplikasi Produksi | Tanggal: 6 Agustus 2026</p>
+                <h1>📊 Weekly Report - Divisi MIS</h1>
+                <p>PT. Sinar Cemaramas Abadi | IT Software Engineer | Tanggal: 6 Agustus 2026</p>
             </div>
         </div>
 
         <div class="progress-bar">
-            <div class="progress-fill" id="progressFill" style="width: 12.5%"></div>
+            <div class="progress-fill" id="progressFill" style="width: 11.11%"></div>
         </div>
 
         <div class="main-layout">
             <!-- Thumbnail Sidebar -->
             <div class="thumbnail-sidebar">
                 <div class="thumbnail active" data-slide="1" onclick="goToSlide(1)">
-                    <img src="assets/image1.png" alt="Slide 1">
+                    <img src="assets/image3.png" alt="Slide 1">
                     <div class="thumbnail-number">1</div>
                 </div>
                 <div class="thumbnail" data-slide="2" onclick="goToSlide(2)">
-                    <img src="assets/image2.png" alt="Slide 2">
+                    <div class="thumbnail-placeholder">🗂️</div>
                     <div class="thumbnail-number">2</div>
                 </div>
                 <div class="thumbnail" data-slide="3" onclick="goToSlide(3)">
-                    <img src="assets/image3.png" alt="Slide 3">
+                    <img src="assets/image4.png" alt="Slide 3">
                     <div class="thumbnail-number">3</div>
                 </div>
                 <div class="thumbnail" data-slide="4" onclick="goToSlide(4)">
-                    <img src="assets/image4.png" alt="Slide 4">
+                    <img src="assets/image5.png" alt="Slide 4">
                     <div class="thumbnail-number">4</div>
                 </div>
                 <div class="thumbnail" data-slide="5" onclick="goToSlide(5)">
-                    <img src="assets/image5.png" alt="Slide 5">
+                    <img src="assets/image6.jpeg" alt="Slide 5">
                     <div class="thumbnail-number">5</div>
                 </div>
                 <div class="thumbnail" data-slide="6" onclick="goToSlide(6)">
-                    <img src="assets/image6.jpeg" alt="Slide 6">
+                    <div class="thumbnail-placeholder">🏃</div>
                     <div class="thumbnail-number">6</div>
                 </div>
                 <div class="thumbnail" data-slide="7" onclick="goToSlide(7)">
-                    <img src="assets/image7.png" alt="Slide 7">
+                    <div class="thumbnail-placeholder">👣</div>
                     <div class="thumbnail-number">7</div>
                 </div>
                 <div class="thumbnail" data-slide="8" onclick="goToSlide(8)">
-                    <img src="assets/image8.png" alt="Slide 8">
+                    <div class="thumbnail-placeholder">☁️</div>
                     <div class="thumbnail-number">8</div>
+                </div>
+                <div class="thumbnail" data-slide="9" onclick="goToSlide(9)">
+                    <img src="assets/image7.png" alt="Slide 9">
+                    <div class="thumbnail-number">9</div>
                 </div>
             </div>
 
@@ -593,133 +634,137 @@
                 
                 <div class="slide active" data-slide="1">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image1.png" alt="Slide 1 - Judul Presentasi" loading="eager">
+                        <img src="assets/image3.png" alt="Slide 1 - Cover" loading="eager">
                     </div>
                     <div class="slide-content">
-                        <h2>🧺 Magic Laundry - Sistem Informasi Manajemen</h2>
-                        <p><strong>MyMagic</strong> - Aplikasi Produksi Terintegrasi</p>
-                        <p>Sistem informasi manajemen untuk operasional produksi laundry dengan teknologi mobile dan cloud computing</p>
+                        <h2>📢 Weekly Report</h2>
+                        <p><strong>PT. Sinar Cemaramas Abadi</strong></p>
+                        <p>Divisi MIS — IT Software Engineer</p>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="2">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image2.png" alt="Slide 2 - Overview Aplikasi" loading="lazy">
+                        <div class="slide-placeholder-visual">🗂️</div>
                     </div>
                     <div class="slide-content">
-                        <h2>📱 MyMagic - Aplikasi Produksi</h2>
-                        <p><strong>Magic Laundry Indonesia</strong></p>
-                        <p>Aplikasi mobile berbasis Android yang dirancang khusus untuk mendukung proses kerja produksi di seluruh cabang Magic Laundry Indonesia</p>
+                        <h2>🗂️ Klasifikasi Portofolio Project</h2>
+                        <span class="status-tag">Project Sedang Berjalan</span>
                         <ul>
-                            <li>Interface user-friendly dan mudah digunakan</li>
-                            <li>Real-time synchronization dengan sistem pusat</li>
-                            <li>Optimized untuk operasional harian produksi</li>
+                            <li>Pembuatan Sistem Armada di SISCA.</li>
+                            <li>Pembuatan Sistem POS IPE.</li>
+                            <li>Update Apps Internal Magic Laundry.</li>
+                        </ul>
+                        <span class="status-tag" style="margin-top: 12px;">Project Sedang Dikembangkan</span>
+                        <ul>
+                            <li>Migrasi Sistem Step Counter ke HRIS Website.</li>
+                            <li>Pembuatan Modul Step Counter di Apps HRIS.</li>
+                            <li>Migrasi storage HRIS to cloud storage.</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="3">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image3.png" alt="Slide 3 - Fitur Utama" loading="lazy">
+                        <img src="assets/image4.png" alt="Slide 3 - Sistem Armada SISCA" loading="lazy">
                     </div>
                     <div class="slide-content">
-                        <h2>✨ Fitur dan Fungsi Aplikasi</h2>
-                        <p>Interface aplikasi yang dirancang untuk kemudahan akses operasional harian:</p>
+                        <span class="status-tag">Project Sedang Berjalan</span>
+                        <h2>🚚 Pembuatan Sistem Armada di SISCA</h2>
                         <ul>
-                            <li><strong>Dashboard Monitoring</strong> - Overview performa dan statistik harian</li>
-                            <li><strong>Manajemen Order</strong> - Tracking dan processing pesanan customer</li>
-                            <li><strong>Quality Control</strong> - Sistem pemeriksaan kualitas produksi</li>
-                            <li><strong>Reporting System</strong> - Laporan real-time untuk management</li>
+                            <li><strong>Rilis to Production:</strong> 2026-08-03</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="4">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image4.png" alt="Slide 4 - Dashboard" loading="lazy">
+                        <img src="assets/image5.png" alt="Slide 4 - Sistem POS IPE" loading="lazy">
                     </div>
                     <div class="slide-content">
-                        <h2>📊 Dashboard Monitoring</h2>
-                        <p>Panel kontrol utama untuk memantau seluruh aktivitas produksi secara real-time:</p>
+                        <span class="status-tag">Project Sedang Berjalan</span>
+                        <h2>🧾 Pembuatan Sistem POS IPE</h2>
                         <ul>
-                            <li>Monitoring status pesanan dalam proses</li>
-                            <li>Tracking produktivitas tim produksi</li>
-                            <li>Visualisasi data dan grafik performa</li>
-                            <li>Alert dan notifikasi untuk urgent tasks</li>
+                            <li><strong>Rilis to Production:</strong> 2026-08-03</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="5">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image5.png" alt="Slide 5 - Modul Transaksi" loading="lazy">
+                        <img src="assets/image6.jpeg" alt="Slide 5 - Update Apps Internal Magic Laundry" loading="lazy">
                     </div>
                     <div class="slide-content">
-                        <h2>💳 Modul Transaksi Lengkap</h2>
-                        <p>Sistem transaksi terintegrasi dengan fitur-fitur modern:</p>
+                        <span class="status-tag">Project Sedang Berjalan</span>
+                        <h2>📱 Update Apps Internal Magic Laundry</h2>
                         <ul>
-                            <li><span class="highlight">🔍 Scan QR Code</span> - Input cepat data produk dan customer dengan teknologi QR</li>
-                            <li><span class="highlight">📋 Daftar Produk</span> - Katalog layanan lengkap dengan pencarian dan filter</li>
-                            <li><span class="highlight">🛒 Keranjang Belanja</span> - Review dan edit order sebelum checkout</li>
-                            <li><span class="highlight">💰 Metode Pembayaran</span> - Multiple payment gateway (Cash, Transfer, E-wallet)</li>
-                            <li><span class="highlight">🎁 Promo & Diskon</span> - Sistem promosi dan loyalty program terintegrasi</li>
-                            <li><span class="highlight">🧾 Digital Receipt</span> - Struk digital dan tracking number</li>
+                            <li><strong>Rilis to PlayStore:</strong> 2026-08-03</li>
+                        </ul>
+                        <p><strong>Update rilis:</strong></p>
+                        <ul>
+                            <li>Perbaikan transaksi packing yang belum ada plastik opp / plastik roll.</li>
+                            <li>Perbaikan layout.</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="6">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image6.jpeg" alt="Slide 6 - Play Store" loading="lazy">
+                        <div class="slide-placeholder-visual">🏃</div>
                     </div>
                     <div class="slide-content">
-                        <h2>🏪 MyMagic - Produksi</h2>
-                        <p><strong>Magic Laundry Indonesia</strong></p>
-                        <p>Aplikasi resmi yang mendukung seluruh proses kerja produksi di Magic Laundry</p>
+                        <span class="status-tag">Project Sedang Dikembangkan</span>
+                        <h2>🏃 Migrasi Sistem Step Counter ke HRIS Website</h2>
                         <ul>
-                            <li>📅 <strong>Update Terakhir:</strong> 3 Agustus 2026</li>
-                            <li>📱 <strong>Platform:</strong> Android - Tersedia di Google Play Store</li>
-                            <li>✅ <strong>Versi Terbaru:</strong> Perbaikan sistem transaksi packing dan optimasi layout interface</li>
-                            <li>⭐ <strong>Rating:</strong> Digunakan oleh seluruh cabang Magic Laundry di Indonesia</li>
-                            <li>🔄 <strong>Update Berkala:</strong> Continuous improvement berdasarkan feedback user</li>
+                            <li><strong>Est. Done Development:</strong> 2026-07-27</li>
+                            <li><strong>Testing:</strong> 2026-07-28 s/d 2026-07-31</li>
+                            <li><strong>Testing tahap 2:</strong> 2026-07-31 s/d 2026-08-08</li>
+                            <li><strong>Est. Rilis to Production:</strong> 2026-08-01</li>
+                            <li><strong>Est. Rilis to Production:</strong> 2026-08-15</li>
                         </ul>
+                        <p><strong>Catatan:</strong> Untuk rilis Step Counter HRIS Website mengikuti Step Counter di Apps HRIS.</p>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="7">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image7.png" alt="Slide 7 - Fasilitas Produksi" loading="lazy">
+                        <div class="slide-placeholder-visual">👣</div>
                     </div>
                     <div class="slide-content">
-                        <h2>🏭 Fasilitas Produksi Magic Laundry</h2>
-                        <p>Area produksi modern dengan standar internasional:</p>
+                        <span class="status-tag">Project Sedang Dikembangkan</span>
+                        <h2>👣 Pembuatan Modul Step Counter di Apps HRIS</h2>
                         <ul>
-                            <li><strong>Teknologi Terkini</strong> - Mesin laundry industrial dengan efisiensi tinggi</li>
-                            <li><strong>Sistem Terintegrasi</strong> - Koneksi real-time antara produksi dan aplikasi</li>
-                            <li><strong>Quality Assurance</strong> - Proses quality control berlapis untuk hasil maksimal</li>
-                            <li><strong>Workflow Management</strong> - Optimasi alur kerja untuk produktivitas optimal</li>
-                            <li><strong>Safety Standards</strong> - Keamanan dan kesehatan lingkungan kerja terjaga</li>
+                            <li><strong>Est. Done Development:</strong> 2026-08-10</li>
+                            <li><strong>Testing:</strong> 2026-08-10 s/d 2026-08-12</li>
+                            <li><strong>Est. Rilis to PlayStore:</strong> 2026-08-13</li>
+                            <li><strong>Est. Rilis to AppStore:</strong> 2026-08-13 s/d 2026-08-16 (Tergantung verifikasi dari AppStore nya.)</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="slide" data-slide="8">
                     <div class="slide-image-wrapper">
-                        <img src="assets/image8.png" alt="Slide 8 - Penutup" loading="lazy">
+                        <div class="slide-placeholder-visual">☁️</div>
                     </div>
                     <div class="slide-content">
-                        <h2>🙏 Terima Kasih</h2>
-                        <p><strong>Presentasi MIS SCMA IT MIS</strong></p>
-                        <p><strong>Magic Laundry Indonesia</strong></p>
-                        <p>Sistem Informasi Manajemen Produksi - MyMagic Application</p>
-                        <p style="margin-top: 20px; padding-top: 16px; border-top: 2px solid #e3f2fd;">
-                            <strong>📧 Kontak Tim IT MIS:</strong><br>
-                            Untuk informasi lebih lanjut mengenai sistem, pelatihan, atau technical support, 
-                            silakan hubungi tim IT Management Information System
-                        </p>
-                        <p style="margin-top: 12px; color: #1976d2; font-weight: 600;">
-                            🔧 Support & Maintenance: Available 24/7
-                        </p>
+                        <span class="status-tag">Project Sedang Dikembangkan</span>
+                        <h2>☁️ Migrasi Storage HRIS to Cloud Storage</h2>
+                        <ul>
+                            <li><strong>Est. Done Development:</strong> 2026-08-13</li>
+                            <li><strong>Testing:</strong> 2026-08-13 s/d 2026-08-15</li>
+                            <li><strong>Est. Rilis to Production:</strong> 2026-08-17</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide" data-slide="9">
+                    <div class="slide-image-wrapper">
+                        <img src="assets/image7.png" alt="Slide 9 - Penutup" loading="lazy">
+                    </div>
+                    <div class="slide-content">
+                        <h2>🙏 Thank You!</h2>
+                        <p><strong>PT. Sinar Cemaramas Abadi — Divisi MIS</strong></p>
+                        <p>Terima kasih atas perhatiannya terhadap Weekly Report ini.</p>
                     </div>
                 </div>
             </div>
@@ -738,7 +783,7 @@
             <div class="slide-counter">
                 <span class="current" id="currentSlide">1</span> 
                 <span class="separator">/</span>
-                <span class="total" id="totalSlides">8</span>
+                <span class="total" id="totalSlides">9</span>
             </div>
 
             <div class="action-buttons">
@@ -752,13 +797,13 @@
         </div>
 
         <div class="keyboard-hint">
-            💡 Gunakan <kbd>←</kbd> <kbd>→</kbd> navigasi | <kbd>1</kbd>-<kbd>8</kbd> langsung ke slide | <kbd>Home</kbd> slide pertama | <kbd>End</kbd> slide terakhir | <kbd>D</kbd> toggle deskripsi | <kbd>F</kbd> fullscreen
+            💡 Gunakan <kbd>←</kbd> <kbd>→</kbd> navigasi | <kbd>1</kbd>-<kbd>9</kbd> langsung ke slide | <kbd>Home</kbd> slide pertama | <kbd>End</kbd> slide terakhir | <kbd>D</kbd> toggle deskripsi | <kbd>F</kbd> fullscreen
         </div>
     </div>
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 8;
+        const totalSlides = 9;
 
         // Initialize
         document.getElementById('totalSlides').textContent = totalSlides;
