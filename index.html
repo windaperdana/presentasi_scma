@@ -32,10 +32,11 @@
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             display: grid;
-            grid-template-rows: auto 1fr auto auto;
+            grid-template-rows: auto auto 1fr auto auto;
             height: calc(100vh - 40px);
         }
 
+        /* ===== HEADER ===== */
         .header {
             background: #1976d2;
             color: white;
@@ -46,9 +47,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .header-content {
-            flex: 1;
-        }
+        .header-content { flex: 1; }
 
         .header h1 {
             font-size: 22px;
@@ -62,6 +61,43 @@
             font-weight: 400;
         }
 
+        .header-actions { display: flex; gap: 8px; align-items: center; }
+
+        .btn-admin {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-admin:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            height: 3px;
+            background: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #1976d2;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== LAYOUT ===== */
         .main-layout {
             display: grid;
             grid-template-columns: 200px 1fr;
@@ -70,6 +106,7 @@
             background: #fafafa;
         }
 
+        /* ===== THUMBNAIL SIDEBAR ===== */
         .thumbnail-sidebar {
             background: #ffffff;
             border-right: 1px solid #e0e0e0;
@@ -77,18 +114,9 @@
             padding: 15px 10px;
         }
 
-        .thumbnail-sidebar::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .thumbnail-sidebar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .thumbnail-sidebar::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 4px;
-        }
+        .thumbnail-sidebar::-webkit-scrollbar { width: 8px; }
+        .thumbnail-sidebar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .thumbnail-sidebar::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
 
         .thumbnail {
             margin-bottom: 12px;
@@ -100,27 +128,16 @@
             position: relative;
         }
 
-        .thumbnail:hover {
-            border-color: #90caf9;
-            transform: scale(1.02);
-        }
+        .thumbnail:hover { border-color: #90caf9; transform: scale(1.02); }
+        .thumbnail.active { border-color: #1976d2; box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3); }
 
-        .thumbnail.active {
-            border-color: #1976d2;
-            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
-        }
-
-        .thumbnail img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .thumbnail img { width: 100%; height: auto; display: block; }
 
         .thumbnail-number {
             position: absolute;
             bottom: 4px;
             right: 4px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0,0,0,0.7);
             color: white;
             padding: 2px 6px;
             border-radius: 4px;
@@ -128,6 +145,36 @@
             font-weight: 600;
         }
 
+        /* Edit/delete buttons on thumbnail (admin mode only) */
+        .thumbnail-actions {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            display: none;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .admin-mode .thumbnail-actions { display: flex; }
+
+        .thumb-btn {
+            background: rgba(255,255,255,0.92);
+            border: none;
+            border-radius: 4px;
+            padding: 3px 6px;
+            font-size: 11px;
+            cursor: pointer;
+            color: #333;
+            transition: all 0.15s;
+            font-weight: 700;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+
+        .thumb-btn:hover { background: white; transform: scale(1.05); }
+        .thumb-btn.delete { color: #c62828; }
+        .thumb-btn.move-up, .thumb-btn.move-down { color: #0d47a1; }
+
+        /* ===== MAIN SLIDE AREA ===== */
         .slide-container {
             position: relative;
             width: 100%;
@@ -190,63 +237,16 @@
             border-top-width: 0;
         }
 
-        .slide-content::-webkit-scrollbar {
-            width: 6px;
-        }
+        .slide-content::-webkit-scrollbar { width: 6px; }
+        .slide-content::-webkit-scrollbar-track { background: #f1f1f1; }
+        .slide-content::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
 
-        .slide-content::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .slide-content::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 3px;
-        }
-
-        .slide-content h2 {
-            color: #1976d2;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .slide-content p {
-            color: #424242;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .slide-content p strong {
-            color: #1565c0;
-            font-weight: 700;
-        }
-
-        .slide-content ul {
-            color: #424242;
-            font-size: 15px;
-            line-height: 1.8;
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .slide-content ul li {
-            margin-bottom: 6px;
-            position: relative;
-        }
-
-        .slide-content ul li strong {
-            color: #1976d2;
-            font-weight: 700;
-        }
-
-        .slide-content .highlight {
-            background: #e3f2fd;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-            color: #1565c0;
-        }
+        .slide-content h2 { color: #1976d2; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+        .slide-content p { color: #424242; font-size: 15px; line-height: 1.6; margin-bottom: 8px; }
+        .slide-content p strong { color: #1565c0; font-weight: 700; }
+        .slide-content ul { color: #424242; font-size: 15px; line-height: 1.8; margin-left: 20px; margin-top: 10px; }
+        .slide-content ul li { margin-bottom: 6px; position: relative; }
+        .slide-content ul li strong { color: #1976d2; font-weight: 700; }
 
         .status-tag {
             display: inline-block;
@@ -285,15 +285,9 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        /* ===== CONTROLS ===== */
         .controls {
             display: flex;
             align-items: center;
@@ -303,11 +297,7 @@
             border-top: 1px solid #e0e0e0;
         }
 
-        .nav-buttons {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+        .nav-buttons { display: flex; gap: 12px; align-items: center; }
 
         button {
             background: #1976d2;
@@ -322,21 +312,9 @@
             box-shadow: 0 2px 6px rgba(25, 118, 210, 0.2);
         }
 
-        button:hover {
-            background: #1565c0;
-            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        button:disabled {
-            background: #e0e0e0;
-            color: #9e9e9e;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+        button:hover { background: #1565c0; box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3); }
+        button:active { transform: scale(0.98); }
+        button:disabled { background: #e0e0e0; color: #9e9e9e; cursor: not-allowed; box-shadow: none; }
 
         .slide-counter {
             display: flex;
@@ -350,20 +328,10 @@
             border-radius: 6px;
         }
 
-        .slide-counter .current {
-            color: #1976d2;
-            font-size: 20px;
-            font-weight: 700;
-        }
+        .slide-counter .current { color: #1976d2; font-size: 20px; font-weight: 700; }
+        .slide-counter .total { color: #757575; }
 
-        .slide-counter .total {
-            color: #757575;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-        }
+        .action-buttons { display: flex; gap: 8px; }
 
         .icon-btn {
             padding: 8px 16px;
@@ -373,6 +341,7 @@
             gap: 6px;
         }
 
+        /* ===== KEYBOARD HINT ===== */
         .keyboard-hint {
             text-align: center;
             padding: 12px;
@@ -391,112 +360,10 @@
             font-weight: 600;
             font-size: 11px;
             margin: 0 2px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 150px 1fr;
-            }
-
-            .slide-content {
-                padding: 16px 24px;
-            }
-
-            .slide-content h2 {
-                font-size: 20px;
-            }
-
-            .slide-content p,
-            .slide-content ul {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                height: 100vh;
-                border-radius: 0;
-            }
-
-            body {
-                padding: 0;
-            }
-
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .thumbnail-sidebar {
-                display: none;
-            }
-
-            .header {
-                padding: 16px 20px;
-            }
-
-            .header h1 {
-                font-size: 18px;
-            }
-
-            .header p {
-                font-size: 12px;
-            }
-
-            .slide-image-wrapper {
-                padding: 10px;
-            }
-
-            .slide-content {
-                padding: 16px 20px;
-            }
-
-            .slide-content h2 {
-                font-size: 18px;
-                margin-bottom: 8px;
-            }
-
-            .slide-content p {
-                font-size: 13px;
-            }
-
-            .slide-content ul {
-                font-size: 13px;
-                margin-left: 16px;
-            }
-
-            .controls {
-                flex-direction: column;
-                gap: 12px;
-                padding: 16px 20px;
-            }
-
-            .nav-buttons {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            button {
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-
-            .slide-counter {
-                font-size: 13px;
-            }
-
-            .action-buttons {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .keyboard-hint {
-                font-size: 11px;
-                padding: 10px;
-            }
-        }
-
-        /* Loading state */
+        /* ===== LOADING ===== */
         .loading {
             display: none;
             position: absolute;
@@ -514,481 +381,985 @@
             animation: spin 0.8s linear infinite;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s ease;
         }
 
-        /* Progress bar */
-        .progress-bar {
-            height: 3px;
-            background: #e0e0e0;
+        .modal-overlay.open { display: flex; }
+
+        .modal {
+            background: white;
+            border-radius: 14px;
+            padding: 32px;
+            width: 540px;
+            max-width: 95vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
             position: relative;
-            overflow: hidden;
         }
 
-        .progress-fill {
+        .modal h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1976d2;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #f5f5f5;
+            color: #555;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-shadow: none;
+            transition: background 0.15s;
+        }
+
+        .modal-close:hover { background: #e0e0e0; color: #333; }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #424242;
+            margin-bottom: 6px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #212121;
+            background: #fafafa;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus,
+        .form-group select:focus { border-color: #1976d2; background: white; }
+
+        .form-group textarea { min-height: 100px; resize: vertical; line-height: 1.5; }
+
+        .form-group small { display: block; margin-top: 4px; font-size: 11px; color: #9e9e9e; }
+
+        /* Image upload area */
+        .upload-area {
+            border: 2px dashed #bbdefb;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f8fbff;
+            position: relative;
+        }
+
+        .upload-area:hover { border-color: #1976d2; background: #e3f2fd; }
+        .upload-area.drag-over { border-color: #1976d2; background: #e3f2fd; }
+
+        .upload-area input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
             height: 100%;
-            background: #1976d2;
-            transition: width 0.3s ease;
         }
 
-        /* Print styles */
+        .upload-area .upload-icon { font-size: 32px; margin-bottom: 8px; }
+        .upload-area p { font-size: 13px; color: #546e7a; margin: 0; }
+        .upload-area p strong { color: #1976d2; }
+
+        .upload-preview {
+            margin-top: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .upload-preview img {
+            max-width: 100%;
+            max-height: 160px;
+            border-radius: 8px;
+            border: 1.5px solid #e0e0e0;
+            object-fit: contain;
+        }
+
+        .upload-preview-remove {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #c62828;
+            color: white;
+            border: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #424242;
+            border: 1px solid #e0e0e0;
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover { background: #eeeeee; color: #212121; }
+
+        .btn-danger { background: #c62828; }
+        .btn-danger:hover { background: #b71c1c; }
+
+        /* ===== ADMIN BADGE ===== */
+        .admin-badge {
+            display: none;
+            background: #ff6f00;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .admin-mode .admin-badge { display: inline-block; }
+
+        /* Add slide button (in sidebar, admin only) */
+        .add-slide-btn {
+            display: none;
+            width: 100%;
+            margin-top: 4px;
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(25,118,210,0.3);
+        }
+
+        .admin-mode .add-slide-btn { display: block; }
+        .add-slide-btn:hover { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .main-layout { grid-template-columns: 150px 1fr; }
+            .slide-content { padding: 16px 24px; }
+            .slide-content h2 { font-size: 20px; }
+            .slide-content p, .slide-content ul { font-size: 14px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { height: 100vh; border-radius: 0; }
+            body { padding: 0; }
+            .main-layout { grid-template-columns: 1fr; }
+            .thumbnail-sidebar { display: none; }
+            .header { padding: 16px 20px; }
+            .header h1 { font-size: 18px; }
+            .header p { font-size: 12px; }
+            .slide-image-wrapper { padding: 10px; }
+            .slide-content { padding: 16px 20px; }
+            .slide-content h2 { font-size: 18px; margin-bottom: 8px; }
+            .slide-content p { font-size: 13px; }
+            .slide-content ul { font-size: 13px; margin-left: 16px; }
+            .controls { flex-direction: column; gap: 12px; padding: 16px 20px; }
+            .nav-buttons { width: 100%; justify-content: space-between; }
+            button { padding: 10px 16px; font-size: 13px; }
+            .slide-counter { font-size: 13px; }
+            .action-buttons { width: 100%; justify-content: center; }
+            .keyboard-hint { font-size: 11px; padding: 10px; }
+        }
+
+        /* ===== PRINT ===== */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                height: auto;
-            }
-
-            .header,
-            .controls,
-            .keyboard-hint,
-            .progress-bar,
-            .thumbnail-sidebar {
-                display: none;
-            }
-
-            .main-layout {
-                display: block;
-            }
-
-            .slide {
-                display: block !important;
-                page-break-after: always;
-                page-break-inside: avoid;
-            }
-
-            .slide-content {
-                max-height: none !important;
-                opacity: 1 !important;
-                padding: 20px !important;
-            }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; height: auto; }
+            .header, .controls, .keyboard-hint, .progress-bar, .thumbnail-sidebar { display: none; }
+            .main-layout { display: block; }
+            .slide { display: block !important; page-break-after: always; page-break-inside: avoid; }
+            .slide-content { max-height: none !important; opacity: 1 !important; padding: 20px !important; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="mainContainer">
+        <!-- Header -->
         <div class="header">
             <div class="header-content">
                 <h1>📊 Weekly Report - Divisi MIS</h1>
                 <p>PT. Sinar Cemaramas Abadi | IT Software Engineer | Tanggal: 6 Agustus 2026</p>
             </div>
+            <div class="header-actions">
+                <span class="admin-badge">✏️ Admin Mode</span>
+                <button class="btn-admin" id="adminToggleBtn" onclick="toggleAdminMode()" title="Toggle admin mode">
+                    ⚙️ Edit Mode
+                </button>
+            </div>
         </div>
 
+        <!-- Progress Bar -->
         <div class="progress-bar">
-            <div class="progress-fill" id="progressFill" style="width: 11.11%"></div>
+            <div class="progress-fill" id="progressFill"></div>
         </div>
 
+        <!-- Main Layout -->
         <div class="main-layout">
             <!-- Thumbnail Sidebar -->
-            <div class="thumbnail-sidebar">
-                <div class="thumbnail active" data-slide="1" onclick="goToSlide(1)">
-                    <img src="assets/image3.png" alt="Slide 1">
-                    <div class="thumbnail-number">1</div>
-                </div>
-                <div class="thumbnail" data-slide="2" onclick="goToSlide(2)">
-                    <div class="thumbnail-placeholder">🗂️</div>
-                    <div class="thumbnail-number">2</div>
-                </div>
-                <div class="thumbnail" data-slide="3" onclick="goToSlide(3)">
-                    <img src="assets/image4.png" alt="Slide 3">
-                    <div class="thumbnail-number">3</div>
-                </div>
-                <div class="thumbnail" data-slide="4" onclick="goToSlide(4)">
-                    <img src="assets/image5.png" alt="Slide 4">
-                    <div class="thumbnail-number">4</div>
-                </div>
-                <div class="thumbnail" data-slide="5" onclick="goToSlide(5)">
-                    <img src="assets/image6.jpeg" alt="Slide 5">
-                    <div class="thumbnail-number">5</div>
-                </div>
-                <div class="thumbnail" data-slide="6" onclick="goToSlide(6)">
-                    <div class="thumbnail-placeholder">🏃</div>
-                    <div class="thumbnail-number">6</div>
-                </div>
-                <div class="thumbnail" data-slide="7" onclick="goToSlide(7)">
-                    <div class="thumbnail-placeholder">👣</div>
-                    <div class="thumbnail-number">7</div>
-                </div>
-                <div class="thumbnail" data-slide="8" onclick="goToSlide(8)">
-                    <div class="thumbnail-placeholder">☁️</div>
-                    <div class="thumbnail-number">8</div>
-                </div>
-                <div class="thumbnail" data-slide="9" onclick="goToSlide(9)">
-                    <img src="assets/image7.png" alt="Slide 9">
-                    <div class="thumbnail-number">9</div>
-                </div>
+            <div class="thumbnail-sidebar" id="thumbnailSidebar">
+                <!-- dynamically rendered -->
+                <button class="add-slide-btn" id="addSlideBtn" onclick="openAddModal()">
+                    ＋ Tambah Slide
+                </button>
             </div>
 
             <!-- Main Slide Container -->
-            <div class="slide-container">
-                <div class="loading">
+            <div class="slide-container" id="slideContainer">
+                <div class="loading" id="loading">
                     <div class="spinner"></div>
                 </div>
-                
-                <div class="slide active" data-slide="1">
-                    <div class="slide-image-wrapper">
-                        <img src="assets/image3.png" alt="Slide 1 - Cover" loading="eager">
-                    </div>
-                    <div class="slide-content">
-                        <h2>📢 Weekly Report</h2>
-                        <p><strong>PT. Sinar Cemaramas Abadi</strong></p>
-                        <p>Divisi MIS — IT Software Engineer</p>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="2">
-                    <div class="slide-image-wrapper">
-                        <div class="slide-placeholder-visual">🗂️</div>
-                    </div>
-                    <div class="slide-content">
-                        <h2>🗂️ Klasifikasi Portofolio Project</h2>
-                        <span class="status-tag">Project Sedang Berjalan</span>
-                        <ul>
-                            <li>Pembuatan Sistem Armada di SISCA.</li>
-                            <li>Pembuatan Sistem POS IPE.</li>
-                            <li>Update Apps Internal Magic Laundry.</li>
-                        </ul>
-                        <span class="status-tag" style="margin-top: 12px;">Project Sedang Dikembangkan</span>
-                        <ul>
-                            <li>Migrasi Sistem Step Counter ke HRIS Website.</li>
-                            <li>Pembuatan Modul Step Counter di Apps HRIS.</li>
-                            <li>Migrasi storage HRIS to cloud storage.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="3">
-                    <div class="slide-image-wrapper">
-                        <img src="assets/image4.png" alt="Slide 3 - Sistem Armada SISCA" loading="lazy">
-                    </div>
-                    <div class="slide-content">
-                        <span class="status-tag">Project Sedang Berjalan</span>
-                        <h2>🚚 Pembuatan Sistem Armada di SISCA</h2>
-                        <ul>
-                            <li><strong>Rilis to Production:</strong> 2026-08-03</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="4">
-                    <div class="slide-image-wrapper">
-                        <img src="assets/image5.png" alt="Slide 4 - Sistem POS IPE" loading="lazy">
-                    </div>
-                    <div class="slide-content">
-                        <span class="status-tag">Project Sedang Berjalan</span>
-                        <h2>🧾 Pembuatan Sistem POS IPE</h2>
-                        <ul>
-                            <li><strong>Rilis to Production:</strong> 2026-08-03</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="5">
-                    <div class="slide-image-wrapper">
-                        <img src="assets/image6.jpeg" alt="Slide 5 - Update Apps Internal Magic Laundry" loading="lazy">
-                    </div>
-                    <div class="slide-content">
-                        <span class="status-tag">Project Sedang Berjalan</span>
-                        <h2>📱 Update Apps Internal Magic Laundry</h2>
-                        <ul>
-                            <li><strong>Rilis to PlayStore:</strong> 2026-08-03</li>
-                        </ul>
-                        <p><strong>Update rilis:</strong></p>
-                        <ul>
-                            <li>Perbaikan transaksi packing yang belum ada plastik opp / plastik roll.</li>
-                            <li>Perbaikan layout.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="6">
-                    <div class="slide-image-wrapper">
-                        <div class="slide-placeholder-visual">🏃</div>
-                    </div>
-                    <div class="slide-content">
-                        <span class="status-tag">Project Sedang Dikembangkan</span>
-                        <h2>🏃 Migrasi Sistem Step Counter ke HRIS Website</h2>
-                        <ul>
-                            <li><strong>Est. Done Development:</strong> 2026-07-27</li>
-                            <li><strong>Testing:</strong> 2026-07-28 s/d 2026-07-31</li>
-                            <li><strong>Testing tahap 2:</strong> 2026-07-31 s/d 2026-08-08</li>
-                            <li><strong>Est. Rilis to Production:</strong> 2026-08-01</li>
-                            <li><strong>Est. Rilis to Production:</strong> 2026-08-15</li>
-                        </ul>
-                        <p><strong>Catatan:</strong> Untuk rilis Step Counter HRIS Website mengikuti Step Counter di Apps HRIS.</p>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="7">
-                    <div class="slide-image-wrapper">
-                        <div class="slide-placeholder-visual">👣</div>
-                    </div>
-                    <div class="slide-content">
-                        <span class="status-tag">Project Sedang Dikembangkan</span>
-                        <h2>👣 Pembuatan Modul Step Counter di Apps HRIS</h2>
-                        <ul>
-                            <li><strong>Est. Done Development:</strong> 2026-08-10</li>
-                            <li><strong>Testing:</strong> 2026-08-10 s/d 2026-08-12</li>
-                            <li><strong>Est. Rilis to PlayStore:</strong> 2026-08-13</li>
-                            <li><strong>Est. Rilis to AppStore:</strong> 2026-08-13 s/d 2026-08-16 (Tergantung verifikasi dari AppStore nya.)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="8">
-                    <div class="slide-image-wrapper">
-                        <div class="slide-placeholder-visual">☁️</div>
-                    </div>
-                    <div class="slide-content">
-                        <span class="status-tag">Project Sedang Dikembangkan</span>
-                        <h2>☁️ Migrasi Storage HRIS to Cloud Storage</h2>
-                        <ul>
-                            <li><strong>Est. Done Development:</strong> 2026-08-13</li>
-                            <li><strong>Testing:</strong> 2026-08-13 s/d 2026-08-15</li>
-                            <li><strong>Est. Rilis to Production:</strong> 2026-08-17</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="slide" data-slide="9">
-                    <div class="slide-image-wrapper">
-                        <img src="assets/image7.png" alt="Slide 9 - Penutup" loading="lazy">
-                    </div>
-                    <div class="slide-content">
-                        <h2>🙏 Thank You!</h2>
-                        <p><strong>PT. Sinar Cemaramas Abadi — Divisi MIS</strong></p>
-                        <p>Terima kasih atas perhatiannya terhadap Weekly Report ini.</p>
-                    </div>
-                </div>
+                <!-- slides dynamically rendered here -->
             </div>
         </div>
 
+        <!-- Controls -->
         <div class="controls">
             <div class="nav-buttons">
-                <button id="prevBtn" onclick="changeSlide(-1)" title="Slide sebelumnya">
-                    ← Sebelumnya
-                </button>
-                <button id="nextBtn" onclick="changeSlide(1)" title="Slide selanjutnya">
-                    Selanjutnya →
-                </button>
+                <button id="prevBtn" onclick="changeSlide(-1)" title="Slide sebelumnya">← Sebelumnya</button>
+                <button id="nextBtn" onclick="changeSlide(1)" title="Slide selanjutnya">Selanjutnya →</button>
             </div>
-            
+
             <div class="slide-counter">
-                <span class="current" id="currentSlide">1</span> 
+                <span class="current" id="currentSlideNum">1</span>
                 <span class="separator">/</span>
-                <span class="total" id="totalSlides">9</span>
+                <span class="total" id="totalSlidesNum">0</span>
             </div>
 
             <div class="action-buttons">
-                <button class="icon-btn" onclick="toggleContent()" title="Tampilkan/Sembunyikan deskripsi">
-                    📝 Deskripsi
-                </button>
-                <button class="icon-btn" onclick="toggleFullscreen()" title="Mode layar penuh">
-                    ⛶ Fullscreen
-                </button>
+                <button class="icon-btn" onclick="toggleContent()" title="Tampilkan/Sembunyikan deskripsi">📝 Deskripsi</button>
+                <button class="icon-btn" onclick="toggleFullscreen()" title="Mode layar penuh">⛶ Fullscreen</button>
             </div>
         </div>
 
+        <!-- Keyboard Hint -->
         <div class="keyboard-hint">
-            💡 Gunakan <kbd>←</kbd> <kbd>→</kbd> navigasi | <kbd>1</kbd>-<kbd>9</kbd> langsung ke slide | <kbd>Home</kbd> slide pertama | <kbd>End</kbd> slide terakhir | <kbd>D</kbd> toggle deskripsi | <kbd>F</kbd> fullscreen
+            💡 Gunakan <kbd>←</kbd> <kbd>→</kbd> navigasi | <kbd>Home</kbd> slide pertama | <kbd>End</kbd> slide terakhir | <kbd>D</kbd> toggle deskripsi | <kbd>F</kbd> fullscreen
+        </div>
+    </div>
+
+    <!-- ===== MODAL ADD / EDIT SLIDE ===== -->
+    <div class="modal-overlay" id="slideModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()" title="Tutup">✕</button>
+            <h3 id="modalTitle">➕ Tambah Slide</h3>
+
+            <div class="form-group">
+                <label for="fieldIcon">Ikon / Emoji Slide</label>
+                <input type="text" id="fieldIcon" placeholder="Contoh: 📊 atau 🚚" maxlength="8">
+                <small>Digunakan sebagai thumbnail jika tidak ada gambar.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="fieldTitle">Judul Slide</label>
+                <input type="text" id="fieldTitle" placeholder="Contoh: Pembuatan Sistem Armada di SISCA">
+            </div>
+
+            <div class="form-group">
+                <label for="fieldStatus">Status Tag <span style="font-weight:400;color:#9e9e9e;">(opsional)</span></label>
+                <input type="text" id="fieldStatus" placeholder="Contoh: Project Sedang Berjalan">
+            </div>
+
+            <div class="form-group">
+                <label for="fieldContent">Deskripsi / Konten</label>
+                <textarea id="fieldContent" placeholder="Tulis deskripsi atau poin slide di sini.&#10;Mulai baris dengan ● untuk bullet-list.&#10;&#10;Contoh:&#10;● Rilis to Production: 2026-08-03&#10;● Testing: 2026-08-10&#10;&#10;Gunakan **teks** untuk bold."></textarea>
+                <small>Baris yang diawali ● akan menjadi butir list. Gunakan **teks** untuk bold.</small>
+            </div>
+
+            <div class="form-group">
+                <label>Gambar Slide <span style="font-weight:400;color:#9e9e9e;">(opsional)</span></label>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)">
+                    <div class="upload-icon">🖼️</div>
+                    <p><strong>Klik atau seret gambar</strong> ke sini</p>
+                    <p>PNG, JPG, JPEG, GIF, WebP</p>
+                </div>
+                <div class="upload-preview" id="uploadPreview" style="display:none;">
+                    <img id="uploadPreviewImg" src="" alt="Preview">
+                    <button class="upload-preview-remove" onclick="removeUploadedImage()" title="Hapus gambar">✕</button>
+                </div>
+                <small style="margin-top:8px;display:block;">Atau masukkan URL gambar langsung:</small>
+                <input type="text" id="fieldImageUrl" placeholder="https://... atau assets/image.png" style="margin-top:6px;">
+            </div>
+
+            <div class="form-group">
+                <label for="fieldPosition">Posisi Slide</label>
+                <select id="fieldPosition">
+                    <option value="end">Di akhir (setelah slide terakhir)</option>
+                    <option value="after-current">Setelah slide aktif</option>
+                </select>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Batal</button>
+                <button id="deleteSlideBtn" class="btn-danger" onclick="deleteCurrentEditSlide()" style="display:none;">🗑️ Hapus Slide</button>
+                <button id="saveSlideBtn" onclick="saveSlide()">💾 Simpan Slide</button>
+            </div>
         </div>
     </div>
 
     <script>
-        let currentSlide = 1;
-        const totalSlides = 9;
+    // ============================================================
+    // DATA — Edit array ini untuk menambah/mengubah slide
+    // Setiap slide memiliki:
+    //   icon     : emoji yang ditampilkan jika tidak ada gambar
+    //   title    : judul slide
+    //   status   : label status (opsional, bisa dikosongkan '')
+    //   image    : path atau URL gambar (opsional, bisa dikosongkan '')
+    //   content  : array of string — setiap string = 1 baris konten
+    //              Awali dengan '●' untuk bullet-list
+    //              Gunakan **teks** untuk bold
+    // ============================================================
+    let slides = [
+        {
+            icon: '📢',
+            title: '📢 Weekly Report',
+            status: '',
+            image: 'assets/image3.png',
+            content: [
+                '**PT. Sinar Cemaramas Abadi**',
+                'Divisi MIS — IT Software Engineer'
+            ]
+        },
+        {
+            icon: '🗂️',
+            title: '🗂️ Klasifikasi Portofolio Project',
+            status: '',
+            image: '',
+            content: [
+                '**Project Sedang Berjalan:**',
+                '● Pembuatan Sistem Armada di SISCA.',
+                '● Pembuatan Sistem POS IPE.',
+                '● Update Apps Internal Magic Laundry.',
+                '**Project Sedang Dikembangkan:**',
+                '● Migrasi Sistem Step Counter ke HRIS Website.',
+                '● Pembuatan Modul Step Counter di Apps HRIS.',
+                '● Migrasi storage HRIS to cloud storage.'
+            ]
+        },
+        {
+            icon: '🚚',
+            title: '🚚 Pembuatan Sistem Armada di SISCA',
+            status: 'Project Sedang Berjalan',
+            image: 'assets/image4.png',
+            content: [
+                '● **Rilis to Production:** 2026-08-03'
+            ]
+        },
+        {
+            icon: '🧾',
+            title: '🧾 Pembuatan Sistem POS IPE',
+            status: 'Project Sedang Berjalan',
+            image: 'assets/image5.png',
+            content: [
+                '● **Rilis to Production:** 2026-08-03'
+            ]
+        },
+        {
+            icon: '📱',
+            title: '📱 Update Apps Internal Magic Laundry',
+            status: 'Project Sedang Berjalan',
+            image: 'assets/image6.jpeg',
+            content: [
+                '● **Rilis to PlayStore:** 2026-08-03',
+                '**Update rilis:**',
+                '● Perbaikan transaksi packing yang belum ada plastik opp / plastik roll.',
+                '● Perbaikan layout.'
+            ]
+        },
+        {
+            icon: '🏃',
+            title: '🏃 Migrasi Sistem Step Counter ke HRIS Website',
+            status: 'Project Sedang Dikembangkan',
+            image: '',
+            content: [
+                '● **Est. Done Development:** 2026-07-27',
+                '● **Testing:** 2026-07-28 s/d 2026-07-31',
+                '● **Testing tahap 2:** 2026-07-31 s/d 2026-08-08',
+                '● **Est. Rilis to Production:** 2026-08-01',
+                '● **Est. Rilis to Production:** 2026-08-15',
+                '**Catatan:** Untuk rilis Step Counter HRIS Website mengikuti Step Counter di Apps HRIS.'
+            ]
+        },
+        {
+            icon: '👣',
+            title: '👣 Pembuatan Modul Step Counter di Apps HRIS',
+            status: 'Project Sedang Dikembangkan',
+            image: '',
+            content: [
+                '● **Est. Done Development:** 2026-08-10',
+                '● **Testing:** 2026-08-10 s/d 2026-08-12',
+                '● **Est. Rilis to PlayStore:** 2026-08-13',
+                '● **Est. Rilis to AppStore:** 2026-08-13 s/d 2026-08-16 (Tergantung verifikasi dari AppStore nya.)'
+            ]
+        },
+        {
+            icon: '☁️',
+            title: '☁️ Migrasi Storage HRIS to Cloud Storage',
+            status: 'Project Sedang Dikembangkan',
+            image: '',
+            content: [
+                '● **Est. Done Development:** 2026-08-13',
+                '● **Testing:** 2026-08-13 s/d 2026-08-15',
+                '● **Est. Rilis to Production:** 2026-08-17'
+            ]
+        },
+        {
+            icon: '🙏',
+            title: '🙏 Thank You!',
+            status: '',
+            image: 'assets/image7.png',
+            content: [
+                '**PT. Sinar Cemaramas Abadi — Divisi MIS**',
+                'Terima kasih atas perhatiannya terhadap Weekly Report ini.'
+            ]
+        }
+    ];
 
-        // Initialize
-        document.getElementById('totalSlides').textContent = totalSlides;
+    // ============================================================
+    // STATE
+    // ============================================================
+    let currentSlide = 1;
+    let isAdminMode = false;
+    let editingIndex = -1;
+    let uploadedImageDataUrl = '';
+
+    // ============================================================
+    // RENDER
+    // ============================================================
+    function renderAll() {
+        renderThumbnails();
+        renderSlides();
         updateSlideDisplay();
+        updateCounter();
+    }
 
-        function changeSlide(direction) {
-            const slides = document.querySelectorAll('.slide');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            
-            slides[currentSlide - 1].classList.remove('active');
-            thumbnails[currentSlide - 1].classList.remove('active');
-            
-            currentSlide += direction;
-            
-            // Loop around
-            if (currentSlide > totalSlides) {
-                currentSlide = 1;
-            } else if (currentSlide < 1) {
-                currentSlide = totalSlides;
-            }
-            
-            slides[currentSlide - 1].classList.add('active');
-            thumbnails[currentSlide - 1].classList.add('active');
-            updateSlideDisplay();
-            scrollThumbnailIntoView();
-        }
+    function renderThumbnails() {
+        const sidebar = document.getElementById('thumbnailSidebar');
+        const addBtn = document.getElementById('addSlideBtn');
 
-        function goToSlide(slideNumber) {
-            if (slideNumber < 1 || slideNumber > totalSlides || slideNumber === currentSlide) return;
-            
-            const slides = document.querySelectorAll('.slide');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            
-            slides[currentSlide - 1].classList.remove('active');
-            thumbnails[currentSlide - 1].classList.remove('active');
-            
-            currentSlide = slideNumber;
-            
-            slides[currentSlide - 1].classList.add('active');
-            thumbnails[currentSlide - 1].classList.add('active');
-            updateSlideDisplay();
-            scrollThumbnailIntoView();
-        }
+        sidebar.querySelectorAll('.thumbnail').forEach(t => t.remove());
 
-        function updateSlideDisplay() {
-            document.getElementById('currentSlide').textContent = currentSlide;
-            
-            // Update progress bar
-            const progress = (currentSlide / totalSlides) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-            
-            // Update button states (optional - remove if you want continuous loop)
-            // document.getElementById('prevBtn').disabled = currentSlide === 1;
-            // document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
-        }
+        slides.forEach((slide, idx) => {
+            const num = idx + 1;
+            const div = document.createElement('div');
+            div.className = 'thumbnail' + (num === currentSlide ? ' active' : '');
+            div.dataset.slide = num;
+            div.onclick = () => goToSlide(num);
 
-        function scrollThumbnailIntoView() {
-            const activeThumbnail = document.querySelector('.thumbnail.active');
-            if (activeThumbnail) {
-                activeThumbnail.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
-            }
-        }
-
-        function toggleFullscreen() {
-            const container = document.querySelector('.container');
-            
-            if (!document.fullscreenElement) {
-                container.requestFullscreen().catch(err => {
-                    alert(`Error: ${err.message}`);
-                });
+            if (slide.image) {
+                const img = document.createElement('img');
+                img.src = slide.image;
+                img.alt = 'Slide ' + num;
+                div.appendChild(img);
             } else {
-                document.exitFullscreen();
+                const ph = document.createElement('div');
+                ph.className = 'thumbnail-placeholder';
+                ph.textContent = slide.icon || '📄';
+                div.appendChild(ph);
             }
-        }
 
-        function toggleContent() {
-            const slideContents = document.querySelectorAll('.slide-content');
-            slideContents.forEach(content => {
-                content.classList.toggle('hidden');
-            });
-        }
+            const badge = document.createElement('div');
+            badge.className = 'thumbnail-number';
+            badge.textContent = num;
+            div.appendChild(badge);
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function(event) {
-            switch(event.key) {
-                case 'ArrowLeft':
-                case 'PageUp':
-                    event.preventDefault();
-                    changeSlide(-1);
-                    break;
-                case 'ArrowRight':
-                case 'PageDown':
-                case ' ':
-                    event.preventDefault();
-                    changeSlide(1);
-                    break;
-                case 'Home':
-                    event.preventDefault();
-                    goToSlide(1);
-                    break;
-                case 'End':
-                    event.preventDefault();
-                    goToSlide(totalSlides);
-                    break;
-                case 'f':
-                case 'F':
-                    event.preventDefault();
-                    toggleFullscreen();
-                    break;
-                case 'd':
-                case 'D':
-                    event.preventDefault();
-                    toggleContent();
-                    break;
-                case 'Escape':
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen();
+            // Admin action buttons
+            const actions = document.createElement('div');
+            actions.className = 'thumbnail-actions';
+
+            const upBtn = document.createElement('button');
+            upBtn.className = 'thumb-btn move-up';
+            upBtn.textContent = '↑';
+            upBtn.title = 'Geser ke atas';
+            upBtn.style.display = idx === 0 ? 'none' : '';
+            upBtn.onclick = (e) => { e.stopPropagation(); moveSlide(idx, -1); };
+
+            const editBtn = document.createElement('button');
+            editBtn.className = 'thumb-btn';
+            editBtn.textContent = '✏️';
+            editBtn.title = 'Edit slide';
+            editBtn.onclick = (e) => { e.stopPropagation(); openEditModal(idx); };
+
+            const delBtn = document.createElement('button');
+            delBtn.className = 'thumb-btn delete';
+            delBtn.textContent = '🗑️';
+            delBtn.title = 'Hapus slide';
+            delBtn.onclick = (e) => { e.stopPropagation(); deleteSlide(idx); };
+
+            const downBtn = document.createElement('button');
+            downBtn.className = 'thumb-btn move-down';
+            downBtn.textContent = '↓';
+            downBtn.title = 'Geser ke bawah';
+            downBtn.style.display = idx === slides.length - 1 ? 'none' : '';
+            downBtn.onclick = (e) => { e.stopPropagation(); moveSlide(idx, 1); };
+
+            actions.appendChild(upBtn);
+            actions.appendChild(editBtn);
+            actions.appendChild(delBtn);
+            actions.appendChild(downBtn);
+            div.appendChild(actions);
+
+            sidebar.insertBefore(div, addBtn);
+        });
+    }
+
+    function renderSlides() {
+        const container = document.getElementById('slideContainer');
+        const loading = document.getElementById('loading');
+
+        container.querySelectorAll('.slide').forEach(s => s.remove());
+
+        slides.forEach((slide, idx) => {
+            const num = idx + 1;
+            const div = document.createElement('div');
+            div.className = 'slide' + (num === currentSlide ? ' active' : '');
+            div.dataset.slide = num;
+
+            // Image wrapper
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'slide-image-wrapper';
+
+            if (slide.image) {
+                const img = document.createElement('img');
+                img.src = slide.image;
+                img.alt = slide.title;
+                img.loading = num === 1 ? 'eager' : 'lazy';
+                imgWrapper.appendChild(img);
+            } else {
+                const ph = document.createElement('div');
+                ph.className = 'slide-placeholder-visual';
+                ph.textContent = slide.icon || '📄';
+                imgWrapper.appendChild(ph);
+            }
+
+            div.appendChild(imgWrapper);
+
+            // Content panel
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'slide-content';
+
+            if (slide.status) {
+                const tag = document.createElement('span');
+                tag.className = 'status-tag';
+                tag.textContent = slide.status;
+                contentDiv.appendChild(tag);
+            }
+
+            const h2 = document.createElement('h2');
+            h2.textContent = slide.title;
+            contentDiv.appendChild(h2);
+
+            if (slide.content && slide.content.length > 0) {
+                let currentUl = null;
+                slide.content.forEach(line => {
+                    if (line.startsWith('●')) {
+                        if (!currentUl) {
+                            currentUl = document.createElement('ul');
+                            contentDiv.appendChild(currentUl);
+                        }
+                        const li = document.createElement('li');
+                        li.innerHTML = parseBold(line.replace(/^●\s*/, ''));
+                        currentUl.appendChild(li);
+                    } else {
+                        currentUl = null;
+                        const p = document.createElement('p');
+                        p.innerHTML = parseBold(line);
+                        contentDiv.appendChild(p);
                     }
-                    break;
+                });
             }
+
+            div.appendChild(contentDiv);
+            container.appendChild(div);
         });
 
-        // Number keys for quick navigation
-        document.addEventListener('keydown', function(event) {
-            const num = parseInt(event.key);
-            if (num >= 1 && num <= totalSlides) {
-                goToSlide(num);
-            }
+        container.appendChild(loading);
+    }
+
+    function parseBold(text) {
+        return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    // ============================================================
+    // NAVIGATION
+    // ============================================================
+    function changeSlide(direction) {
+        const total = slides.length;
+        const prev = currentSlide;
+        currentSlide += direction;
+        if (currentSlide > total) currentSlide = 1;
+        else if (currentSlide < 1) currentSlide = total;
+        switchToSlide(prev, currentSlide);
+    }
+
+    function goToSlide(num) {
+        if (num < 1 || num > slides.length || num === currentSlide) return;
+        const prev = currentSlide;
+        currentSlide = num;
+        switchToSlide(prev, currentSlide);
+    }
+
+    function switchToSlide(from, to) {
+        const allSlides = document.querySelectorAll('.slide');
+        const allThumbs = document.querySelectorAll('.thumbnail');
+        if (allSlides[from - 1]) allSlides[from - 1].classList.remove('active');
+        if (allThumbs[from - 1]) allThumbs[from - 1].classList.remove('active');
+        if (allSlides[to - 1]) allSlides[to - 1].classList.add('active');
+        if (allThumbs[to - 1]) allThumbs[to - 1].classList.add('active');
+        updateSlideDisplay();
+        scrollThumbnailIntoView();
+    }
+
+    function updateSlideDisplay() {
+        document.getElementById('currentSlideNum').textContent = currentSlide;
+        const total = slides.length;
+        const progress = total > 0 ? (currentSlide / total) * 100 : 0;
+        document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    function updateCounter() {
+        document.getElementById('totalSlidesNum').textContent = slides.length;
+    }
+
+    function scrollThumbnailIntoView() {
+        const activeThumbnail = document.querySelector('.thumbnail.active');
+        if (activeThumbnail) {
+            activeThumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    // ============================================================
+    // ADMIN MODE
+    // ============================================================
+    function toggleAdminMode() {
+        isAdminMode = !isAdminMode;
+        const container = document.getElementById('mainContainer');
+        const btn = document.getElementById('adminToggleBtn');
+        if (isAdminMode) {
+            container.classList.add('admin-mode');
+            btn.textContent = '✅ Selesai Edit';
+        } else {
+            container.classList.remove('admin-mode');
+            btn.textContent = '⚙️ Edit Mode';
+        }
+    }
+
+    // ============================================================
+    // MODAL
+    // ============================================================
+    function openAddModal() {
+        editingIndex = -1;
+        document.getElementById('modalTitle').textContent = '➕ Tambah Slide Baru';
+        document.getElementById('fieldIcon').value = '';
+        document.getElementById('fieldTitle').value = '';
+        document.getElementById('fieldStatus').value = '';
+        document.getElementById('fieldContent').value = '';
+        document.getElementById('fieldImageUrl').value = '';
+        uploadedImageDataUrl = '';
+        clearUploadPreview();
+        populatePositionSelect(-1);
+        document.getElementById('deleteSlideBtn').style.display = 'none';
+        document.getElementById('slideModal').classList.add('open');
+    }
+
+    function openEditModal(idx) {
+        editingIndex = idx;
+        const slide = slides[idx];
+        document.getElementById('modalTitle').textContent = 'Edit Slide ' + (idx + 1);
+        document.getElementById('fieldIcon').value = slide.icon || '';
+        document.getElementById('fieldTitle').value = slide.title || '';
+        document.getElementById('fieldStatus').value = slide.status || '';
+        document.getElementById('fieldContent').value = (slide.content || []).join('\n');
+        const img = slide.image || '';
+        if (img.startsWith('data:')) {
+            uploadedImageDataUrl = img;
+            document.getElementById('fieldImageUrl').value = '';
+            showUploadPreview(img);
+        } else {
+            uploadedImageDataUrl = '';
+            document.getElementById('fieldImageUrl').value = img;
+            clearUploadPreview();
+        }
+        populatePositionSelect(idx);
+        document.getElementById('deleteSlideBtn').style.display = '';
+        document.getElementById('slideModal').classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('slideModal').classList.remove('open');
+        uploadedImageDataUrl = '';
+        clearUploadPreview();
+    }
+
+    function populatePositionSelect(currentEditIdx) {
+        const sel = document.getElementById('fieldPosition');
+        sel.innerHTML = '';
+
+        function addOpt(val, label) {
+            const o = document.createElement('option');
+            o.value = val;
+            o.textContent = label;
+            sel.appendChild(o);
+        }
+
+        addOpt('end', 'Di akhir (setelah slide terakhir)');
+        addOpt('after-current', 'Setelah slide aktif (slide ' + currentSlide + ')');
+        slides.forEach((s, i) => {
+            if (i === currentEditIdx) return;
+            addOpt('after-' + i, 'Setelah slide ' + (i + 1) + ': ' + s.title.substring(0, 40));
         });
+        addOpt('begin', 'Di awal (slide pertama)');
+    }
 
-        // Touch swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let touchStartY = 0;
-        let touchEndY = 0;
+    function saveSlide() {
+        const icon = document.getElementById('fieldIcon').value.trim();
+        const title = document.getElementById('fieldTitle').value.trim();
+        const status = document.getElementById('fieldStatus').value.trim();
+        const contentRaw = document.getElementById('fieldContent').value.trim();
+        const imageUrl = document.getElementById('fieldImageUrl').value.trim();
+        const positionVal = document.getElementById('fieldPosition').value;
 
-        const slideContainer = document.querySelector('.slide-container');
+        if (!title) { alert('Judul slide tidak boleh kosong!'); return; }
 
-        slideContainer.addEventListener('touchstart', function(event) {
-            touchStartX = event.changedTouches[0].screenX;
-            touchStartY = event.changedTouches[0].screenY;
-        }, { passive: true });
+        const content = contentRaw ? contentRaw.split('\n').map(l => l.trim()).filter(l => l) : [];
+        const image = uploadedImageDataUrl || imageUrl;
+        const slideData = { icon, title, status, image, content };
 
-        slideContainer.addEventListener('touchend', function(event) {
-            touchEndX = event.changedTouches[0].screenX;
-            touchEndY = event.changedTouches[0].screenY;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const deltaX = touchEndX - touchStartX;
-            const deltaY = touchEndY - touchStartY;
-            
-            // Only handle horizontal swipes (ignore vertical scrolling)
-            if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                if (deltaX < -50) {
-                    // Swipe left - next slide
-                    changeSlide(1);
-                } else if (deltaX > 50) {
-                    // Swipe right - previous slide
-                    changeSlide(-1);
-                }
+        if (editingIndex === -1) {
+            const insertIdx = resolvePosition(positionVal, slides.length);
+            slides.splice(insertIdx, 0, slideData);
+            currentSlide = insertIdx + 1;
+        } else {
+            const oldIdx = editingIndex;
+            slides[oldIdx] = slideData;
+            const newIdx = resolvePosition(positionVal, slides.length - 1);
+            if (newIdx !== oldIdx) {
+                slides.splice(oldIdx, 1);
+                slides.splice(newIdx, 0, slideData);
+                currentSlide = newIdx + 1;
+            } else {
+                currentSlide = oldIdx + 1;
             }
         }
 
-        // Preload images for smoother transitions
-        window.addEventListener('load', function() {
-            const images = document.querySelectorAll('.slide img');
-            images.forEach(img => {
-                const newImg = new Image();
-                newImg.src = img.src;
-            });
-        });
+        closeModal();
+        renderAll();
+    }
 
-        // Handle visibility change to pause/resume
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                console.log('Presentation paused');
-            } else {
-                console.log('Presentation resumed');
-            }
-        });
+    function resolvePosition(positionVal, defaultEnd) {
+        if (positionVal === 'end') return defaultEnd;
+        if (positionVal === 'begin') return 0;
+        if (positionVal === 'after-current') return Math.min(currentSlide, slides.length);
+        if (positionVal.startsWith('after-')) {
+            const afterIdx = parseInt(positionVal.split('after-')[1]);
+            return afterIdx + 1;
+        }
+        return defaultEnd;
+    }
+
+    function deleteSlide(idx) {
+        if (!confirm('Hapus slide ' + (idx + 1) + ': "' + slides[idx].title + '"?\nTindakan ini tidak bisa dibatalkan.')) return;
+        slides.splice(idx, 1);
+        if (currentSlide > slides.length) currentSlide = Math.max(1, slides.length);
+        renderAll();
+    }
+
+    function deleteCurrentEditSlide() {
+        if (editingIndex < 0) return;
+        closeModal();
+        deleteSlide(editingIndex);
+    }
+
+    function moveSlide(idx, direction) {
+        const targetIdx = idx + direction;
+        if (targetIdx < 0 || targetIdx >= slides.length) return;
+        const temp = slides[idx];
+        slides[idx] = slides[targetIdx];
+        slides[targetIdx] = temp;
+        if (currentSlide === idx + 1) currentSlide = targetIdx + 1;
+        else if (currentSlide === targetIdx + 1) currentSlide = idx + 1;
+        renderAll();
+    }
+
+    // ============================================================
+    // IMAGE UPLOAD
+    // ============================================================
+    function handleImageUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            uploadedImageDataUrl = e.target.result;
+            showUploadPreview(uploadedImageDataUrl);
+            document.getElementById('fieldImageUrl').value = '';
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function showUploadPreview(src) {
+        document.getElementById('uploadPreviewImg').src = src;
+        document.getElementById('uploadPreview').style.display = 'block';
+    }
+
+    function clearUploadPreview() {
+        document.getElementById('uploadPreview').style.display = 'none';
+        document.getElementById('uploadPreviewImg').src = '';
+        document.getElementById('imageUpload').value = '';
+    }
+
+    function removeUploadedImage() {
+        uploadedImageDataUrl = '';
+        clearUploadPreview();
+    }
+
+    // Drag and drop on upload area
+    const uploadArea = document.getElementById('uploadArea');
+    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                uploadedImageDataUrl = ev.target.result;
+                showUploadPreview(uploadedImageDataUrl);
+                document.getElementById('fieldImageUrl').value = '';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // ============================================================
+    // UI HELPERS
+    // ============================================================
+    function toggleFullscreen() {
+        const container = document.querySelector('.container');
+        if (!document.fullscreenElement) {
+            container.requestFullscreen().catch(err => alert('Error: ' + err.message));
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+    function toggleContent() {
+        document.querySelectorAll('.slide-content').forEach(c => c.classList.toggle('hidden'));
+    }
+
+    document.getElementById('slideModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    // ============================================================
+    // KEYBOARD
+    // ============================================================
+    document.addEventListener('keydown', function(event) {
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+        switch(event.key) {
+            case 'ArrowLeft': case 'PageUp':
+                event.preventDefault(); changeSlide(-1); break;
+            case 'ArrowRight': case 'PageDown': case ' ':
+                event.preventDefault(); changeSlide(1); break;
+            case 'Home':
+                event.preventDefault(); goToSlide(1); break;
+            case 'End':
+                event.preventDefault(); goToSlide(slides.length); break;
+            case 'f': case 'F':
+                event.preventDefault(); toggleFullscreen(); break;
+            case 'd': case 'D':
+                event.preventDefault(); toggleContent(); break;
+            case 'Escape':
+                if (document.getElementById('slideModal').classList.contains('open')) closeModal();
+                else if (document.fullscreenElement) document.exitFullscreen();
+                break;
+        }
+        const num = parseInt(event.key);
+        if (!isNaN(num) && num >= 1 && num <= Math.min(9, slides.length)) goToSlide(num);
+    });
+
+    // ============================================================
+    // TOUCH SWIPE
+    // ============================================================
+    let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
+    document.getElementById('slideContainer').addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    document.getElementById('slideContainer').addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        const dX = touchEndX - touchStartX;
+        const dY = touchEndY - touchStartY;
+        if (Math.abs(dX) > Math.abs(dY)) {
+            if (dX < -50) changeSlide(1);
+            else if (dX > 50) changeSlide(-1);
+        }
+    }, { passive: true });
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    renderAll();
     </script>
 </body>
 </html>
