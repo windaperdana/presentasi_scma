@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --teal-900: #004d40;
@@ -21,15 +28,15 @@
             --teal-300: #4db6ac;
             --teal-200: #80cbc4;
             --teal-100: #b2dfdb;
-            --teal-50:  #e0f2f1;
-            --bg:       #f0f7f6;
-            --card-bg:  #ffffff;
-            --text-primary:   #1a2e2c;
+            --teal-50: #e0f2f1;
+            --bg: #f0f7f6;
+            --card-bg: #ffffff;
+            --text-primary: #1a2e2c;
             --text-secondary: #4a6562;
-            --text-muted:     #7a9c99;
-            --border:   #c8e6e3;
-            --shadow:   0 4px 24px rgba(0,77,64,0.10);
-            --shadow-lg:0 12px 48px rgba(0,77,64,0.16);
+            --text-muted: #7a9c99;
+            --border: #c8e6e3;
+            --shadow: 0 4px 24px rgba(0, 77, 64, 0.10);
+            --shadow-lg: 0 12px 48px rgba(0, 77, 64, 0.16);
         }
 
         body {
@@ -50,19 +57,23 @@
         .header::before {
             content: '';
             position: absolute;
-            top: -60px; right: -60px;
-            width: 280px; height: 280px;
+            top: -60px;
+            right: -60px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .header::after {
             content: '';
             position: absolute;
-            bottom: -40px; right: 180px;
-            width: 160px; height: 160px;
+            bottom: -40px;
+            right: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .header-inner {
@@ -76,9 +87,9 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.25);
-            color: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 12px;
             font-weight: 600;
             padding: 4px 12px;
@@ -98,7 +109,7 @@
 
         .header-sub {
             font-size: 14px;
-            color: rgba(255,255,255,0.75);
+            color: rgba(255, 255, 255, 0.75);
             font-weight: 400;
         }
 
@@ -130,22 +141,45 @@
             animation: fadeUp 0.5s ease both;
         }
 
-        .stat-card:nth-child(1) { animation-delay: 0.05s; }
-        .stat-card:nth-child(2) { animation-delay: 0.10s; }
-        .stat-card:nth-child(3) { animation-delay: 0.15s; }
-        .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .stat-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .stat-card:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+
+        .stat-card:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
 
         .stat-icon {
-            width: 52px; height: 52px;
+            width: 52px;
+            height: 52px;
             border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 24px;
             flex-shrink: 0;
         }
 
-        .stat-icon.teal  { background: var(--teal-50); }
-        .stat-icon.amber { background: #fff8e1; }
-        .stat-icon.rose  { background: #fce4ec; }
+        .stat-icon.teal {
+            background: var(--teal-50);
+        }
+
+        .stat-icon.amber {
+            background: #fff8e1;
+        }
+
+        .stat-icon.rose {
+            background: #fce4ec;
+        }
 
         .stat-label {
             font-size: 12px;
@@ -201,7 +235,10 @@
             border-radius: 20px;
         }
 
-        .search-box { position: relative; flex-shrink: 0; }
+        .search-box {
+            position: relative;
+            flex-shrink: 0;
+        }
 
         .search-box input {
             border: 1.5px solid var(--border);
@@ -218,15 +255,18 @@
 
         .search-box input:focus {
             border-color: var(--teal-500);
-            box-shadow: 0 0 0 3px rgba(0,150,136,0.1);
+            box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.1);
             background: white;
         }
 
-        .search-box input::placeholder { color: var(--text-muted); }
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
 
         .search-icon {
             position: absolute;
-            left: 12px; top: 50%;
+            left: 12px;
+            top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
             font-size: 15px;
@@ -234,9 +274,14 @@
         }
 
         /* Table */
-        table { width: 100%; border-collapse: collapse; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-        thead tr { background: var(--teal-900); }
+        thead tr {
+            background: var(--teal-900);
+        }
 
         thead th {
             padding: 14px 20px;
@@ -244,40 +289,73 @@
             font-weight: 700;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             white-space: nowrap;
             cursor: pointer;
             user-select: none;
             transition: background 0.15s;
         }
 
-        thead th:hover { background: var(--teal-800); }
-        thead th:first-child { text-align: left; }
-        thead th:last-child  { text-align: right; }
+        thead th:hover {
+            background: var(--teal-800);
+        }
 
-        .sort-icon { margin-left: 5px; opacity: 0.5; font-style: normal; }
-        .sort-icon.active { opacity: 1; color: var(--teal-200); }
+        thead th:first-child {
+            text-align: left;
+        }
+
+        thead th:last-child {
+            text-align: right;
+        }
+
+        .sort-icon {
+            margin-left: 5px;
+            opacity: 0.5;
+            font-style: normal;
+        }
+
+        .sort-icon.active {
+            opacity: 1;
+            color: var(--teal-200);
+        }
 
         tbody tr {
             border-bottom: 1px solid #f0faf9;
             transition: background 0.15s ease;
         }
 
-        tbody tr:nth-child(even) { background: #f7fdfc; }
-        tbody tr:nth-child(odd)  { background: #ffffff; }
-        tbody tr:hover { background: var(--teal-50) !important; }
+        tbody tr:nth-child(even) {
+            background: #f7fdfc;
+        }
 
-        tbody td { padding: 13px 20px; font-size: 14px; color: var(--text-secondary); }
+        tbody tr:nth-child(odd) {
+            background: #ffffff;
+        }
+
+        tbody tr:hover {
+            background: var(--teal-50) !important;
+        }
+
+        tbody td {
+            padding: 13px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
 
         tbody td:first-child {
             font-weight: 600;
             color: var(--text-primary);
         }
 
-        .name-cell { display: flex; align-items: center; gap: 10px; }
+        .name-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
         .row-num {
-            width: 24px; height: 24px;
+            width: 24px;
+            height: 24px;
             border-radius: 6px;
             background: var(--teal-50);
             color: var(--teal-700);
@@ -310,9 +388,15 @@
             min-width: 4px;
         }
 
-        .nominal-val { min-width: 80px; text-align: right; font-size: 14px; }
+        .nominal-val {
+            min-width: 80px;
+            text-align: right;
+            font-size: 14px;
+        }
 
-        tfoot tr { background: linear-gradient(135deg, var(--teal-900), var(--teal-700)) !important; }
+        tfoot tr {
+            background: linear-gradient(135deg, var(--teal-900), var(--teal-700)) !important;
+        }
 
         tfoot td {
             padding: 15px 20px;
@@ -334,7 +418,10 @@
             color: var(--text-muted);
         }
 
-        .empty-state p { font-size: 15px; margin-top: 8px; }
+        .empty-state p {
+            font-size: 15px;
+            margin-top: 8px;
+        }
 
         .footer {
             text-align: center;
@@ -344,35 +431,77 @@
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 700px) {
-            .header { padding: 24px 20px 20px; }
-            .header h1 { font-size: 22px; }
-            .main { padding: 20px 14px 40px; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .stats-grid .stat-card:last-child { grid-column: 1 / -1; }
-            .search-box input { width: 100%; }
-            .table-toolbar { flex-direction: column; align-items: flex-start; }
-            thead th, tbody td { padding: 10px 14px; }
-            .nominal-bar { display: none; }
+            .header {
+                padding: 24px 20px 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .main {
+                padding: 20px 14px 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid .stat-card:last-child {
+                grid-column: 1 / -1;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .table-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            thead th,
+            tbody td {
+                padding: 10px 14px;
+            }
+
+            .nominal-bar {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
-            .stats-grid { grid-template-columns: 1fr; }
-            .stats-grid .stat-card:last-child { grid-column: auto; }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid .stat-card:last-child {
+                grid-column: auto;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="header">
         <div class="header-inner">
             <div class="header-badge">&#x1F4B8; Rekap Keuangan</div>
-            <h1>Data Nominal Denda Karyawan</h1>
-            <p class="header-sub">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; Periode 2026</p>
+            <h1>Data Nominal Denda Step Counter Karyawan</h1>
+            <p class="header-sub">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; Periode
+                Cut Off 12 Agustus 2026</p>
         </div>
     </div>
 
@@ -417,7 +546,8 @@
                 <thead>
                     <tr>
                         <th onclick="sortTable('nama')">Nama <em class="sort-icon" id="sortIconNama">&#x21D5;</em></th>
-                        <th onclick="sortTable('nominal')">Nominal Denda <em class="sort-icon" id="sortIconNominal">&#x21D5;</em></th>
+                        <th onclick="sortTable('nominal')">Nominal Denda <em class="sort-icon"
+                                id="sortIconNominal">&#x21D5;</em></th>
                     </tr>
                 </thead>
                 <tbody id="tableBody"></tbody>
@@ -436,131 +566,133 @@
         </div>
     </div>
 
-    <div class="footer">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; IT Software Engineer</div>
+    <div class="footer">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; IT Software
+        Engineer</div>
 
     <script>
-    const dendaData = [
-        { nama: 'Adnan TA SCMA',             nominal: 5000 },
-        { nama: 'Aga Sales IPE',              nominal: 165000 },
-        { nama: 'Alfian CW IPE',              nominal: 100000 },
-        { nama: 'Alma HRD SCMA',              nominal: 5000 },
-        { nama: 'Ashab MIS SCMA',             nominal: 20000 },
-        { nama: 'Aura LAB SCMA',              nominal: 5000 },
-        { nama: 'Baariq TA SCMA JKT',         nominal: 40000 },
-        { nama: 'Cleolansya CA SCMA',         nominal: 50000 },
-        { nama: 'Diana ACC SCMA',             nominal: 35000 },
-        { nama: 'Dimas Sales IPE',            nominal: 55000 },
-        { nama: 'Dinda ADM MARKETPLACE IPE',  nominal: 100000 },
-        { nama: 'Ditya HRGA JKT',             nominal: 5000 },
-        { nama: 'Evanda WRH IPE',             nominal: 170000 },
-        { nama: 'Fahmi HRD SCMA',             nominal: 165000 },
-        { nama: 'Hasiah TA SCMA JKT',         nominal: 50000 },
-        { nama: 'Nita CC IPE',                nominal: 5000 },
-        { nama: 'Rama HRD SCMA',              nominal: 45000 },
-        { nama: 'Reksa MIS SCMA',             nominal: 80000 },
-        { nama: 'Romy MIS SCMA',              nominal: 10000 },
-        { nama: 'Sandi Digmar SCMA',          nominal: 50000 },
-        { nama: 'Shofi TA SCMA JKT',          nominal: 50000 },
-        { nama: 'Vendi SATPAM SCMA',          nominal: 5000 },
-        { nama: 'Zen MIS SCMA',               nominal: 15000 }
-    ];
+        const dendaData = [
+            { nama: 'Adnan TA SCMA', nominal: 5000 },
+            { nama: 'Aga Sales IPE', nominal: 165000 },
+            { nama: 'Alfian CW IPE', nominal: 100000 },
+            { nama: 'Alma HRD SCMA', nominal: 5000 },
+            { nama: 'Ashab MIS SCMA', nominal: 20000 },
+            { nama: 'Aura LAB SCMA', nominal: 5000 },
+            { nama: 'Baariq TA SCMA JKT', nominal: 40000 },
+            { nama: 'Cleolansya CA SCMA', nominal: 50000 },
+            { nama: 'Diana ACC SCMA', nominal: 35000 },
+            { nama: 'Dimas Sales IPE', nominal: 55000 },
+            { nama: 'Dinda ADM MARKETPLACE IPE', nominal: 100000 },
+            { nama: 'Ditya HRGA JKT', nominal: 5000 },
+            { nama: 'Evanda WRH IPE', nominal: 170000 },
+            { nama: 'Fahmi HRD SCMA', nominal: 165000 },
+            { nama: 'Hasiah TA SCMA JKT', nominal: 50000 },
+            { nama: 'Nita CC IPE', nominal: 5000 },
+            { nama: 'Rama HRD SCMA', nominal: 45000 },
+            { nama: 'Reksa MIS SCMA', nominal: 80000 },
+            { nama: 'Romy MIS SCMA', nominal: 10000 },
+            { nama: 'Sandi Digmar SCMA', nominal: 50000 },
+            { nama: 'Shofi TA SCMA JKT', nominal: 50000 },
+            { nama: 'Vendi SATPAM SCMA', nominal: 5000 },
+            { nama: 'Zen MIS SCMA', nominal: 15000 }
+        ];
 
-    let sortKey = 'nama';
-    let sortAsc = true;
-    let currentData = [...dendaData];
-    const maxNominal = Math.max(...dendaData.map(d => d.nominal));
+        let sortKey = 'nama';
+        let sortAsc = true;
+        let currentData = [...dendaData];
+        const maxNominal = Math.max(...dendaData.map(d => d.nominal));
 
-    function rp(val) { return 'Rp ' + val.toLocaleString('id-ID'); }
+        function rp(val) { return 'Rp ' + val.toLocaleString('id-ID'); }
 
-    function renderTable(data) {
-        const tbody = document.getElementById('tableBody');
-        const emptyState = document.getElementById('emptyState');
-        const rowCountEl = document.getElementById('rowCount');
-        const tfoot = document.querySelector('tfoot');
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            const emptyState = document.getElementById('emptyState');
+            const rowCountEl = document.getElementById('rowCount');
+            const tfoot = document.querySelector('tfoot');
 
-        tbody.innerHTML = '';
+            tbody.innerHTML = '';
 
-        if (data.length === 0) {
-            emptyState.style.display = 'block';
-            tfoot.style.display = 'none';
-            rowCountEl.textContent = '0 data';
-            return;
+            if (data.length === 0) {
+                emptyState.style.display = 'block';
+                tfoot.style.display = 'none';
+                rowCountEl.textContent = '0 data';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            tfoot.style.display = '';
+            rowCountEl.textContent = data.length + ' data';
+
+            const filteredTotal = data.reduce((s, d) => s + d.nominal, 0);
+            document.getElementById('footerTotal').textContent = rp(filteredTotal);
+
+            data.forEach((row, idx) => {
+                const barWidth = Math.round((row.nominal / maxNominal) * 100);
+                const tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td><div class="name-cell"><span class="row-num">' + (idx + 1) + '</span>' + row.nama + '</div></td>' +
+                    '<td><div class="nominal-bar-wrap">' +
+                    '<div class="nominal-bar" style="width:' + barWidth + 'px;max-width:100px;"></div>' +
+                    '<span class="nominal-val">' + row.nominal.toLocaleString('id-ID') + '</span>' +
+                    '</div></td>';
+                tr.style.animation = 'fadeUp 0.3s ' + (0.02 * idx) + 's ease both';
+                tbody.appendChild(tr);
+            });
         }
 
-        emptyState.style.display = 'none';
-        tfoot.style.display = '';
-        rowCountEl.textContent = data.length + ' data';
-
-        const filteredTotal = data.reduce((s, d) => s + d.nominal, 0);
-        document.getElementById('footerTotal').textContent = rp(filteredTotal);
-
-        data.forEach((row, idx) => {
-            const barWidth = Math.round((row.nominal / maxNominal) * 100);
-            const tr = document.createElement('tr');
-            tr.innerHTML =
-                '<td><div class="name-cell"><span class="row-num">' + (idx + 1) + '</span>' + row.nama + '</div></td>' +
-                '<td><div class="nominal-bar-wrap">' +
-                '<div class="nominal-bar" style="width:' + barWidth + 'px;max-width:100px;"></div>' +
-                '<span class="nominal-val">' + row.nominal.toLocaleString('id-ID') + '</span>' +
-                '</div></td>';
-            tr.style.animation = 'fadeUp 0.3s ' + (0.02 * idx) + 's ease both';
-            tbody.appendChild(tr);
-        });
-    }
-
-    function updateStats() {
-        const total = dendaData.reduce((s, d) => s + d.nominal, 0);
-        const max   = Math.max(...dendaData.map(d => d.nominal));
-        document.getElementById('statKaryawan').textContent = dendaData.length;
-        document.getElementById('statTotal').textContent    = rp(total);
-        document.getElementById('statMax').textContent      = rp(max);
-    }
-
-    function sortTable(key) {
-        if (sortKey === key) {
-            sortAsc = !sortAsc;
-        } else {
-            sortKey = key;
-            sortAsc = key === 'nama';
+        function updateStats() {
+            const total = dendaData.reduce((s, d) => s + d.nominal, 0);
+            const max = Math.max(...dendaData.map(d => d.nominal));
+            document.getElementById('statKaryawan').textContent = dendaData.length;
+            document.getElementById('statTotal').textContent = rp(total);
+            document.getElementById('statMax').textContent = rp(max);
         }
 
-        ['Nama','Nominal'].forEach(k => {
-            const el = document.getElementById('sortIcon' + k);
-            el.innerHTML = '&#x21D5;';
-            el.classList.remove('active');
-        });
-
-        const keyCapital = key === 'nama' ? 'Nama' : 'Nominal';
-        const el = document.getElementById('sortIcon' + keyCapital);
-        el.innerHTML = sortAsc ? '&#x2191;' : '&#x2193;';
-        el.classList.add('active');
-
-        currentData.sort((a, b) => {
-            if (key === 'nama') {
-                return sortAsc ? a.nama.localeCompare(b.nama,'id') : b.nama.localeCompare(a.nama,'id');
+        function sortTable(key) {
+            if (sortKey === key) {
+                sortAsc = !sortAsc;
             } else {
-                return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
+                sortKey = key;
+                sortAsc = key === 'nama';
             }
-        });
 
-        renderTable(currentData);
-    }
+            ['Nama', 'Nominal'].forEach(k => {
+                const el = document.getElementById('sortIcon' + k);
+                el.innerHTML = '&#x21D5;';
+                el.classList.remove('active');
+            });
 
-    function filterTable() {
-        const q = document.getElementById('searchInput').value.trim().toLowerCase();
-        currentData = dendaData.filter(d => d.nama.toLowerCase().includes(q));
-        currentData.sort((a, b) => {
-            if (sortKey === 'nama') {
-                return sortAsc ? a.nama.localeCompare(b.nama,'id') : b.nama.localeCompare(a.nama,'id');
-            } else {
-                return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
-            }
-        });
-        renderTable(currentData);
-    }
+            const keyCapital = key === 'nama' ? 'Nama' : 'Nominal';
+            const el = document.getElementById('sortIcon' + keyCapital);
+            el.innerHTML = sortAsc ? '&#x2191;' : '&#x2193;';
+            el.classList.add('active');
 
-    updateStats();
-    sortTable('nama');
+            currentData.sort((a, b) => {
+                if (key === 'nama') {
+                    return sortAsc ? a.nama.localeCompare(b.nama, 'id') : b.nama.localeCompare(a.nama, 'id');
+                } else {
+                    return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
+                }
+            });
+
+            renderTable(currentData);
+        }
+
+        function filterTable() {
+            const q = document.getElementById('searchInput').value.trim().toLowerCase();
+            currentData = dendaData.filter(d => d.nama.toLowerCase().includes(q));
+            currentData.sort((a, b) => {
+                if (sortKey === 'nama') {
+                    return sortAsc ? a.nama.localeCompare(b.nama, 'id') : b.nama.localeCompare(a.nama, 'id');
+                } else {
+                    return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
+                }
+            });
+            renderTable(currentData);
+        }
+
+        updateStats();
+        sortTable('nama');
     </script>
 </body>
+
 </html>
