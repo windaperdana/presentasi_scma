@@ -3,1363 +3,564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Weekly Report Divisi MIS - PT. Sinar Cemaramas Abadi">
+    <meta name="description" content="Data Nominal Denda Karyawan - PT. Sinar Cemaramas Abadi">
     <meta name="author" content="PT. Sinar Cemaramas Abadi - Divisi MIS">
-    <meta name="keywords" content="Weekly Report, SCMA, Divisi MIS, IT Software Engineer, Sinar Cemaramas Abadi">
-    <title>Weekly Report - Divisi MIS | PT. Sinar Cemaramas Abadi</title>
+    <title>Nominal Denda Karyawan | PT. Sinar Cemaramas Abadi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --teal-900: #004d40;
+            --teal-800: #00695c;
+            --teal-700: #00796b;
+            --teal-600: #00897b;
+            --teal-500: #009688;
+            --teal-400: #26a69a;
+            --teal-300: #4db6ac;
+            --teal-200: #80cbc4;
+            --teal-100: #b2dfdb;
+            --teal-50:  #e0f2f1;
+            --bg:       #f0f7f6;
+            --card-bg:  #ffffff;
+            --text-primary:   #1a2e2c;
+            --text-secondary: #4a6562;
+            --text-muted:     #7a9c99;
+            --border:   #c8e6e3;
+            --shadow:   0 4px 24px rgba(0,77,64,0.10);
+            --shadow-lg:0 12px 48px rgba(0,77,64,0.16);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: #f0f2f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1400px;
-            width: 100%;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: auto auto 1fr auto auto;
-            height: calc(100vh - 40px);
+            color: var(--text-primary);
         }
 
         /* ===== HEADER ===== */
         .header {
-            background: #1976d2;
-            color: white;
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--teal-900) 0%, var(--teal-700) 60%, var(--teal-500) 100%);
+            padding: 36px 48px 32px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header-content { flex: 1; }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; right: 180px;
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
 
         .header h1 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 4px;
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
-        .header p {
-            font-size: 13px;
-            opacity: 0.95;
+        .header-sub {
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
             font-weight: 400;
         }
 
-        .header-actions { display: flex; gap: 8px; align-items: center; }
-
-        .btn-admin {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.4);
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+        /* ===== MAIN ===== */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 24px 48px;
         }
 
-        .btn-admin:hover {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.6);
-        }
-
-        /* ===== PROGRESS BAR ===== */
-        .progress-bar {
-            height: 3px;
-            background: #e0e0e0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #1976d2;
-            transition: width 0.3s ease;
-        }
-
-        /* ===== LAYOUT ===== */
-        .main-layout {
+        /* ===== STAT CARDS ===== */
+        .stats-grid {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 0;
-            overflow: hidden;
-            background: #fafafa;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
         }
 
-        /* ===== THUMBNAIL SIDEBAR ===== */
-        .thumbnail-sidebar {
-            background: #ffffff;
-            border-right: 1px solid #e0e0e0;
-            overflow-y: auto;
-            padding: 15px 10px;
-        }
-
-        .thumbnail-sidebar::-webkit-scrollbar { width: 8px; }
-        .thumbnail-sidebar::-webkit-scrollbar-track { background: #f1f1f1; }
-        .thumbnail-sidebar::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
-
-        .thumbnail {
-            margin-bottom: 12px;
-            cursor: pointer;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 3px solid transparent;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .thumbnail:hover { border-color: #90caf9; transform: scale(1.02); }
-        .thumbnail.active { border-color: #1976d2; box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3); }
-
-        .thumbnail img { width: 100%; height: auto; display: block; }
-
-        .thumbnail-number {
-            position: absolute;
-            bottom: 4px;
-            right: 4px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        /* Edit/delete buttons on thumbnail (admin mode only) */
-        .thumbnail-actions {
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            display: none;
-            gap: 4px;
-            flex-wrap: wrap;
-        }
-
-        .admin-mode .thumbnail-actions { display: flex; }
-
-        .thumb-btn {
-            background: rgba(255,255,255,0.92);
-            border: none;
-            border-radius: 4px;
-            padding: 3px 6px;
-            font-size: 11px;
-            cursor: pointer;
-            color: #333;
-            transition: all 0.15s;
-            font-weight: 700;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-        }
-
-        .thumb-btn:hover { background: white; transform: scale(1.05); }
-        .thumb-btn.delete { color: #c62828; }
-        .thumb-btn.move-up, .thumb-btn.move-down { color: #0d47a1; }
-
-        /* ===== MAIN SLIDE AREA ===== */
-        .slide-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 22px 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            overflow: hidden;
+            gap: 16px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fadeUp 0.5s ease both;
         }
 
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            animation: fadeIn 0.3s ease-out;
-            position: relative;
-        }
+        .stat-card:nth-child(1) { animation-delay: 0.05s; }
+        .stat-card:nth-child(2) { animation-delay: 0.10s; }
+        .stat-card:nth-child(3) { animation-delay: 0.15s; }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide-image-wrapper {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 20px;
-        }
-
-        .slide img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .slide-content {
-            background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
-            padding: 20px 40px;
-            width: 100%;
-            border-top: 2px solid #e3f2fd;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .slide-content.hidden {
-            max-height: 0;
-            padding: 0 40px;
-            opacity: 0;
-            border-top-width: 0;
-        }
-
-        .slide-content::-webkit-scrollbar { width: 6px; }
-        .slide-content::-webkit-scrollbar-track { background: #f1f1f1; }
-        .slide-content::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
-
-        .slide-content h2 { color: #1976d2; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
-        .slide-content p { color: #424242; font-size: 15px; line-height: 1.6; margin-bottom: 8px; }
-        .slide-content p strong { color: #1565c0; font-weight: 700; }
-        .slide-content ul { color: #424242; font-size: 15px; line-height: 1.8; margin-left: 20px; margin-top: 10px; }
-        .slide-content ul li { margin-bottom: 6px; position: relative; }
-        .slide-content ul li strong { color: #1976d2; font-weight: 700; }
-
-        .status-tag {
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: #fdf1da;
-            color: #8a6d1a;
-            border: 1px solid #eba925;
-        }
-
-        .thumbnail-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .stat-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
             font-size: 24px;
-            color: #ffffff;
-            background: linear-gradient(135deg, #eba925, #c9861a);
+            flex-shrink: 0;
         }
 
-        .slide-placeholder-visual {
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 16 / 9;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
-            color: #ffffff;
-            background: linear-gradient(135deg, #eba925, #c9861a);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        .stat-icon.teal  { background: var(--teal-50); }
+        .stat-icon.amber { background: #fff8e1; }
+        .stat-icon.rose  { background: #fce4ec; }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 4px;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .stat-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
 
-        /* ===== CONTROLS ===== */
-        .controls {
+        /* ===== TABLE CARD ===== */
+        .table-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            animation: fadeUp 0.5s 0.2s ease both;
+        }
+
+        .table-toolbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 40px;
-            background: white;
-            border-top: 1px solid #e0e0e0;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .nav-buttons { display: flex; gap: 12px; align-items: center; }
-
-        button {
-            background: #1976d2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(25, 118, 210, 0.2);
-        }
-
-        button:hover { background: #1565c0; box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3); }
-        button:active { transform: scale(0.98); }
-        button:disabled { background: #e0e0e0; color: #9e9e9e; cursor: not-allowed; box-shadow: none; }
-
-        .slide-counter {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #424242;
-            padding: 8px 16px;
-            background: #f5f5f5;
-            border-radius: 6px;
-        }
-
-        .slide-counter .current { color: #1976d2; font-size: 20px; font-weight: 700; }
-        .slide-counter .total { color: #757575; }
-
-        .action-buttons { display: flex; gap: 8px; }
-
-        .icon-btn {
-            padding: 8px 16px;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* ===== KEYBOARD HINT ===== */
-        .keyboard-hint {
-            text-align: center;
-            padding: 12px;
-            background: #f8f9fa;
-            color: #616161;
-            font-size: 12px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .keyboard-hint kbd {
-            background: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            border: 1px solid #d0d0d0;
-            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-            font-weight: 600;
-            font-size: 11px;
-            margin: 0 2px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        /* ===== LOADING ===== */
-        .loading {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .spinner {
-            border: 4px solid #e3f2fd;
-            border-top: 4px solid #1976d2;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        /* ===== MODAL ===== */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.55);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.2s ease;
-        }
-
-        .modal-overlay.open { display: flex; }
-
-        .modal {
-            background: white;
-            border-radius: 14px;
-            padding: 32px;
-            width: 540px;
-            max-width: 95vw;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-            position: relative;
-        }
-
-        .modal h3 {
-            font-size: 20px;
+        .table-title {
+            font-size: 17px;
             font-weight: 700;
-            color: #1976d2;
-            margin-bottom: 24px;
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: #f5f5f5;
-            color: #555;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            box-shadow: none;
-            transition: background 0.15s;
-        }
-
-        .modal-close:hover { background: #e0e0e0; color: #333; }
-
-        .form-group { margin-bottom: 20px; }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #424242;
-            margin-bottom: 6px;
-        }
-
-        .form-group input[type="text"],
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            border: 1.5px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 10px 14px;
-            font-size: 14px;
-            font-family: inherit;
-            color: #212121;
-            background: #fafafa;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-
-        .form-group input[type="text"]:focus,
-        .form-group textarea:focus,
-        .form-group select:focus { border-color: #1976d2; background: white; }
-
-        .form-group textarea { min-height: 100px; resize: vertical; line-height: 1.5; }
-
-        .form-group small { display: block; margin-top: 4px; font-size: 11px; color: #9e9e9e; }
-
-        /* Image upload area */
-        .upload-area {
-            border: 2px dashed #bbdefb;
-            border-radius: 10px;
-            padding: 24px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            background: #f8fbff;
-            position: relative;
-        }
-
-        .upload-area:hover { border-color: #1976d2; background: #e3f2fd; }
-        .upload-area.drag-over { border-color: #1976d2; background: #e3f2fd; }
-
-        .upload-area input[type="file"] {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            cursor: pointer;
-            width: 100%;
-            height: 100%;
-        }
-
-        .upload-area .upload-icon { font-size: 32px; margin-bottom: 8px; }
-        .upload-area p { font-size: 13px; color: #546e7a; margin: 0; }
-        .upload-area p strong { color: #1976d2; }
-
-        .upload-preview {
-            margin-top: 12px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .upload-preview img {
-            max-width: 100%;
-            max-height: 160px;
-            border-radius: 8px;
-            border: 1.5px solid #e0e0e0;
-            object-fit: contain;
-        }
-
-        .upload-preview-remove {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: #c62828;
-            color: white;
-            border: none;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
+        .table-title span {
+            background: var(--teal-50);
+            color: var(--teal-800);
             font-size: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-
-        .modal-footer {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            margin-top: 28px;
-            padding-top: 20px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .btn-secondary {
-            background: #f5f5f5;
-            color: #424242;
-            border: 1px solid #e0e0e0;
-            box-shadow: none;
-        }
-
-        .btn-secondary:hover { background: #eeeeee; color: #212121; }
-
-        .btn-danger { background: #c62828; }
-        .btn-danger:hover { background: #b71c1c; }
-
-        /* ===== ADMIN BADGE ===== */
-        .admin-badge {
-            display: none;
-            background: #ff6f00;
-            color: white;
-            font-size: 11px;
             font-weight: 700;
             padding: 3px 10px;
             border-radius: 20px;
-            letter-spacing: 0.5px;
         }
 
-        .admin-mode .admin-badge { display: inline-block; }
+        .search-box { position: relative; flex-shrink: 0; }
 
-        /* Add slide button (in sidebar, admin only) */
-        .add-slide-btn {
-            display: none;
-            width: 100%;
-            margin-top: 4px;
-            background: linear-gradient(135deg, #1976d2, #1565c0);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 8px;
+        .search-box input {
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 9px 14px 9px 38px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-primary);
+            background: var(--bg);
+            outline: none;
+            width: 220px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--teal-500);
+            box-shadow: 0 0 0 3px rgba(0,150,136,0.1);
+            background: white;
+        }
+
+        .search-box input::placeholder { color: var(--text-muted); }
+
+        .search-icon {
+            position: absolute;
+            left: 12px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 15px;
+            pointer-events: none;
+        }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; }
+
+        thead tr { background: var(--teal-900); }
+
+        thead th {
+            padding: 14px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+            white-space: nowrap;
             cursor: pointer;
-            font-size: 13px;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        thead th:hover { background: var(--teal-800); }
+        thead th:first-child { text-align: left; }
+        thead th:last-child  { text-align: right; }
+
+        .sort-icon { margin-left: 5px; opacity: 0.5; font-style: normal; }
+        .sort-icon.active { opacity: 1; color: var(--teal-200); }
+
+        tbody tr {
+            border-bottom: 1px solid #f0faf9;
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:nth-child(even) { background: #f7fdfc; }
+        tbody tr:nth-child(odd)  { background: #ffffff; }
+        tbody tr:hover { background: var(--teal-50) !important; }
+
+        tbody td { padding: 13px 20px; font-size: 14px; color: var(--text-secondary); }
+
+        tbody td:first-child {
             font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .name-cell { display: flex; align-items: center; gap: 10px; }
+
+        .row-num {
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            background: var(--teal-50);
+            color: var(--teal-700);
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        tbody td:last-child {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            color: var(--teal-800);
+        }
+
+        .nominal-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .nominal-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--teal-300), var(--teal-600));
+            min-width: 4px;
+        }
+
+        .nominal-val { min-width: 80px; text-align: right; font-size: 14px; }
+
+        tfoot tr { background: linear-gradient(135deg, var(--teal-900), var(--teal-700)) !important; }
+
+        tfoot td {
+            padding: 15px 20px;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        tfoot td:last-child {
+            text-align: right;
+            font-size: 18px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .empty-state {
+            display: none;
             text-align: center;
-            transition: all 0.2s;
-            box-shadow: 0 2px 8px rgba(25,118,210,0.3);
+            padding: 48px 24px;
+            color: var(--text-muted);
         }
 
-        .admin-mode .add-slide-btn { display: block; }
-        .add-slide-btn:hover { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+        .empty-state p { font-size: 15px; margin-top: 8px; }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .main-layout { grid-template-columns: 150px 1fr; }
-            .slide-content { padding: 16px 24px; }
-            .slide-content h2 { font-size: 20px; }
-            .slide-content p, .slide-content ul { font-size: 14px; }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: var(--text-muted);
         }
 
-        @media (max-width: 768px) {
-            .container { height: 100vh; border-radius: 0; }
-            body { padding: 0; }
-            .main-layout { grid-template-columns: 1fr; }
-            .thumbnail-sidebar { display: none; }
-            .header { padding: 16px 20px; }
-            .header h1 { font-size: 18px; }
-            .header p { font-size: 12px; }
-            .slide-image-wrapper { padding: 10px; }
-            .slide-content { padding: 16px 20px; }
-            .slide-content h2 { font-size: 18px; margin-bottom: 8px; }
-            .slide-content p { font-size: 13px; }
-            .slide-content ul { font-size: 13px; margin-left: 16px; }
-            .controls { flex-direction: column; gap: 12px; padding: 16px 20px; }
-            .nav-buttons { width: 100%; justify-content: space-between; }
-            button { padding: 10px 16px; font-size: 13px; }
-            .slide-counter { font-size: 13px; }
-            .action-buttons { width: 100%; justify-content: center; }
-            .keyboard-hint { font-size: 11px; padding: 10px; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== PRINT ===== */
-        @media print {
-            body { background: white; padding: 0; }
-            .container { box-shadow: none; border-radius: 0; height: auto; }
-            .header, .controls, .keyboard-hint, .progress-bar, .thumbnail-sidebar { display: none; }
-            .main-layout { display: block; }
-            .slide { display: block !important; page-break-after: always; page-break-inside: avoid; }
-            .slide-content { max-height: none !important; opacity: 1 !important; padding: 20px !important; }
+        @media (max-width: 700px) {
+            .header { padding: 24px 20px 20px; }
+            .header h1 { font-size: 22px; }
+            .main { padding: 20px 14px 40px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid .stat-card:last-child { grid-column: 1 / -1; }
+            .search-box input { width: 100%; }
+            .table-toolbar { flex-direction: column; align-items: flex-start; }
+            thead th, tbody td { padding: 10px 14px; }
+            .nominal-bar { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid .stat-card:last-child { grid-column: auto; }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="mainContainer">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-content">
-                <h1>📊 Weekly Report - Divisi MIS</h1>
-                <p>PT. Sinar Cemaramas Abadi | IT Software Engineer | Tanggal: 6 Agustus 2026</p>
-            </div>
-            <div class="header-actions">
-                <span class="admin-badge">✏️ Admin Mode</span>
-                <button class="btn-admin" id="adminToggleBtn" onclick="toggleAdminMode()" title="Toggle admin mode">
-                    ⚙️ Edit Mode
-                </button>
-            </div>
-        </div>
 
-        <!-- Progress Bar -->
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-
-        <!-- Main Layout -->
-        <div class="main-layout">
-            <!-- Thumbnail Sidebar -->
-            <div class="thumbnail-sidebar" id="thumbnailSidebar">
-                <!-- dynamically rendered -->
-                <button class="add-slide-btn" id="addSlideBtn" onclick="openAddModal()">
-                    ＋ Tambah Slide
-                </button>
-            </div>
-
-            <!-- Main Slide Container -->
-            <div class="slide-container" id="slideContainer">
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                </div>
-                <!-- slides dynamically rendered here -->
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <div class="controls">
-            <div class="nav-buttons">
-                <button id="prevBtn" onclick="changeSlide(-1)" title="Slide sebelumnya">← Sebelumnya</button>
-                <button id="nextBtn" onclick="changeSlide(1)" title="Slide selanjutnya">Selanjutnya →</button>
-            </div>
-
-            <div class="slide-counter">
-                <span class="current" id="currentSlideNum">1</span>
-                <span class="separator">/</span>
-                <span class="total" id="totalSlidesNum">0</span>
-            </div>
-
-            <div class="action-buttons">
-                <button class="icon-btn" onclick="toggleContent()" title="Tampilkan/Sembunyikan deskripsi">📝 Deskripsi</button>
-                <button class="icon-btn" onclick="toggleFullscreen()" title="Mode layar penuh">⛶ Fullscreen</button>
-            </div>
-        </div>
-
-        <!-- Keyboard Hint -->
-        <div class="keyboard-hint">
-            💡 Gunakan <kbd>←</kbd> <kbd>→</kbd> navigasi | <kbd>Home</kbd> slide pertama | <kbd>End</kbd> slide terakhir | <kbd>D</kbd> toggle deskripsi | <kbd>F</kbd> fullscreen
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-badge">&#x1F4B8; Rekap Keuangan</div>
+            <h1>Data Nominal Denda Karyawan</h1>
+            <p class="header-sub">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; Periode 2026</p>
         </div>
     </div>
 
-    <!-- ===== MODAL ADD / EDIT SLIDE ===== -->
-    <div class="modal-overlay" id="slideModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()" title="Tutup">✕</button>
-            <h3 id="modalTitle">➕ Tambah Slide</h3>
-
-            <div class="form-group">
-                <label for="fieldIcon">Ikon / Emoji Slide</label>
-                <input type="text" id="fieldIcon" placeholder="Contoh: 📊 atau 🚚" maxlength="8">
-                <small>Digunakan sebagai thumbnail jika tidak ada gambar.</small>
-            </div>
-
-            <div class="form-group">
-                <label for="fieldTitle">Judul Slide</label>
-                <input type="text" id="fieldTitle" placeholder="Contoh: Pembuatan Sistem Armada di SISCA">
-            </div>
-
-            <div class="form-group">
-                <label for="fieldStatus">Status Tag <span style="font-weight:400;color:#9e9e9e;">(opsional)</span></label>
-                <input type="text" id="fieldStatus" placeholder="Contoh: Project Sedang Berjalan">
-            </div>
-
-            <div class="form-group">
-                <label for="fieldContent">Deskripsi / Konten</label>
-                <textarea id="fieldContent" placeholder="Tulis deskripsi atau poin slide di sini.&#10;Mulai baris dengan ● untuk bullet-list.&#10;&#10;Contoh:&#10;● Rilis to Production: 2026-08-03&#10;● Testing: 2026-08-10&#10;&#10;Gunakan **teks** untuk bold."></textarea>
-                <small>Baris yang diawali ● akan menjadi butir list. Gunakan **teks** untuk bold.</small>
-            </div>
-
-            <div class="form-group">
-                <label>Gambar Slide <span style="font-weight:400;color:#9e9e9e;">(opsional)</span></label>
-                <div class="upload-area" id="uploadArea">
-                    <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)">
-                    <div class="upload-icon">🖼️</div>
-                    <p><strong>Klik atau seret gambar</strong> ke sini</p>
-                    <p>PNG, JPG, JPEG, GIF, WebP</p>
+    <div class="main">
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-icon teal">&#x1F465;</div>
+                <div>
+                    <div class="stat-label">Total Karyawan</div>
+                    <div class="stat-value" id="statKaryawan">0</div>
                 </div>
-                <div class="upload-preview" id="uploadPreview" style="display:none;">
-                    <img id="uploadPreviewImg" src="" alt="Preview">
-                    <button class="upload-preview-remove" onclick="removeUploadedImage()" title="Hapus gambar">✕</button>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon amber">&#x1F4B0;</div>
+                <div>
+                    <div class="stat-label">Total Denda</div>
+                    <div class="stat-value" id="statTotal">Rp 0</div>
                 </div>
-                <small style="margin-top:8px;display:block;">Atau masukkan URL gambar langsung:</small>
-                <input type="text" id="fieldImageUrl" placeholder="https://... atau assets/image.png" style="margin-top:6px;">
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon rose">&#x1F4C8;</div>
+                <div>
+                    <div class="stat-label">Denda Tertinggi</div>
+                    <div class="stat-value" id="statMax">Rp 0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <div class="table-toolbar">
+                <div class="table-title">
+                    &#x1F4CB; Daftar Denda
+                    <span id="rowCount">23 data</span>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">&#x1F50D;</span>
+                    <input type="text" id="searchInput" placeholder="Cari nama karyawan..." oninput="filterTable()">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="fieldPosition">Posisi Slide</label>
-                <select id="fieldPosition">
-                    <option value="end">Di akhir (setelah slide terakhir)</option>
-                    <option value="after-current">Setelah slide aktif</option>
-                </select>
-            </div>
+            <table id="dendaTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('nama')">Nama <em class="sort-icon" id="sortIconNama">&#x21D5;</em></th>
+                        <th onclick="sortTable('nominal')">Nominal Denda <em class="sort-icon" id="sortIconNominal">&#x21D5;</em></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>&#x1F4CA; TOTAL</td>
+                        <td id="footerTotal">Rp 0</td>
+                    </tr>
+                </tfoot>
+            </table>
 
-            <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal()">Batal</button>
-                <button id="deleteSlideBtn" class="btn-danger" onclick="deleteCurrentEditSlide()" style="display:none;">🗑️ Hapus Slide</button>
-                <button id="saveSlideBtn" onclick="saveSlide()">💾 Simpan Slide</button>
+            <div class="empty-state" id="emptyState">
+                <div style="font-size:40px;">&#x1F50D;</div>
+                <p>Tidak ada data yang cocok dengan pencarian.</p>
             </div>
         </div>
     </div>
+
+    <div class="footer">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; IT Software Engineer</div>
 
     <script>
-    // ============================================================
-    // DATA — Edit array ini untuk menambah/mengubah slide
-    // Setiap slide memiliki:
-    //   icon     : emoji yang ditampilkan jika tidak ada gambar
-    //   title    : judul slide
-    //   status   : label status (opsional, bisa dikosongkan '')
-    //   image    : path atau URL gambar (opsional, bisa dikosongkan '')
-    //   content  : array of string — setiap string = 1 baris konten
-    //              Awali dengan '●' untuk bullet-list
-    //              Gunakan **teks** untuk bold
-    // ============================================================
-    let slides = [
-        {
-            icon: '📢',
-            title: '📢 Weekly Report',
-            status: '',
-            image: 'assets/image3.png',
-            content: [
-                '**PT. Sinar Cemaramas Abadi**',
-                'Divisi MIS — IT Software Engineer'
-            ]
-        },
-        {
-            icon: '🗂️',
-            title: '🗂️ Klasifikasi Portofolio Project',
-            status: '',
-            image: '',
-            content: [
-                '**Project Sedang Berjalan:**',
-                '● Pembuatan Sistem Armada di SISCA.',
-                '● Pembuatan Sistem POS IPE.',
-                '● Update Apps Internal Magic Laundry.',
-                '**Project Sedang Dikembangkan:**',
-                '● Migrasi Sistem Step Counter ke HRIS Website.',
-                '● Pembuatan Modul Step Counter di Apps HRIS.',
-                '● Migrasi storage HRIS to cloud storage.'
-            ]
-        },
-        {
-            icon: '🚚',
-            title: '🚚 Pembuatan Sistem Armada di SISCA',
-            status: 'Project Sedang Berjalan',
-            image: 'assets/image4.png',
-            content: [
-                '● **Rilis to Production:** 2026-08-03'
-            ]
-        },
-        {
-            icon: '🧾',
-            title: '🧾 Pembuatan Sistem POS IPE',
-            status: 'Project Sedang Berjalan',
-            image: 'assets/image5.png',
-            content: [
-                '● **Rilis to Production:** 2026-08-03'
-            ]
-        },
-        {
-            icon: '📱',
-            title: '📱 Update Apps Internal Magic Laundry',
-            status: 'Project Sedang Berjalan',
-            image: 'assets/image6.jpeg',
-            content: [
-                '● **Rilis to PlayStore:** 2026-08-03',
-                '**Update rilis:**',
-                '● Perbaikan transaksi packing yang belum ada plastik opp / plastik roll.',
-                '● Perbaikan layout.'
-            ]
-        },
-        {
-            icon: '🏃',
-            title: '🏃 Migrasi Sistem Step Counter ke HRIS Website',
-            status: 'Project Sedang Dikembangkan',
-            image: '',
-            content: [
-                '● **Est. Done Development:** 2026-07-27',
-                '● **Testing:** 2026-07-28 s/d 2026-07-31',
-                '● **Testing tahap 2:** 2026-07-31 s/d 2026-08-08',
-                '● **Est. Rilis to Production:** 2026-08-01',
-                '● **Est. Rilis to Production:** 2026-08-15',
-                '**Catatan:** Untuk rilis Step Counter HRIS Website mengikuti Step Counter di Apps HRIS.'
-            ]
-        },
-        {
-            icon: '👣',
-            title: '👣 Pembuatan Modul Step Counter di Apps HRIS',
-            status: 'Project Sedang Dikembangkan',
-            image: '',
-            content: [
-                '● **Est. Done Development:** 2026-08-10',
-                '● **Testing:** 2026-08-10 s/d 2026-08-12',
-                '● **Est. Rilis to PlayStore:** 2026-08-13',
-                '● **Est. Rilis to AppStore:** 2026-08-13 s/d 2026-08-16 (Tergantung verifikasi dari AppStore nya.)'
-            ]
-        },
-        {
-            icon: '☁️',
-            title: '☁️ Migrasi Storage HRIS to Cloud Storage',
-            status: 'Project Sedang Dikembangkan',
-            image: '',
-            content: [
-                '● **Est. Done Development:** 2026-08-13',
-                '● **Testing:** 2026-08-13 s/d 2026-08-15',
-                '● **Est. Rilis to Production:** 2026-08-17'
-            ]
-        },
-        {
-            icon: '🙏',
-            title: '🙏 Thank You!',
-            status: '',
-            image: 'assets/image7.png',
-            content: [
-                '**PT. Sinar Cemaramas Abadi — Divisi MIS**',
-                'Terima kasih atas perhatiannya terhadap Weekly Report ini.'
-            ]
-        }
+    const dendaData = [
+        { nama: 'Adnan TA SCMA',             nominal: 5000 },
+        { nama: 'Aga Sales IPE',              nominal: 165000 },
+        { nama: 'Alfian CW IPE',              nominal: 100000 },
+        { nama: 'Alma HRD SCMA',              nominal: 5000 },
+        { nama: 'Ashab MIS SCMA',             nominal: 20000 },
+        { nama: 'Aura LAB SCMA',              nominal: 5000 },
+        { nama: 'Baariq TA SCMA JKT',         nominal: 40000 },
+        { nama: 'Cleolansya CA SCMA',         nominal: 50000 },
+        { nama: 'Diana ACC SCMA',             nominal: 35000 },
+        { nama: 'Dimas Sales IPE',            nominal: 55000 },
+        { nama: 'Dinda ADM MARKETPLACE IPE',  nominal: 100000 },
+        { nama: 'Ditya HRGA JKT',             nominal: 5000 },
+        { nama: 'Evanda WRH IPE',             nominal: 170000 },
+        { nama: 'Fahmi HRD SCMA',             nominal: 165000 },
+        { nama: 'Hasiah TA SCMA JKT',         nominal: 50000 },
+        { nama: 'Nita CC IPE',                nominal: 5000 },
+        { nama: 'Rama HRD SCMA',              nominal: 45000 },
+        { nama: 'Reksa MIS SCMA',             nominal: 80000 },
+        { nama: 'Romy MIS SCMA',              nominal: 10000 },
+        { nama: 'Sandi Digmar SCMA',          nominal: 50000 },
+        { nama: 'Shofi TA SCMA JKT',          nominal: 50000 },
+        { nama: 'Vendi SATPAM SCMA',          nominal: 5000 },
+        { nama: 'Zen MIS SCMA',               nominal: 15000 }
     ];
 
-    // ============================================================
-    // STATE
-    // ============================================================
-    let currentSlide = 1;
-    let isAdminMode = false;
-    let editingIndex = -1;
-    let uploadedImageDataUrl = '';
+    let sortKey = 'nama';
+    let sortAsc = true;
+    let currentData = [...dendaData];
+    const maxNominal = Math.max(...dendaData.map(d => d.nominal));
 
-    // ============================================================
-    // RENDER
-    // ============================================================
-    function renderAll() {
-        renderThumbnails();
-        renderSlides();
-        updateSlideDisplay();
-        updateCounter();
-    }
+    function rp(val) { return 'Rp ' + val.toLocaleString('id-ID'); }
 
-    function renderThumbnails() {
-        const sidebar = document.getElementById('thumbnailSidebar');
-        const addBtn = document.getElementById('addSlideBtn');
+    function renderTable(data) {
+        const tbody = document.getElementById('tableBody');
+        const emptyState = document.getElementById('emptyState');
+        const rowCountEl = document.getElementById('rowCount');
+        const tfoot = document.querySelector('tfoot');
 
-        sidebar.querySelectorAll('.thumbnail').forEach(t => t.remove());
+        tbody.innerHTML = '';
 
-        slides.forEach((slide, idx) => {
-            const num = idx + 1;
-            const div = document.createElement('div');
-            div.className = 'thumbnail' + (num === currentSlide ? ' active' : '');
-            div.dataset.slide = num;
-            div.onclick = () => goToSlide(num);
+        if (data.length === 0) {
+            emptyState.style.display = 'block';
+            tfoot.style.display = 'none';
+            rowCountEl.textContent = '0 data';
+            return;
+        }
 
-            if (slide.image) {
-                const img = document.createElement('img');
-                img.src = slide.image;
-                img.alt = 'Slide ' + num;
-                div.appendChild(img);
-            } else {
-                const ph = document.createElement('div');
-                ph.className = 'thumbnail-placeholder';
-                ph.textContent = slide.icon || '📄';
-                div.appendChild(ph);
-            }
+        emptyState.style.display = 'none';
+        tfoot.style.display = '';
+        rowCountEl.textContent = data.length + ' data';
 
-            const badge = document.createElement('div');
-            badge.className = 'thumbnail-number';
-            badge.textContent = num;
-            div.appendChild(badge);
+        const filteredTotal = data.reduce((s, d) => s + d.nominal, 0);
+        document.getElementById('footerTotal').textContent = rp(filteredTotal);
 
-            // Admin action buttons
-            const actions = document.createElement('div');
-            actions.className = 'thumbnail-actions';
-
-            const upBtn = document.createElement('button');
-            upBtn.className = 'thumb-btn move-up';
-            upBtn.textContent = '↑';
-            upBtn.title = 'Geser ke atas';
-            upBtn.style.display = idx === 0 ? 'none' : '';
-            upBtn.onclick = (e) => { e.stopPropagation(); moveSlide(idx, -1); };
-
-            const editBtn = document.createElement('button');
-            editBtn.className = 'thumb-btn';
-            editBtn.textContent = '✏️';
-            editBtn.title = 'Edit slide';
-            editBtn.onclick = (e) => { e.stopPropagation(); openEditModal(idx); };
-
-            const delBtn = document.createElement('button');
-            delBtn.className = 'thumb-btn delete';
-            delBtn.textContent = '🗑️';
-            delBtn.title = 'Hapus slide';
-            delBtn.onclick = (e) => { e.stopPropagation(); deleteSlide(idx); };
-
-            const downBtn = document.createElement('button');
-            downBtn.className = 'thumb-btn move-down';
-            downBtn.textContent = '↓';
-            downBtn.title = 'Geser ke bawah';
-            downBtn.style.display = idx === slides.length - 1 ? 'none' : '';
-            downBtn.onclick = (e) => { e.stopPropagation(); moveSlide(idx, 1); };
-
-            actions.appendChild(upBtn);
-            actions.appendChild(editBtn);
-            actions.appendChild(delBtn);
-            actions.appendChild(downBtn);
-            div.appendChild(actions);
-
-            sidebar.insertBefore(div, addBtn);
+        data.forEach((row, idx) => {
+            const barWidth = Math.round((row.nominal / maxNominal) * 100);
+            const tr = document.createElement('tr');
+            tr.innerHTML =
+                '<td><div class="name-cell"><span class="row-num">' + (idx + 1) + '</span>' + row.nama + '</div></td>' +
+                '<td><div class="nominal-bar-wrap">' +
+                '<div class="nominal-bar" style="width:' + barWidth + 'px;max-width:100px;"></div>' +
+                '<span class="nominal-val">' + row.nominal.toLocaleString('id-ID') + '</span>' +
+                '</div></td>';
+            tr.style.animation = 'fadeUp 0.3s ' + (0.02 * idx) + 's ease both';
+            tbody.appendChild(tr);
         });
     }
 
-    function renderSlides() {
-        const container = document.getElementById('slideContainer');
-        const loading = document.getElementById('loading');
+    function updateStats() {
+        const total = dendaData.reduce((s, d) => s + d.nominal, 0);
+        const max   = Math.max(...dendaData.map(d => d.nominal));
+        document.getElementById('statKaryawan').textContent = dendaData.length;
+        document.getElementById('statTotal').textContent    = rp(total);
+        document.getElementById('statMax').textContent      = rp(max);
+    }
 
-        container.querySelectorAll('.slide').forEach(s => s.remove());
+    function sortTable(key) {
+        if (sortKey === key) {
+            sortAsc = !sortAsc;
+        } else {
+            sortKey = key;
+            sortAsc = key === 'nama';
+        }
 
-        slides.forEach((slide, idx) => {
-            const num = idx + 1;
-            const div = document.createElement('div');
-            div.className = 'slide' + (num === currentSlide ? ' active' : '');
-            div.dataset.slide = num;
-
-            // Image wrapper
-            const imgWrapper = document.createElement('div');
-            imgWrapper.className = 'slide-image-wrapper';
-
-            if (slide.image) {
-                const img = document.createElement('img');
-                img.src = slide.image;
-                img.alt = slide.title;
-                img.loading = num === 1 ? 'eager' : 'lazy';
-                imgWrapper.appendChild(img);
-            } else {
-                const ph = document.createElement('div');
-                ph.className = 'slide-placeholder-visual';
-                ph.textContent = slide.icon || '📄';
-                imgWrapper.appendChild(ph);
-            }
-
-            div.appendChild(imgWrapper);
-
-            // Content panel
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'slide-content';
-
-            if (slide.status) {
-                const tag = document.createElement('span');
-                tag.className = 'status-tag';
-                tag.textContent = slide.status;
-                contentDiv.appendChild(tag);
-            }
-
-            const h2 = document.createElement('h2');
-            h2.textContent = slide.title;
-            contentDiv.appendChild(h2);
-
-            if (slide.content && slide.content.length > 0) {
-                let currentUl = null;
-                slide.content.forEach(line => {
-                    if (line.startsWith('●')) {
-                        if (!currentUl) {
-                            currentUl = document.createElement('ul');
-                            contentDiv.appendChild(currentUl);
-                        }
-                        const li = document.createElement('li');
-                        li.innerHTML = parseBold(line.replace(/^●\s*/, ''));
-                        currentUl.appendChild(li);
-                    } else {
-                        currentUl = null;
-                        const p = document.createElement('p');
-                        p.innerHTML = parseBold(line);
-                        contentDiv.appendChild(p);
-                    }
-                });
-            }
-
-            div.appendChild(contentDiv);
-            container.appendChild(div);
+        ['Nama','Nominal'].forEach(k => {
+            const el = document.getElementById('sortIcon' + k);
+            el.innerHTML = '&#x21D5;';
+            el.classList.remove('active');
         });
 
-        container.appendChild(loading);
-    }
+        const keyCapital = key === 'nama' ? 'Nama' : 'Nominal';
+        const el = document.getElementById('sortIcon' + keyCapital);
+        el.innerHTML = sortAsc ? '&#x2191;' : '&#x2193;';
+        el.classList.add('active');
 
-    function parseBold(text) {
-        return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    }
-
-    // ============================================================
-    // NAVIGATION
-    // ============================================================
-    function changeSlide(direction) {
-        const total = slides.length;
-        const prev = currentSlide;
-        currentSlide += direction;
-        if (currentSlide > total) currentSlide = 1;
-        else if (currentSlide < 1) currentSlide = total;
-        switchToSlide(prev, currentSlide);
-    }
-
-    function goToSlide(num) {
-        if (num < 1 || num > slides.length || num === currentSlide) return;
-        const prev = currentSlide;
-        currentSlide = num;
-        switchToSlide(prev, currentSlide);
-    }
-
-    function switchToSlide(from, to) {
-        const allSlides = document.querySelectorAll('.slide');
-        const allThumbs = document.querySelectorAll('.thumbnail');
-        if (allSlides[from - 1]) allSlides[from - 1].classList.remove('active');
-        if (allThumbs[from - 1]) allThumbs[from - 1].classList.remove('active');
-        if (allSlides[to - 1]) allSlides[to - 1].classList.add('active');
-        if (allThumbs[to - 1]) allThumbs[to - 1].classList.add('active');
-        updateSlideDisplay();
-        scrollThumbnailIntoView();
-    }
-
-    function updateSlideDisplay() {
-        document.getElementById('currentSlideNum').textContent = currentSlide;
-        const total = slides.length;
-        const progress = total > 0 ? (currentSlide / total) * 100 : 0;
-        document.getElementById('progressFill').style.width = progress + '%';
-    }
-
-    function updateCounter() {
-        document.getElementById('totalSlidesNum').textContent = slides.length;
-    }
-
-    function scrollThumbnailIntoView() {
-        const activeThumbnail = document.querySelector('.thumbnail.active');
-        if (activeThumbnail) {
-            activeThumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    }
-
-    // ============================================================
-    // ADMIN MODE
-    // ============================================================
-    function toggleAdminMode() {
-        isAdminMode = !isAdminMode;
-        const container = document.getElementById('mainContainer');
-        const btn = document.getElementById('adminToggleBtn');
-        if (isAdminMode) {
-            container.classList.add('admin-mode');
-            btn.textContent = '✅ Selesai Edit';
-        } else {
-            container.classList.remove('admin-mode');
-            btn.textContent = '⚙️ Edit Mode';
-        }
-    }
-
-    // ============================================================
-    // MODAL
-    // ============================================================
-    function openAddModal() {
-        editingIndex = -1;
-        document.getElementById('modalTitle').textContent = '➕ Tambah Slide Baru';
-        document.getElementById('fieldIcon').value = '';
-        document.getElementById('fieldTitle').value = '';
-        document.getElementById('fieldStatus').value = '';
-        document.getElementById('fieldContent').value = '';
-        document.getElementById('fieldImageUrl').value = '';
-        uploadedImageDataUrl = '';
-        clearUploadPreview();
-        populatePositionSelect(-1);
-        document.getElementById('deleteSlideBtn').style.display = 'none';
-        document.getElementById('slideModal').classList.add('open');
-    }
-
-    function openEditModal(idx) {
-        editingIndex = idx;
-        const slide = slides[idx];
-        document.getElementById('modalTitle').textContent = 'Edit Slide ' + (idx + 1);
-        document.getElementById('fieldIcon').value = slide.icon || '';
-        document.getElementById('fieldTitle').value = slide.title || '';
-        document.getElementById('fieldStatus').value = slide.status || '';
-        document.getElementById('fieldContent').value = (slide.content || []).join('\n');
-        const img = slide.image || '';
-        if (img.startsWith('data:')) {
-            uploadedImageDataUrl = img;
-            document.getElementById('fieldImageUrl').value = '';
-            showUploadPreview(img);
-        } else {
-            uploadedImageDataUrl = '';
-            document.getElementById('fieldImageUrl').value = img;
-            clearUploadPreview();
-        }
-        populatePositionSelect(idx);
-        document.getElementById('deleteSlideBtn').style.display = '';
-        document.getElementById('slideModal').classList.add('open');
-    }
-
-    function closeModal() {
-        document.getElementById('slideModal').classList.remove('open');
-        uploadedImageDataUrl = '';
-        clearUploadPreview();
-    }
-
-    function populatePositionSelect(currentEditIdx) {
-        const sel = document.getElementById('fieldPosition');
-        sel.innerHTML = '';
-
-        function addOpt(val, label) {
-            const o = document.createElement('option');
-            o.value = val;
-            o.textContent = label;
-            sel.appendChild(o);
-        }
-
-        addOpt('end', 'Di akhir (setelah slide terakhir)');
-        addOpt('after-current', 'Setelah slide aktif (slide ' + currentSlide + ')');
-        slides.forEach((s, i) => {
-            if (i === currentEditIdx) return;
-            addOpt('after-' + i, 'Setelah slide ' + (i + 1) + ': ' + s.title.substring(0, 40));
-        });
-        addOpt('begin', 'Di awal (slide pertama)');
-    }
-
-    function saveSlide() {
-        const icon = document.getElementById('fieldIcon').value.trim();
-        const title = document.getElementById('fieldTitle').value.trim();
-        const status = document.getElementById('fieldStatus').value.trim();
-        const contentRaw = document.getElementById('fieldContent').value.trim();
-        const imageUrl = document.getElementById('fieldImageUrl').value.trim();
-        const positionVal = document.getElementById('fieldPosition').value;
-
-        if (!title) { alert('Judul slide tidak boleh kosong!'); return; }
-
-        const content = contentRaw ? contentRaw.split('\n').map(l => l.trim()).filter(l => l) : [];
-        const image = uploadedImageDataUrl || imageUrl;
-        const slideData = { icon, title, status, image, content };
-
-        if (editingIndex === -1) {
-            const insertIdx = resolvePosition(positionVal, slides.length);
-            slides.splice(insertIdx, 0, slideData);
-            currentSlide = insertIdx + 1;
-        } else {
-            const oldIdx = editingIndex;
-            slides[oldIdx] = slideData;
-            const newIdx = resolvePosition(positionVal, slides.length - 1);
-            if (newIdx !== oldIdx) {
-                slides.splice(oldIdx, 1);
-                slides.splice(newIdx, 0, slideData);
-                currentSlide = newIdx + 1;
+        currentData.sort((a, b) => {
+            if (key === 'nama') {
+                return sortAsc ? a.nama.localeCompare(b.nama,'id') : b.nama.localeCompare(a.nama,'id');
             } else {
-                currentSlide = oldIdx + 1;
+                return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
             }
-        }
+        });
 
-        closeModal();
-        renderAll();
+        renderTable(currentData);
     }
 
-    function resolvePosition(positionVal, defaultEnd) {
-        if (positionVal === 'end') return defaultEnd;
-        if (positionVal === 'begin') return 0;
-        if (positionVal === 'after-current') return Math.min(currentSlide, slides.length);
-        if (positionVal.startsWith('after-')) {
-            const afterIdx = parseInt(positionVal.split('after-')[1]);
-            return afterIdx + 1;
-        }
-        return defaultEnd;
+    function filterTable() {
+        const q = document.getElementById('searchInput').value.trim().toLowerCase();
+        currentData = dendaData.filter(d => d.nama.toLowerCase().includes(q));
+        currentData.sort((a, b) => {
+            if (sortKey === 'nama') {
+                return sortAsc ? a.nama.localeCompare(b.nama,'id') : b.nama.localeCompare(a.nama,'id');
+            } else {
+                return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
+            }
+        });
+        renderTable(currentData);
     }
 
-    function deleteSlide(idx) {
-        if (!confirm('Hapus slide ' + (idx + 1) + ': "' + slides[idx].title + '"?\nTindakan ini tidak bisa dibatalkan.')) return;
-        slides.splice(idx, 1);
-        if (currentSlide > slides.length) currentSlide = Math.max(1, slides.length);
-        renderAll();
-    }
-
-    function deleteCurrentEditSlide() {
-        if (editingIndex < 0) return;
-        closeModal();
-        deleteSlide(editingIndex);
-    }
-
-    function moveSlide(idx, direction) {
-        const targetIdx = idx + direction;
-        if (targetIdx < 0 || targetIdx >= slides.length) return;
-        const temp = slides[idx];
-        slides[idx] = slides[targetIdx];
-        slides[targetIdx] = temp;
-        if (currentSlide === idx + 1) currentSlide = targetIdx + 1;
-        else if (currentSlide === targetIdx + 1) currentSlide = idx + 1;
-        renderAll();
-    }
-
-    // ============================================================
-    // IMAGE UPLOAD
-    // ============================================================
-    function handleImageUpload(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            uploadedImageDataUrl = e.target.result;
-            showUploadPreview(uploadedImageDataUrl);
-            document.getElementById('fieldImageUrl').value = '';
-        };
-        reader.readAsDataURL(file);
-    }
-
-    function showUploadPreview(src) {
-        document.getElementById('uploadPreviewImg').src = src;
-        document.getElementById('uploadPreview').style.display = 'block';
-    }
-
-    function clearUploadPreview() {
-        document.getElementById('uploadPreview').style.display = 'none';
-        document.getElementById('uploadPreviewImg').src = '';
-        document.getElementById('imageUpload').value = '';
-    }
-
-    function removeUploadedImage() {
-        uploadedImageDataUrl = '';
-        clearUploadPreview();
-    }
-
-    // Drag and drop on upload area
-    const uploadArea = document.getElementById('uploadArea');
-    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
-    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
-    uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadArea.classList.remove('drag-over');
-        const file = e.dataTransfer.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                uploadedImageDataUrl = ev.target.result;
-                showUploadPreview(uploadedImageDataUrl);
-                document.getElementById('fieldImageUrl').value = '';
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // ============================================================
-    // UI HELPERS
-    // ============================================================
-    function toggleFullscreen() {
-        const container = document.querySelector('.container');
-        if (!document.fullscreenElement) {
-            container.requestFullscreen().catch(err => alert('Error: ' + err.message));
-        } else {
-            document.exitFullscreen();
-        }
-    }
-
-    function toggleContent() {
-        document.querySelectorAll('.slide-content').forEach(c => c.classList.toggle('hidden'));
-    }
-
-    document.getElementById('slideModal').addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-    });
-
-    // ============================================================
-    // KEYBOARD
-    // ============================================================
-    document.addEventListener('keydown', function(event) {
-        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
-        switch(event.key) {
-            case 'ArrowLeft': case 'PageUp':
-                event.preventDefault(); changeSlide(-1); break;
-            case 'ArrowRight': case 'PageDown': case ' ':
-                event.preventDefault(); changeSlide(1); break;
-            case 'Home':
-                event.preventDefault(); goToSlide(1); break;
-            case 'End':
-                event.preventDefault(); goToSlide(slides.length); break;
-            case 'f': case 'F':
-                event.preventDefault(); toggleFullscreen(); break;
-            case 'd': case 'D':
-                event.preventDefault(); toggleContent(); break;
-            case 'Escape':
-                if (document.getElementById('slideModal').classList.contains('open')) closeModal();
-                else if (document.fullscreenElement) document.exitFullscreen();
-                break;
-        }
-        const num = parseInt(event.key);
-        if (!isNaN(num) && num >= 1 && num <= Math.min(9, slides.length)) goToSlide(num);
-    });
-
-    // ============================================================
-    // TOUCH SWIPE
-    // ============================================================
-    let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
-    document.getElementById('slideContainer').addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-        touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-    document.getElementById('slideContainer').addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        touchEndY = e.changedTouches[0].screenY;
-        const dX = touchEndX - touchStartX;
-        const dY = touchEndY - touchStartY;
-        if (Math.abs(dX) > Math.abs(dY)) {
-            if (dX < -50) changeSlide(1);
-            else if (dX > 50) changeSlide(-1);
-        }
-    }, { passive: true });
-
-    // ============================================================
-    // INIT
-    // ============================================================
-    renderAll();
+    updateStats();
+    sortTable('nama');
     </script>
 </body>
 </html>
