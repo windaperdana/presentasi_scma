@@ -4,491 +4,1538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Data Nominal Denda Karyawan - PT. Sinar Cemaramas Abadi">
+    <meta name="description" content="Weekly Report PT. Sinar Cemaramas Abadi - DIVISI MIS IT Software Engineer">
     <meta name="author" content="PT. Sinar Cemaramas Abadi - Divisi MIS">
-    <title>Nominal Denda Karyawan | PT. Sinar Cemaramas Abadi</title>
+    <title>Weekly Report MIS | PT. Sinar Cemaramas Abadi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         :root {
-            --teal-900: #004d40;
-            --teal-800: #00695c;
-            --teal-700: #00796b;
-            --teal-600: #00897b;
-            --teal-500: #009688;
-            --teal-400: #26a69a;
-            --teal-300: #4db6ac;
-            --teal-200: #80cbc4;
-            --teal-100: #b2dfdb;
-            --teal-50: #e0f2f1;
-            --bg: #f0f7f6;
-            --card-bg: #ffffff;
-            --text-primary: #1a2e2c;
-            --text-secondary: #4a6562;
-            --text-muted: #7a9c99;
-            --border: #c8e6e3;
-            --shadow: 0 4px 24px rgba(0, 77, 64, 0.10);
-            --shadow-lg: 0 12px 48px rgba(0, 77, 64, 0.16);
+            --teal-950: #041f1c;
+            --teal-900: #072e29;
+            --teal-800: #0d463f;
+            --teal-700: #0f5b52;
+            --teal-600: #13776c;
+            --teal-500: #19988b;
+            --teal-400: #29b8a8;
+            --teal-300: #57d4c6;
+            --teal-200: #93ebe0;
+            --teal-100: #caf5ef;
+            --teal-50: #edfbf9;
+            
+            --gold-500: #f59e0b;
+            --gold-400: #fbbf24;
+            --gold-600: #d97706;
+            --gold-50: #fef3c7;
+            --amber-accent: #eba925;
+
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-50: #eff6ff;
+            
+            --purple-500: #8b5cf6;
+            --purple-50: #f5f3ff;
+
+            --bg-dark: #0a1413;
+            --bg-stage: #0f1c1a;
+            --card-dark: #122421;
+            --card-dark-border: rgba(41, 184, 168, 0.2);
+            --text-white: #ffffff;
+            --text-light: #e6f4f2;
+            --text-muted: #8ca8a4;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 8px;
+            --shadow-slide: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.25);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
             min-height: 100vh;
-            color: var(--text-primary);
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            background: linear-gradient(135deg, var(--teal-900) 0%, var(--teal-700) 60%, var(--teal-500) 100%);
-            padding: 36px 48px 32px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -40px;
-            right: 180px;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .header-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-            margin-bottom: 14px;
-        }
-
-        .header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .header-sub {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: 400;
-        }
-
-        /* ===== MAIN ===== */
-        .main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 32px 24px 48px;
-        }
-
-        /* ===== STAT CARDS ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 22px 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
             display: flex;
-            align-items: center;
-            gap: 16px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            animation: fadeUp 0.5s ease both;
-        }
-
-        .stat-card:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-
-        .stat-card:nth-child(2) {
-            animation-delay: 0.10s;
-        }
-
-        .stat-card:nth-child(3) {
-            animation-delay: 0.15s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .stat-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .stat-icon.teal {
-            background: var(--teal-50);
-        }
-
-        .stat-icon.amber {
-            background: #fff8e1;
-        }
-
-        .stat-icon.rose {
-            background: #fce4ec;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
-        }
-
-        .stat-value {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-
-        /* ===== TABLE CARD ===== */
-        .table-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
+            flex-direction: column;
             overflow: hidden;
-            animation: fadeUp 0.5s 0.2s ease both;
+            user-select: none;
         }
 
-        .table-toolbar {
+        /* ===== TOP APP BAR ===== */
+        .app-header {
+            height: 56px;
+            background: rgba(7, 46, 41, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(41, 184, 168, 0.2);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--border);
-            gap: 12px;
-            flex-wrap: wrap;
+            padding: 0 20px;
+            z-index: 100;
+            flex-shrink: 0;
         }
 
-        .table-title {
-            font-size: 17px;
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo-badge {
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+            color: #000;
+            font-weight: 800;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-title {
+            font-size: 14px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: #ffffff;
+            letter-spacing: 0.2px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .table-title span {
-            background: var(--teal-50);
-            color: var(--teal-800);
+        .header-divider {
+            color: rgba(255, 255, 255, 0.25);
+            font-weight: 300;
+        }
+
+        .header-subtitle {
             font-size: 12px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .search-box {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .search-box input {
-            border: 1.5px solid var(--border);
-            border-radius: 10px;
-            padding: 9px 14px 9px 38px;
-            font-size: 14px;
-            font-family: inherit;
-            color: var(--text-primary);
-            background: var(--bg);
-            outline: none;
-            width: 220px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .search-box input:focus {
-            border-color: var(--teal-500);
-            box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.1);
-            background: white;
-        }
-
-        .search-box input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 15px;
-            pointer-events: none;
-        }
-
-        /* Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead tr {
-            background: var(--teal-900);
-        }
-
-        thead th {
-            padding: 14px 20px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            white-space: nowrap;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.15s;
-        }
-
-        thead th:hover {
-            background: var(--teal-800);
-        }
-
-        thead th:first-child {
-            text-align: left;
-        }
-
-        thead th:last-child {
-            text-align: right;
-        }
-
-        .sort-icon {
-            margin-left: 5px;
-            opacity: 0.5;
-            font-style: normal;
-        }
-
-        .sort-icon.active {
-            opacity: 1;
             color: var(--teal-200);
+            font-weight: 500;
         }
 
-        tbody tr {
-            border-bottom: 1px solid #f0faf9;
-            transition: background 0.15s ease;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        tbody tr:nth-child(even) {
-            background: #f7fdfc;
-        }
-
-        tbody tr:nth-child(odd) {
-            background: #ffffff;
-        }
-
-        tbody tr:hover {
-            background: var(--teal-50) !important;
-        }
-
-        tbody td {
-            padding: 13px 20px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        tbody td:first-child {
+        .btn-header {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
             font-weight: 600;
-            color: var(--text-primary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
 
-        .name-cell {
+        .btn-header:hover {
+            background: rgba(41, 184, 168, 0.2);
+            border-color: var(--teal-400);
+            color: #ffffff;
+        }
+
+        .btn-header.active {
+            background: var(--teal-600);
+            border-color: var(--teal-300);
+            color: #ffffff;
+        }
+
+        .btn-header.highlight {
+            background: linear-gradient(135deg, #00897b, #004d40);
+            border-color: var(--teal-300);
+            color: #fff;
+        }
+
+        /* ===== MAIN PRESENTATION STAGE ===== */
+        .stage-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #132a26 0%, #081211 100%);
+        }
+
+        /* 16:9 Aspect Ratio Slide Canvas */
+        .slide-viewport {
+            width: 100%;
+            max-width: 1280px;
+            aspect-ratio: 16 / 9;
+            max-height: calc(100vh - 130px);
+            position: relative;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-slide);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #1a2e2c;
+        }
+
+        /* Slide item */
+        .slide-item {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            background: #ffffff;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.985);
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-item.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+        }
+
+        /* Slide Template Master Banner & Top Accent */
+        .slide-header-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 44px 12px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .slide-category-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .slide-category-tag.berjalan {
+            color: #0f766e;
+        }
+
+        .slide-category-tag.berjalan .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #14b8a6;
+            box-shadow: 0 0 10px #14b8a6;
+        }
+
+        .slide-category-tag.dikembangkan {
+            color: #b45309;
+        }
+
+        .slide-category-tag.dikembangkan .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #f59e0b;
+            box-shadow: 0 0 10px #f59e0b;
+        }
+
+        .slide-dept-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0fdfa;
+            color: #0f766e;
+            border: 1px solid #ccfbf1;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-content-body {
+            flex: 1;
+            padding: 4px 44px 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+            overflow-y: auto;
+        }
+
+        .slide-main-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #0f2c28;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            font-family: 'Urbanist', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .slide-footer-strip {
+            height: 36px;
+            padding: 0 44px;
+            border-top: 1px solid #f1f5f9;
+            background: #fcfdfd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 600;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .slide-footer-strip .author {
+            color: #0f766e;
+            font-weight: 700;
+        }
+
+        /* Corner Decorative Elements */
+        .decor-top-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 260px;
+            height: 260px;
+            pointer-events: none;
+            background: radial-gradient(circle at top right, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .decor-bottom-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 220px;
+            height: 220px;
+            pointer-events: none;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        /* ===== SLIDE 1: COVER ===== */
+        .slide-cover {
+            background: linear-gradient(135deg, #062320 0%, #0d463f 50%, #081d1b 100%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+        }
+
+        .cover-left {
+            flex: 1.1;
+            z-index: 5;
+            padding-right: 20px;
+        }
+
+        .cover-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 158, 11, 0.18);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: var(--gold-400);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .cover-title {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-family: 'Urbanist', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .cover-title span {
+            background: linear-gradient(135deg, #57d4c6, #93ebe0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cover-company {
+            font-size: 24px;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+        }
+
+        .cover-meta-card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cover-meta-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--teal-500), var(--teal-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .cover-meta-dept {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .cover-meta-role {
+            font-size: 13px;
+            color: var(--teal-300);
+            font-weight: 600;
+        }
+
+        .cover-right {
+            flex: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            position: relative;
+        }
+
+        .cover-graphic-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .cover-img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: block;
+        }
+
+        .cover-glow {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.3) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        /* ===== SLIDE 2: AGENDA / KLASIFIKASI ===== */
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .agenda-card {
+            border-radius: var(--radius-md);
+            padding: 22px 24px;
+            display: flex;
+            flex-direction: column;
+            border: 1.5px solid transparent;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+
+        .agenda-card.berjalan {
+            background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%);
+            border-color: #99f6e4;
+        }
+
+        .agenda-card.dikembangkan {
+            background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
+            border-color: #fde68a;
+        }
+
+        .agenda-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .agenda-card-title {
+            font-size: 17px;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .row-num {
+        .agenda-card.berjalan .agenda-card-title {
+            color: #0f766e;
+        }
+
+        .agenda-card.dikembangkan .agenda-card-title {
+            color: #b45309;
+        }
+
+        .agenda-badge-count {
+            font-size: 12px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .agenda-card.berjalan .agenda-badge-count {
+            background: #ccfbf1;
+            color: #0f766e;
+        }
+
+        .agenda-card.dikembangkan .agenda-badge-count {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .agenda-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .agenda-item:hover {
+            transform: translateX(4px);
+            border-color: var(--teal-500);
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.15);
+            color: #0f766e;
+        }
+
+        .agenda-item-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .agenda-item-bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #0f766e;
+        }
+
+        .agenda-card.dikembangkan .agenda-item-bullet {
+            background: #d97706;
+        }
+
+        .agenda-jump-arrow {
+            font-size: 12px;
+            opacity: 0.5;
+            transition: opacity 0.15s;
+        }
+
+        .agenda-item:hover .agenda-jump-arrow {
+            opacity: 1;
+            color: var(--teal-600);
+        }
+
+        /* ===== TIMELINE STEPPER CARDS ===== */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .timeline-card {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 18px 20px;
+            border: 1.5px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .timeline-card.done {
+            background: #f0fdfa;
+            border-color: #99f6e4;
+        }
+
+        .timeline-card.testing {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .timeline-card.production {
+            background: #fefce8;
+            border-color: #fef08a;
+        }
+
+        .timeline-card.production.done {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .timeline-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .timeline-phase {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .timeline-card.done .timeline-phase {
+            color: #0f766e;
+        }
+
+        .timeline-card.testing .timeline-phase {
+            color: #1d4ed8;
+        }
+
+        .timeline-card.production .timeline-phase {
+            color: #b45309;
+        }
+
+        .timeline-card.production.done .timeline-phase {
+            color: #15803d;
+        }
+
+        .timeline-date {
+            font-size: 16px;
+            font-weight: 800;
+            color: #1e293b;
+            letter-spacing: -0.2px;
+            margin-top: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timeline-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
+        .status-done {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-active {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* ===== UPDATE PROGRESS BOX ===== */
+        .progress-box {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px 24px;
+            border: 1.5px solid #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            margin-top: auto;
+        }
+
+        .progress-box-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .progress-points-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .progress-point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.45;
+            border-left: 4px solid var(--teal-500);
+        }
+
+        .progress-point-item.amber {
+            border-left-color: var(--gold-500);
+        }
+
+        .progress-point-item.blue {
+            border-left-color: var(--blue-500);
+        }
+
+        .progress-point-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ===== MEDIA SHOWCASE SLIDES (Slide 4, 14) ===== */
+        .showcase-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+            align-items: center;
+            height: 100%;
+        }
+
+        .showcase-phone-frame {
+            background: #0f172a;
+            border-radius: 28px;
+            padding: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            max-width: 240px;
+            margin: 0 auto;
+            border: 4px solid #334155;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .showcase-phone-frame:hover {
+            transform: scale(1.03);
+        }
+
+        .showcase-phone-img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .showcase-desktop-frame {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .showcase-desktop-frame:hover {
+            transform: translateY(-4px);
+        }
+
+        .desktop-frame-bar {
+            height: 26px;
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 6px;
+        }
+
+        .frame-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .frame-dot.red { background: #ef4444; }
+        .frame-dot.yellow { background: #f59e0b; }
+        .frame-dot.green { background: #10b981; }
+
+        .desktop-frame-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Slide 14 Showcase Grid */
+        .showcase-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .video-player-container {
+            background: #0a0f12;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid #1e293b;
+            position: relative;
+        }
+
+        .video-player-container video {
+            width: 100%;
+            display: block;
+            max-height: 320px;
+            object-fit: cover;
+        }
+
+        /* Server Migration Diagram (Slide 11 & 12) */
+        .migration-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            margin: 16px 0;
+        }
+
+        .diagram-node {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            flex: 1;
+            max-width: 220px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .diagram-node.source {
+            border-color: #fca5a5;
+            background: #fef2f2;
+        }
+
+        .diagram-node.target {
+            border-color: #86efac;
+            background: #f0fdf4;
+        }
+
+        .diagram-node-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .diagram-node-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .diagram-node-sub {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .diagram-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--teal-600);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .diagram-arrow span {
+            font-size: 10px;
+            background: #ccfbf1;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        /* ===== SLIDE 15: THANK YOU ===== */
+        .slide-thankyou {
+            background: linear-gradient(135deg, #041a18 0%, #08342e 50%, #031210 100%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 40px;
+        }
+
+        .thankyou-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+        }
+
+        .thankyou-title {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            line-height: 1;
+            margin-bottom: 12px;
+            font-family: 'Urbanist', 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #ffffff 30%, var(--teal-200) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .thankyou-sub {
+            font-size: 18px;
+            color: var(--teal-200);
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .thankyou-action-btn {
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+            color: #000;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+
+        .thankyou-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(245, 158, 11, 0.5);
+        }
+
+        /* ===== BOTTOM CONTROL BAR ===== */
+        .app-footer {
+            height: 60px;
+            background: rgba(7, 46, 41, 0.95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(41, 184, 168, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Presentation Progress Bar across footer top */
+        .progress-bar-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal-400), var(--gold-400));
+            width: 6.67%;
+            transition: width 0.3s ease;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .slide-counter {
+            font-size: 14px;
+            font-weight: 800;
+            color: #ffffff;
+            font-variant-numeric: tabular-nums;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .slide-counter span {
+            color: var(--teal-300);
+        }
+
+        .timer-display {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--teal-600);
+            border-color: var(--teal-300);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(135deg, var(--teal-500), var(--teal-700));
+            width: 48px;
+            height: 40px;
+            border-color: var(--teal-400);
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ===== SIDE DRAWER (Slide List) ===== */
+        .side-drawer {
+            position: fixed;
+            top: 56px;
+            left: -340px;
+            width: 320px;
+            height: calc(100vh - 116px);
+            background: #091a18;
+            border-right: 1px solid rgba(41, 184, 168, 0.25);
+            z-index: 200;
+            transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 10px 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .side-drawer.open {
+            left: 0;
+        }
+
+        .drawer-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .drawer-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .drawer-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .drawer-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .drawer-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .drawer-item:hover {
+            background: rgba(41, 184, 168, 0.15);
+            border-color: rgba(41, 184, 168, 0.3);
+        }
+
+        .drawer-item.active {
+            background: rgba(41, 184, 168, 0.25);
+            border-color: var(--teal-400);
+        }
+
+        .drawer-item-num {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--teal-300);
             width: 24px;
             height: 24px;
             border-radius: 6px;
-            background: var(--teal-50);
-            color: var(--teal-700);
-            font-size: 11px;
-            font-weight: 700;
-            display: inline-flex;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
 
-        tbody td:last-child {
-            text-align: right;
-            font-variant-numeric: tabular-nums;
-            font-weight: 700;
-            color: var(--teal-800);
+        .drawer-item-info {
+            flex: 1;
+            overflow: hidden;
         }
 
-        .nominal-bar-wrap {
+        .drawer-item-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .drawer-item-sub {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* ===== OVERVIEW GRID MODAL ===== */
+        .overview-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 18, 16, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 300;
+            display: none;
+            flex-direction: column;
+            padding: 30px 40px;
+            overflow-y: auto;
+        }
+
+        .overview-overlay.open {
+            display: flex;
+        }
+
+        .overview-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .overview-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .overview-card {
+            background: #112825;
+            border-radius: 14px;
+            border: 1px solid rgba(41, 184, 168, 0.2);
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--teal-400);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .overview-card.active {
+            border-color: var(--gold-400);
+            background: #163632;
+        }
+
+        .overview-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .overview-card-num {
+            font-size: 11px;
+            font-weight: 800;
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--teal-300);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .overview-card-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .overview-card-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ===== DATA DENDA MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            z-index: 400;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            color: #1a2e2c;
+            animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: #ffffff;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 10px;
-            justify-content: flex-end;
         }
 
-        .nominal-bar {
-            height: 6px;
-            border-radius: 3px;
-            background: linear-gradient(90deg, var(--teal-300), var(--teal-600));
-            min-width: 4px;
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
         }
 
-        .nominal-val {
-            min-width: 80px;
-            text-align: right;
-            font-size: 14px;
+        /* Denda Stats Grid */
+        .denda-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
         }
 
-        tfoot tr {
-            background: linear-gradient(135deg, var(--teal-900), var(--teal-700)) !important;
+        .denda-stat-box {
+            background: #f0fdfa;
+            border: 1px solid #ccfbf1;
+            border-radius: 12px;
+            padding: 14px 18px;
         }
 
-        tfoot td {
-            padding: 15px 20px;
-            color: white;
+        .denda-stat-lbl {
+            font-size: 11px;
             font-weight: 700;
-            font-size: 14px;
+            color: #0f766e;
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
 
-        tfoot td:last-child {
-            text-align: right;
-            font-size: 18px;
-            font-variant-numeric: tabular-nums;
+        .denda-stat-num {
+            font-size: 20px;
+            font-weight: 900;
+            color: #134e4a;
         }
 
-        .empty-state {
-            display: none;
-            text-align: center;
-            padding: 48px 24px;
-            color: var(--text-muted);
+        /* Denda Table */
+        .denda-table-wrap {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .empty-state p {
-            font-size: 15px;
-            margin-top: 8px;
+        .denda-table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .footer {
-            text-align: center;
-            padding: 20px;
+        .denda-table th {
+            background: #0f766e;
+            color: #ffffff;
+            padding: 10px 16px;
             font-size: 12px;
-            color: var(--text-muted);
+            font-weight: 700;
+            text-align: left;
+            letter-spacing: 0.5px;
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .denda-table th:last-child {
+            text-align: right;
         }
 
-        @media (max-width: 700px) {
-            .header {
-                padding: 24px 20px 20px;
-            }
+        .denda-table td {
+            padding: 10px 16px;
+            font-size: 13px;
+            border-bottom: 1px solid #f1f5f9;
+        }
 
-            .header h1 {
-                font-size: 22px;
-            }
+        .denda-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
 
-            .main {
-                padding: 20px 14px 40px;
-            }
+        .denda-table td:last-child {
+            text-align: right;
+            font-weight: 800;
+            color: #0f766e;
+        }
 
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        .denda-search {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 13px;
+            font-family: inherit;
+            margin-bottom: 14px;
+            outline: none;
+        }
 
-            .stats-grid .stat-card:last-child {
-                grid-column: 1 / -1;
-            }
+        .denda-search:focus {
+            border-color: #0f766e;
+        }
 
-            .search-box input {
-                width: 100%;
-            }
+        /* Lightbox Image Preview Modal */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
 
-            .table-toolbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        .lightbox-modal.open {
+            display: flex;
+        }
 
-            thead th,
-            tbody td {
-                padding: 10px 14px;
-            }
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
 
-            .nominal-bar {
+        /* Keyboard Help Modal */
+        .kbd-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .kbd-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .kbd-badge {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            font-family: monospace;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .app-header {
+                padding: 0 12px;
+            }
+            .header-subtitle {
                 display: none;
             }
-        }
-
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .stage-container {
+                padding: 8px;
             }
-
-            .stats-grid .stat-card:last-child {
-                grid-column: auto;
+            .slide-header-strip {
+                padding: 14px 20px 8px;
+            }
+            .slide-content-body {
+                padding: 4px 20px 16px;
+            }
+            .slide-main-title {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+            .slide-footer-strip {
+                padding: 0 20px;
+            }
+            .timeline-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .agenda-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .slide-cover {
+                flex-direction: column;
+                padding: 24px;
+                text-align: center;
+            }
+            .cover-left {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            .cover-title {
+                font-size: 28px;
+            }
+            .cover-company {
+                font-size: 18px;
+            }
+            .cover-right {
+                display: none;
+            }
+            .showcase-split-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -496,80 +1543,1062 @@
 
 <body>
 
-    <div class="header">
-        <div class="header-inner">
-            <div class="header-badge">&#x1F4B8; Rekap Keuangan</div>
-            <h1>Data Nominal Denda Step Counter Karyawan</h1>
-            <p class="header-sub">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; Periode
-                Cut Off 12 Agustus 2026</p>
+    <!-- TOP APP BAR -->
+    <header class="app-header">
+        <div class="header-brand">
+            <span class="header-logo-badge">SCMA MIS</span>
+            <div class="header-title">
+                <span>Weekly Report Presentation</span>
+                <span class="header-divider">&middot;</span>
+                <span class="header-subtitle">17 September 2026</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn-header highlight" onclick="openDendaModal()" title="Lihat Rekap Data Denda Step Counter">
+                <span>&#x1F4B8;</span> Data Denda
+            </button>
+            <button class="btn-header" id="btnDrawer" onclick="toggleDrawer()" title="Daftar Slide">
+                <span>&#x2630;</span> Slides
+            </button>
+            <button class="btn-header" id="btnOverview" onclick="toggleOverview()" title="Tampilan Grid Semua Slide (O)">
+                <span>&#x229E;</span> Grid
+            </button>
+            <button class="btn-header" id="btnAutoPlay" onclick="toggleAutoPlay()" title="Auto-Play Slideshow (Space/A)">
+                <span id="autoPlayIcon">&#x25B6;</span> Play
+            </button>
+            <button class="btn-header" onclick="toggleFullscreen()" title="Fullscreen Mode (F)">
+                <span>&#x26F6;</span> Fullscreen
+            </button>
+            <button class="btn-header" onclick="openHelpModal()" title="Bantuan Keyboard (?)">
+                <span>&#x2753;</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN PRESENTATION STAGE -->
+    <main class="stage-container">
+        <div class="slide-viewport" id="slideViewport">
+
+            <!-- ================= SLIDE 1: COVER ================= -->
+            <section class="slide-item active slide-cover" data-slide="1">
+                <div class="cover-left">
+                    <div class="cover-badge">&#x1F4CB; WEEKLY REPORT PRESENTATION</div>
+                    <h1 class="cover-title">Weekly <span>Report</span></h1>
+                    <div class="cover-company">PT. Sinar Cemaramas Abadi</div>
+                    <div class="cover-meta-card">
+                        <div class="cover-meta-icon">&#x1F4BB;</div>
+                        <div>
+                            <div class="cover-meta-dept">DIVISI MIS</div>
+                            <div class="cover-meta-role">IT Software Engineer &nbsp;&middot;&nbsp; 17 September 2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cover-right">
+                    <div class="cover-graphic-wrap">
+                        <div class="cover-glow"></div>
+                        <img src="assets/image3.png" alt="MIS SCMA Graphic" class="cover-img">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 2: KLASIFIKASI PORTOFOLIO ================= -->
+            <section class="slide-item" data-slide="2">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag berjalan">
+                        <span class="dot"></span>
+                        Overview Portofolio
+                    </div>
+                    <div class="slide-dept-badge">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Klasifikasi Portofolio Project</h2>
+                    <div class="agenda-grid">
+                        <!-- Kolom 1: Project Sedang Berjalan -->
+                        <div class="agenda-card berjalan">
+                            <div class="agenda-card-header">
+                                <div class="agenda-card-title">
+                                    <span>&#x1F680;</span> Project Sedang Berjalan
+                                </div>
+                                <span class="agenda-badge-count">4 Project</span>
+                            </div>
+                            <ul class="agenda-list">
+                                <li class="agenda-item" onclick="goToSlide(3)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Update Pengiriman Penjualan DO IPE</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(4)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Create Mobile POS IPE</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(6)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Update Step Counter HRIS SCMA</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(5)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Update Sistem HRIS Multipress Web</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Kolom 2: Project Sedang Dikembangkan -->
+                        <div class="agenda-card dikembangkan">
+                            <div class="agenda-card-header">
+                                <div class="agenda-card-title">
+                                    <span>&#x2699;</span> Project Sedang Dikembangkan
+                                </div>
+                                <span class="agenda-badge-count">6 Project</span>
+                            </div>
+                            <ul class="agenda-list">
+                                <li class="agenda-item" onclick="goToSlide(8)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Update fitur Monitoring Tugas HRIS SCMA</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(9)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Update fitur KPI pada sistem HRIS SCMA</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(10)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Create fitur sistem HRIS Multipress</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(11)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Migrasi server backup data sistem Magic</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(12)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Migrasi server backup data sistem SISCA</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                                <li class="agenda-item" onclick="goToSlide(13)">
+                                    <div class="agenda-item-left">
+                                        <span class="agenda-item-bullet"></span>
+                                        <span>Create fitur peminjaman kendaraan</span>
+                                    </div>
+                                    <span class="agenda-jump-arrow">&#x2192;</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 02 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 3: UPDATE PENGIRIMAN PENJUALAN DO IPE ================= -->
+            <section class="slide-item" data-slide="3">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag berjalan">
+                        <span class="dot"></span>
+                        Project Sedang Berjalan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; IT Software Engineer</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Update Pengiriman Penjualan DO IPE.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card done">
+                            <div>
+                                <div class="timeline-phase">&#x2714; Development</div>
+                                <div class="timeline-date">2026-09-10</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-10 s/d 2026-09-12</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                        </div>
+                        <div class="timeline-card production done">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Production</div>
+                                <div class="timeline-date">2026-09-12</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F4CB; Status Detail Project</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x2705;</span>
+                                <div>Fitur update pengiriman penjualan Delivery Order (DO) IPE telah berhasil diselesaikan, melalui tahap testing, dan sudah <strong>resmi dirilis ke production</strong> pada 12 September 2026.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 03 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 4: CREATE MOBILE POS IPE ================= -->
+            <section class="slide-item" data-slide="4">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag berjalan">
+                        <span class="dot"></span>
+                        Project Sedang Berjalan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; Mobile Development</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Create Mobile POS IPE.</h2>
+                    
+                    <div class="showcase-layout">
+                        <div style="display:flex; flex-direction:column; gap:16px;">
+                            <div class="timeline-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
+                                <div class="timeline-card done">
+                                    <div class="timeline-card-header">
+                                        <span class="timeline-phase">&#x2714; Done Development</span>
+                                        <span class="timeline-date">2026-09-10</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-card testing">
+                                    <div class="timeline-card-header">
+                                        <span class="timeline-phase">&#x1F9EA; Testing</span>
+                                        <span class="timeline-date">2026-09-10 s/d 2026-09-15</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-card production done">
+                                    <div class="timeline-card-header">
+                                        <span class="timeline-phase">&#x1F680; Rilis to Production</span>
+                                        <span class="timeline-date">2026-09-16</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-box">
+                                <div class="progress-box-title">&#x1F4F1; Informasi Aplikasi</div>
+                                <div class="progress-points-list">
+                                    <div class="progress-point-item">
+                                        <span class="progress-point-icon">&#x2705;</span>
+                                        <div>Aplikasi Mobile Point of Sales (POS) IPE telah melewati serangkaian user testing dan telah <strong>dirilis ke lingkungan Production</strong> pada tanggal 16 September 2026.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Device Preview -->
+                        <div style="text-align:center;">
+                            <div class="showcase-phone-frame" onclick="openLightbox('assets/image4.jpeg')" title="Klik untuk memperbesar gambar">
+                                <img src="assets/image4.jpeg" alt="Mobile POS IPE Screenshot" class="showcase-phone-img">
+                            </div>
+                            <div style="font-size:11px; color:#64748b; margin-top:8px; font-weight:600;">&#x1F50D; Klik gambar untuk zoom preview</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 04 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 5: UPDATE SISTEM HRIS MULTIPRESS WEB ================= -->
+            <section class="slide-item" data-slide="5">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag berjalan">
+                        <span class="dot"></span>
+                        Project Sedang Berjalan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Update Sistem HRIS Multipress Web.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card done">
+                            <div>
+                                <div class="timeline-phase">&#x2714; Development</div>
+                                <div class="timeline-date">2026-09-10</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-10 s/d 2026-09-12</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                        </div>
+                        <div class="timeline-card production done">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Production</div>
+                                <div class="timeline-date">2026-09-12</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F4CA; Update Progress Web HRIS Multipress</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x2728;</span>
+                                <div><strong>Update fitur laporan Absensi Payroll:</strong> Menyediakan rekap data absensi yang terintegrasi secara otomatis dengan modul penggajian karyawan multipress.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 05 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 6: UPDATE STEP COUNTER HRIS ================= -->
+            <section class="slide-item" data-slide="6">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag berjalan">
+                        <span class="dot"></span>
+                        Project Sedang Berjalan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Update Step Counter HRIS.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card done">
+                            <div>
+                                <div class="timeline-phase">&#x2714; Development</div>
+                                <div class="timeline-date">2026-09-12</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-12 s/d 2026-09-14</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-15</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">&#x23F3; Est. Rilis Production</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F3C3; Integrasi Step Counter</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F504;</span>
+                                <div>Penyelarasan logika kalkulasi target langkah harian dan sinkronisasi nominal denda keterlambatan / kekurangan langkah otomatis ke sistem HRIS.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 06 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 7: UPDATE FITUR STEP COUNTER HRIS (ATURAN DENDA) ================= -->
+            <section class="slide-item" data-slide="7">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag berjalan">
+                        <span class="dot"></span>
+                        Project Sedang Berjalan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Update Fitur Step Counter HRIS.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card done">
+                            <div>
+                                <div class="timeline-phase">&#x2714; Development</div>
+                                <div class="timeline-date">2026-09-14</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-14 s/d 2026-09-16</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                        </div>
+                        <div class="timeline-card production done">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Rilis Production</div>
+                                <div class="timeline-date">2026-09-16</div>
+                            </div>
+                            <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box" style="border-left: 5px solid #d97706;">
+                        <div class="progress-box-title" style="color: #b45309;">&#x26A0;&#xFE0F; Update Progress & Aturan Cut-Off Input</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item amber">
+                                <span class="progress-point-icon">&#x1F6AB;</span>
+                                <div><strong>Aturan Input Tanggal &le; 25:</strong> Tidak bisa lagi input step counter di bawah tanggal 25 jika sudah melewati tanggal 25.</div>
+                            </div>
+                            <div class="progress-point-item amber">
+                                <span class="progress-point-icon">&#x1F4C5;</span>
+                                <div><strong>Khusus Tanggal 25:</strong> Sudah tidak bisa input di tanggal 26 karena <strong>data nominal denda ditarik pada tanggal 26 pagi</strong>.</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 14px; text-align: right;">
+                            <button class="btn-header highlight" onclick="openDendaModal()" style="padding: 8px 16px; font-size: 13px;">
+                                &#x1F4B8; Buka Rekap Nominal Denda Karyawan &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 07 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 8: MONITORING TUGAS HRIS ================= -->
+            <section class="slide-item" data-slide="8">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Update Fitur Monitoring Tugas HRIS.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div>
+                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                <div class="timeline-date">2026-09-13</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-13 s/d 2026-09-15</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Testing</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-15</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F916; Update Progress & Logika Otomatisasi</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item blue">
+                                <span class="progress-point-icon">&#x1F504;</span>
+                                <div>Untuk monitoring tugas yang sudah dibatalkan dendanya oleh <strong>&ldquo;Yang Memberikan Tugas&rdquo;</strong>, maka secara otomatis sistem akan mengupdate status tugas menjadi <strong>&ldquo;Selesai&rdquo;</strong>.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 08 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 9: KPI PADA SISTEM HRIS SCMA ================= -->
+            <section class="slide-item" data-slide="9">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; Performance System</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Update fitur KPI pada sistem HRIS SCMA.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div>
+                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                <div class="timeline-date">2026-09-19</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-19 s/d 2026-09-22</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Testing</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-22</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F4CA; Update Progress Modul KPI</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F527;</span>
+                                <div><strong>Update inputan master KPI:</strong> Disesuaikan dengan penambahan komponen dan indikator penilaian baru.</div>
+                            </div>
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F9EE;</span>
+                                <div><strong>Update formula perhitungan KPI:</strong> Menyelaraskan bobot dan scoring otomatis karyawan.</div>
+                            </div>
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x2705;</span>
+                                <div><strong>Create fitur verifikasi:</strong> Alur approval dan validasi berjenjang untuk setiap inputan KPI.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 09 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 10: FITUR SISTEM HRIS MULTIPRESS ================= -->
+            <section class="slide-item" data-slide="10">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS Multipress</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Create fitur sistem HRIS Multipress.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div>
+                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                <div class="timeline-date">2026-09-15</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-15 s/d 2026-09-19</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Testing</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-19</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x23F0; Update Progress Modul Lembur</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F4DD;</span>
+                                <div><strong>Create fitur input lembur:</strong> Form pengajuan lembur mandiri oleh karyawan dengan validasi shift kerja.</div>
+                            </div>
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F44D;</span>
+                                <div><strong>Create fitur approval lembur:</strong> Dashboard persetujuan lembur terintegrasi untuk Supervisor / HR.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 10 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 11: MIGRASI SERVER BACKUP MAGIC ================= -->
+            <section class="slide-item" data-slide="11">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; Infrastructure & Backup</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Migrasi server backup data sistem Magic.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div>
+                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                <div class="timeline-date">2026-09-15</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-15 s/d 2026-09-16</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Testing</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-17</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                        </div>
+                    </div>
+
+                    <!-- Migration Architecture Diagram -->
+                    <div class="migration-diagram">
+                        <div class="diagram-node source">
+                            <div class="diagram-node-icon">&#x1F5C4;&#xFE0F;</div>
+                            <div class="diagram-node-title">Server Cloud Mandiri</div>
+                            <div class="diagram-node-sub">Local Cloud Storage (Old)</div>
+                        </div>
+                        <div class="diagram-arrow">
+                            <span>MIGRASI</span>
+                            &rarr;
+                        </div>
+                        <div class="diagram-node target">
+                            <div class="diagram-node-icon">&#x2601;&#xFE0F;</div>
+                            <div class="diagram-node-title">Google Drive Enterprise</div>
+                            <div class="diagram-node-sub">Automated Secure Backup (New)</div>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F4BE; Update Progress</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F504;</span>
+                                <div>Yang awalnya untuk backup data di server cloud-nya sendiri, maka akan <strong>dimigrasikan ke Google Drive</strong> untuk backup data otomatis dan redundansi yang lebih aman.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 11 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 12: MIGRASI SERVER BACKUP SISCA ================= -->
+            <section class="slide-item" data-slide="12">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; Infrastructure & Backup</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Migrasi server backup data sistem SISCA.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div>
+                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                <div class="timeline-date">2026-09-15</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-15 s/d 2026-09-16</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Testing</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-17</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                        </div>
+                    </div>
+
+                    <!-- Migration Architecture Diagram -->
+                    <div class="migration-diagram">
+                        <div class="diagram-node source">
+                            <div class="diagram-node-icon">&#x1F5C4;&#xFE0F;</div>
+                            <div class="diagram-node-title">Server SISCA Mandiri</div>
+                            <div class="diagram-node-sub">Local Cloud Storage (Old)</div>
+                        </div>
+                        <div class="diagram-arrow">
+                            <span>MIGRASI</span>
+                            &rarr;
+                        </div>
+                        <div class="diagram-node target">
+                            <div class="diagram-node-icon">&#x2601;&#xFE0F;</div>
+                            <div class="diagram-node-title">Google Drive Enterprise</div>
+                            <div class="diagram-node-sub">Automated Secure Backup (New)</div>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F4BE; Update Progress</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F504;</span>
+                                <div>Yang awalnya untuk backup data di server cloud-nya sendiri, maka akan <strong>dimigrasikan ke Google Drive</strong> untuk backup data otomatis dan redundansi yang lebih aman.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 12 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 13: FITUR PEMINJAMAN KENDARAAN (TIMELINE) ================= -->
+            <section class="slide-item" data-slide="13">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Divisi MIS &middot; Operational Tools</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title">Create fitur peminjaman kendaraan.</h2>
+                    
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div>
+                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                <div class="timeline-date">2026-09-16</div>
+                            </div>
+                            <span class="timeline-status-pill status-active">Development</span>
+                        </div>
+                        <div class="timeline-card testing">
+                            <div>
+                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                <div class="timeline-date">2026-09-16 s/d 2026-09-21</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Testing</span>
+                        </div>
+                        <div class="timeline-card production">
+                            <div>
+                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                <div class="timeline-date">2026-09-21</div>
+                            </div>
+                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <div class="progress-box-title">&#x1F697; Ruang Lingkup Sistem Peminjaman Kendaraan</div>
+                        <div class="progress-points-list">
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F4CB;</span>
+                                <div>Form pengajuan peminjaman kendaraan operasional kantor secara online dan realtime.</div>
+                            </div>
+                            <div class="progress-point-item">
+                                <span class="progress-point-icon">&#x1F511;</span>
+                                <div>Pengecekan ketersediaan armada mobil/motor, driver, jadwal perjalanan, serta pencatatan kilometer (KM) dan kondisi armada.</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 14px; text-align: right;">
+                            <button class="btn-header highlight" onclick="goToSlide(14)" style="padding: 8px 16px; font-size: 13px;">
+                                &#x1F3AC; Lihat Showcase UI & Video Demo &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 13 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 14: FITUR PEMINJAMAN KENDARAAN (MEDIA SHOWCASE) ================= -->
+            <section class="slide-item" data-slide="14">
+                <div class="decor-top-right"></div>
+                <div class="slide-header-strip">
+                    <div class="slide-category-tag dikembangkan">
+                        <span class="dot"></span>
+                        Project Sedang Dikembangkan
+                    </div>
+                    <div class="slide-dept-badge">Showcase & Video Demo</div>
+                </div>
+                <div class="slide-content-body">
+                    <h2 class="slide-main-title" style="margin-bottom: 12px;">Create fitur peminjaman kendaraan.</h2>
+                    
+                    <div class="showcase-split-grid">
+                        <!-- Desktop UI Frame -->
+                        <div>
+                            <div class="showcase-desktop-frame" onclick="openLightbox('assets/image5.png')" title="Klik untuk zoom screenshot">
+                                <div class="desktop-frame-bar">
+                                    <span class="frame-dot red"></span>
+                                    <span class="frame-dot yellow"></span>
+                                    <span class="frame-dot green"></span>
+                                    <span style="font-size:10px; color:#64748b; margin-left:6px; font-weight:600;">Form Peminjaman Kendaraan</span>
+                                </div>
+                                <img src="assets/image5.png" alt="UI Peminjaman Kendaraan" class="desktop-frame-img">
+                            </div>
+                            <div style="font-size:11px; color:#64748b; margin-top:6px; font-weight:600;">&#x1F50D; Klik screenshot untuk memperbesar</div>
+                        </div>
+
+                        <!-- Embedded Video Player -->
+                        <div>
+                            <div class="video-player-container">
+                                <video id="slideVideo" controls playsinline poster="assets/image5.png">
+                                    <source src="assets/media1.mp4" type="video/mp4">
+                                    <source src="assets/media1.mov" type="video/quicktime">
+                                    Browser Anda tidak mendukung HTML5 video tag.
+                                </video>
+                            </div>
+                            <div style="font-size:11px; color:#0f766e; margin-top:6px; font-weight:700;">&#x1F3AC; Video Rekaman Interaksi Fitur Peminjaman Kendaraan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer-strip">
+                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                    <span>Slide 14 / 15</span>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 15: THANK YOU ================= -->
+            <section class="slide-item slide-thankyou" data-slide="15">
+                <img src="assets/image7.png" alt="SCMA MIS Logo" class="thankyou-logo">
+                <h1 class="thankyou-title">THANK YOU!</h1>
+                <p class="thankyou-sub">Weekly Report &middot; PT. Sinar Cemaramas Abadi &middot; Divisi MIS</p>
+                <div style="display:flex; gap:12px;">
+                    <button class="thankyou-action-btn" onclick="goToSlide(1)">
+                        <span>&#x21BA;</span> Ulangi Presentasi
+                    </button>
+                    <button class="thankyou-action-btn" style="background:#ffffff; color:#0f766e;" onclick="openDendaModal()">
+                        <span>&#x1F4B8;</span> Lihat Data Denda Karyawan
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- BOTTOM PRESENTATION CONTROLS -->
+    <footer class="app-footer">
+        <div class="progress-bar-container" onclick="handleProgressBarClick(event)" title="Klik untuk melompat slide">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+
+        <div class="footer-left">
+            <div class="slide-counter" id="slideCounter">
+                <span>01</span> / 15
+            </div>
+            <div class="timer-display" id="timerDisplay">
+                <span>&#x23F1;</span> <span id="timerText">00:00</span>
+            </div>
+        </div>
+
+        <div class="footer-center">
+            <button class="nav-btn" id="btnPrev" onclick="prevSlide()" title="Slide Sebelumnya (&larr; / PageUp)">
+                &#x2190;
+            </button>
+            <button class="nav-btn primary" id="btnNext" onclick="nextSlide()" title="Slide Selanjutnya (&rarr; / Space)">
+                &#x2192;
+            </button>
+        </div>
+
+        <div class="footer-right">
+            <button class="btn-header" onclick="goToSlide(2)" title="Daftar Portofolio Project (Slide 2)">
+                &#x1F4CB; Portofolio
+            </button>
+            <button class="btn-header" onclick="toggleOverview()" title="Tampilan Grid Semua Slide">
+                &#x229E; Overview
+            </button>
+        </div>
+    </footer>
+
+    <!-- SIDE DRAWER (Slide List) -->
+    <aside class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <span>&#x1F4CA;</span> Daftar Slide Presentasi
+            </div>
+            <button class="drawer-close" onclick="toggleDrawer()">&times;</button>
+        </div>
+        <div class="drawer-list" id="drawerList">
+            <!-- Populated dynamically via JS -->
+        </div>
+    </aside>
+
+    <!-- OVERVIEW GRID OVERLAY -->
+    <div class="overview-overlay" id="overviewOverlay">
+        <div class="overview-top">
+            <div class="overview-title">
+                <span>&#x229E;</span> Slide Overview Grid (15 Slides)
+            </div>
+            <button class="btn-header highlight" onclick="toggleOverview()">
+                &times; Tutup Grid (Esc)
+            </button>
+        </div>
+        <div class="overview-grid" id="overviewGrid">
+            <!-- Populated dynamically via JS -->
         </div>
     </div>
 
-    <div class="main">
-        <div class="stats-grid" id="statsGrid">
-            <div class="stat-card">
-                <div class="stat-icon teal">&#x1F465;</div>
-                <div>
-                    <div class="stat-label">Total Karyawan</div>
-                    <div class="stat-value" id="statKaryawan">0</div>
+    <!-- DATA DENDA MODAL -->
+    <div class="modal-overlay" id="dendaModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span>&#x1F4B8;</span> Data Nominal Denda Step Counter Karyawan
                 </div>
+                <button class="btn-header" onclick="closeDendaModal()" style="background:rgba(255,255,255,0.2); border:none; color:#fff;">&times; Tutup</button>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon amber">&#x1F4B0;</div>
-                <div>
-                    <div class="stat-label">Total Denda</div>
-                    <div class="stat-value" id="statTotal">Rp 0</div>
+            <div class="modal-body">
+                <div class="denda-stats-row">
+                    <div class="denda-stat-box">
+                        <div class="denda-stat-lbl">Total Karyawan</div>
+                        <div class="denda-stat-num" id="dendaTotalKaryawan">23</div>
+                    </div>
+                    <div class="denda-stat-box">
+                        <div class="denda-stat-lbl">Total Nominal Denda</div>
+                        <div class="denda-stat-num" id="dendaTotalNominal">Rp 995.000</div>
+                    </div>
+                    <div class="denda-stat-box">
+                        <div class="denda-stat-lbl">Denda Tertinggi</div>
+                        <div class="denda-stat-num" id="dendaMaxNominal">Rp 170.000</div>
+                    </div>
                 </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon rose">&#x1F4C8;</div>
-                <div>
-                    <div class="stat-label">Denda Tertinggi</div>
-                    <div class="stat-value" id="statMax">Rp 0</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="table-card">
-            <div class="table-toolbar">
-                <div class="table-title">
-                    &#x1F4CB; Daftar Denda
-                    <span id="rowCount">23 data</span>
-                </div>
-                <div class="search-box">
-                    <span class="search-icon">&#x1F50D;</span>
-                    <input type="text" id="searchInput" placeholder="Cari nama karyawan..." oninput="filterTable()">
-                </div>
-            </div>
+                <input type="text" id="dendaSearchInput" class="denda-search" placeholder="Cari nama karyawan..." oninput="filterDendaTable()">
 
-            <table id="dendaTable">
-                <thead>
-                    <tr>
-                        <th onclick="sortTable('nama')">Nama <em class="sort-icon" id="sortIconNama">&#x21D5;</em></th>
-                        <th onclick="sortTable('nominal')">Nominal Denda <em class="sort-icon"
-                                id="sortIconNominal">&#x21D5;</em></th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody"></tbody>
-                <tfoot>
-                    <tr>
-                        <td>&#x1F4CA; TOTAL</td>
-                        <td id="footerTotal">Rp 0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <div class="empty-state" id="emptyState">
-                <div style="font-size:40px;">&#x1F50D;</div>
-                <p>Tidak ada data yang cocok dengan pencarian.</p>
+                <div class="denda-table-wrap">
+                    <table class="denda-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">No</th>
+                                <th>Nama Karyawan</th>
+                                <th>Nominal Denda</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dendaTableBody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="footer">PT. Sinar Cemaramas Abadi &nbsp;&middot;&nbsp; Divisi MIS &nbsp;&middot;&nbsp; IT Software
-        Engineer</div>
+    <!-- LIGHTBOX IMAGE MODAL -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <img src="" alt="Preview Zoom" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <!-- KEYBOARD HELP MODAL -->
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal-container" style="max-width: 540px;">
+            <div class="modal-header">
+                <div class="modal-title">&#x2328;&#xFE0F; Pintasan Keyboard</div>
+                <button class="btn-header" onclick="closeHelpModal()" style="background:rgba(255,255,255,0.2); border:none; color:#fff;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="kbd-list">
+                    <div class="kbd-item"><span>Slide Selanjutnya</span> <span class="kbd-badge">&rarr; / Space</span></div>
+                    <div class="kbd-item"><span>Slide Sebelumnya</span> <span class="kbd-badge">&larr;</span></div>
+                    <div class="kbd-item"><span>Toggle Fullscreen</span> <span class="kbd-badge">F</span></div>
+                    <div class="kbd-item"><span>Overview Grid</span> <span class="kbd-badge">O / Esc</span></div>
+                    <div class="kbd-item"><span>Slide Pertama</span> <span class="kbd-badge">Home</span></div>
+                    <div class="kbd-item"><span>Slide Terakhir</span> <span class="kbd-badge">End</span></div>
+                    <div class="kbd-item"><span>Data Denda Modal</span> <span class="kbd-badge">T</span></div>
+                    <div class="kbd-item"><span>Auto-Play Slideshow</span> <span class="kbd-badge">A</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
+        // ================= SLIDE METADATA =================
+        const slidesMeta = [
+            { id: 1, title: 'Weekly Report Cover', category: 'Cover', desc: 'PT. Sinar Cemaramas Abadi DIVISI MIS - IT Software Engineer' },
+            { id: 2, title: 'Klasifikasi Portofolio Project', category: 'Agenda', desc: 'Project Sedang Berjalan & Project Sedang Dikembangkan' },
+            { id: 3, title: 'Update Pengiriman Penjualan DO IPE', category: 'Sedang Berjalan', desc: 'Done Dev: 2026-09-10 | Rilis: 2026-09-12' },
+            { id: 4, title: 'Create Mobile POS IPE', category: 'Sedang Berjalan', desc: 'Done Dev: 2026-09-10 | Rilis: 2026-09-16' },
+            { id: 5, title: 'Update Sistem HRIS Multipress Web', category: 'Sedang Berjalan', desc: 'Update fitur laporan Absensi Payroll' },
+            { id: 6, title: 'Update Step Counter HRIS', category: 'Sedang Berjalan', desc: 'Done Dev: 2026-09-12 | Est. Rilis: 2026-09-15' },
+            { id: 7, title: 'Update Fitur Step Counter HRIS (Denda)', category: 'Sedang Berjalan', desc: 'Aturan Cut-off tgl 25 & 26 denda pagi' },
+            { id: 8, title: 'Update Fitur Monitoring Tugas HRIS', category: 'Sedang Dikembangkan', desc: 'Auto update status selesai jika denda dibatalkan' },
+            { id: 9, title: 'Update fitur KPI pada sistem HRIS SCMA', category: 'Sedang Dikembangkan', desc: 'Master KPI, Formula scoring & Verifikasi' },
+            { id: 10, title: 'Create fitur sistem HRIS Multipress', category: 'Sedang Dikembangkan', desc: 'Fitur input lembur & approval lembur' },
+            { id: 11, title: 'Migrasi server backup sistem Magic', category: 'Sedang Dikembangkan', desc: 'Migrasi backup server cloud ke Google Drive' },
+            { id: 12, title: 'Migrasi server backup sistem SISCA', category: 'Sedang Dikembangkan', desc: 'Migrasi backup server cloud ke Google Drive' },
+            { id: 13, title: 'Create fitur peminjaman kendaraan', category: 'Sedang Dikembangkan', desc: 'Timeline & Ruang Lingkup Sistem' },
+            { id: 14, title: 'Peminjaman Kendaraan (Showcase & Video)', category: 'Sedang Dikembangkan', desc: 'Screenshot UI dan Video Demo rekaman' },
+            { id: 15, title: 'THANK YOU!', category: 'Penutup', desc: 'Divisi MIS & IT Software Engineer SCMA' }
+        ];
+
+        let currentSlide = 1;
+        const totalSlides = slidesMeta.length;
+        let autoPlayInterval = null;
+        let presentationStartTime = Date.now();
+
+        // ================= DENDA DATA =================
         const dendaData = [
             { nama: 'Adnan TA SCMA', nominal: 5000 },
             { nama: 'Aga Sales IPE', nominal: 165000 },
@@ -596,102 +2625,329 @@
             { nama: 'Zen MIS SCMA', nominal: 15000 }
         ];
 
-        let sortKey = 'nama';
-        let sortAsc = true;
-        let currentData = [...dendaData];
-        const maxNominal = Math.max(...dendaData.map(d => d.nominal));
-
-        function rp(val) { return 'Rp ' + val.toLocaleString('id-ID'); }
-
-        function renderTable(data) {
-            const tbody = document.getElementById('tableBody');
-            const emptyState = document.getElementById('emptyState');
-            const rowCountEl = document.getElementById('rowCount');
-            const tfoot = document.querySelector('tfoot');
-
-            tbody.innerHTML = '';
-
-            if (data.length === 0) {
-                emptyState.style.display = 'block';
-                tfoot.style.display = 'none';
-                rowCountEl.textContent = '0 data';
-                return;
+        // ================= SLIDE NAVIGATION =================
+        function goToSlide(slideNum) {
+            if (slideNum < 1 || slideNum > totalSlides) return;
+            
+            // Pause video on slide 14 if leaving it
+            if (currentSlide === 14 && slideNum !== 14) {
+                const vid = document.getElementById('slideVideo');
+                if (vid) vid.pause();
             }
 
-            emptyState.style.display = 'none';
-            tfoot.style.display = '';
-            rowCountEl.textContent = data.length + ' data';
-
-            const filteredTotal = data.reduce((s, d) => s + d.nominal, 0);
-            document.getElementById('footerTotal').textContent = rp(filteredTotal);
-
-            data.forEach((row, idx) => {
-                const barWidth = Math.round((row.nominal / maxNominal) * 100);
-                const tr = document.createElement('tr');
-                tr.innerHTML =
-                    '<td><div class="name-cell"><span class="row-num">' + (idx + 1) + '</span>' + row.nama + '</div></td>' +
-                    '<td><div class="nominal-bar-wrap">' +
-                    '<div class="nominal-bar" style="width:' + barWidth + 'px;max-width:100px;"></div>' +
-                    '<span class="nominal-val">' + row.nominal.toLocaleString('id-ID') + '</span>' +
-                    '</div></td>';
-                tr.style.animation = 'fadeUp 0.3s ' + (0.02 * idx) + 's ease both';
-                tbody.appendChild(tr);
-            });
-        }
-
-        function updateStats() {
-            const total = dendaData.reduce((s, d) => s + d.nominal, 0);
-            const max = Math.max(...dendaData.map(d => d.nominal));
-            document.getElementById('statKaryawan').textContent = dendaData.length;
-            document.getElementById('statTotal').textContent = rp(total);
-            document.getElementById('statMax').textContent = rp(max);
-        }
-
-        function sortTable(key) {
-            if (sortKey === key) {
-                sortAsc = !sortAsc;
-            } else {
-                sortKey = key;
-                sortAsc = key === 'nama';
-            }
-
-            ['Nama', 'Nominal'].forEach(k => {
-                const el = document.getElementById('sortIcon' + k);
-                el.innerHTML = '&#x21D5;';
+            document.querySelectorAll('.slide-item').forEach(el => {
                 el.classList.remove('active');
             });
 
-            const keyCapital = key === 'nama' ? 'Nama' : 'Nominal';
-            const el = document.getElementById('sortIcon' + keyCapital);
-            el.innerHTML = sortAsc ? '&#x2191;' : '&#x2193;';
-            el.classList.add('active');
+            const targetSlide = document.querySelector(`.slide-item[data-slide="${slideNum}"]`);
+            if (targetSlide) {
+                targetSlide.classList.add('active');
+            }
 
-            currentData.sort((a, b) => {
-                if (key === 'nama') {
-                    return sortAsc ? a.nama.localeCompare(b.nama, 'id') : b.nama.localeCompare(a.nama, 'id');
-                } else {
-                    return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
-                }
-            });
-
-            renderTable(currentData);
+            currentSlide = slideNum;
+            updateControls();
+            updateDrawerActive();
+            updateOverviewActive();
         }
 
-        function filterTable() {
-            const q = document.getElementById('searchInput').value.trim().toLowerCase();
-            currentData = dendaData.filter(d => d.nama.toLowerCase().includes(q));
-            currentData.sort((a, b) => {
-                if (sortKey === 'nama') {
-                    return sortAsc ? a.nama.localeCompare(b.nama, 'id') : b.nama.localeCompare(a.nama, 'id');
-                } else {
-                    return sortAsc ? a.nominal - b.nominal : b.nominal - a.nominal;
-                }
-            });
-            renderTable(currentData);
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            } else if (autoPlayInterval) {
+                goToSlide(1); // loop in autoplay
+            }
         }
 
-        updateStats();
-        sortTable('nama');
+        function prevSlide() {
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        function updateControls() {
+            // Update counter
+            const numPad = currentSlide.toString().padStart(2, '0');
+            document.getElementById('slideCounter').innerHTML = `<span>${numPad}</span> / ${totalSlides}`;
+
+            // Update Progress Bar
+            const progressPct = (currentSlide / totalSlides) * 100;
+            document.getElementById('progressBarFill').style.width = progressPct + '%';
+
+            // Update buttons
+            document.getElementById('btnPrev').disabled = (currentSlide === 1);
+            document.getElementById('btnNext').disabled = (currentSlide === totalSlides && !autoPlayInterval);
+        }
+
+        function handleProgressBarClick(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const pct = clickX / rect.width;
+            const targetSlide = Math.max(1, Math.min(totalSlides, Math.ceil(pct * totalSlides)));
+            goToSlide(targetSlide);
+        }
+
+        // ================= SIDE DRAWER =================
+        function initDrawer() {
+            const list = document.getElementById('drawerList');
+            list.innerHTML = '';
+            slidesMeta.forEach(s => {
+                const div = document.createElement('div');
+                div.className = `drawer-item ${s.id === currentSlide ? 'active' : ''}`;
+                div.id = `drawerItem-${s.id}`;
+                div.onclick = () => {
+                    goToSlide(s.id);
+                    toggleDrawer(false);
+                };
+                div.innerHTML = `
+                    <span class="drawer-item-num">${s.id.toString().padStart(2, '0')}</span>
+                    <div class="drawer-item-info">
+                        <div class="drawer-item-title">${s.title}</div>
+                        <div class="drawer-item-sub">${s.category}</div>
+                    </div>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        function toggleDrawer(force) {
+            const drawer = document.getElementById('sideDrawer');
+            const btn = document.getElementById('btnDrawer');
+            if (typeof force === 'boolean') {
+                drawer.classList.toggle('open', force);
+                btn.classList.toggle('active', force);
+            } else {
+                drawer.classList.toggle('open');
+                btn.classList.toggle('active');
+            }
+        }
+
+        function updateDrawerActive() {
+            document.querySelectorAll('.drawer-item').forEach(el => el.classList.remove('active'));
+            const activeEl = document.getElementById(`drawerItem-${currentSlide}`);
+            if (activeEl) activeEl.classList.add('active');
+        }
+
+        // ================= OVERVIEW GRID =================
+        function initOverview() {
+            const grid = document.getElementById('overviewGrid');
+            grid.innerHTML = '';
+            slidesMeta.forEach(s => {
+                const card = document.createElement('div');
+                card.className = `overview-card ${s.id === currentSlide ? 'active' : ''}`;
+                card.id = `overviewCard-${s.id}`;
+                card.onclick = () => {
+                    goToSlide(s.id);
+                    toggleOverview(false);
+                };
+                card.innerHTML = `
+                    <div class="overview-card-header">
+                        <span class="overview-card-num">Slide ${s.id.toString().padStart(2, '0')}</span>
+                        <span style="font-size:10px; color:var(--teal-300); font-weight:700;">${s.category}</span>
+                    </div>
+                    <div class="overview-card-title">${s.title}</div>
+                    <div class="overview-card-desc">${s.desc}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleOverview(force) {
+            const overlay = document.getElementById('overviewOverlay');
+            const btn = document.getElementById('btnOverview');
+            if (typeof force === 'boolean') {
+                overlay.classList.toggle('open', force);
+                btn.classList.toggle('active', force);
+            } else {
+                overlay.classList.toggle('open');
+                btn.classList.toggle('active');
+            }
+        }
+
+        function updateOverviewActive() {
+            document.querySelectorAll('.overview-card').forEach(el => el.classList.remove('active'));
+            const activeEl = document.getElementById(`overviewCard-${currentSlide}`);
+            if (activeEl) activeEl.classList.add('active');
+        }
+
+        // ================= FULLSCREEN & AUTOPLAY =================
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.warn(`Fullscreen error: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        function toggleAutoPlay() {
+            const btn = document.getElementById('btnAutoPlay');
+            const icon = document.getElementById('autoPlayIcon');
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+                btn.classList.remove('active');
+                icon.innerHTML = '&#x25B6;';
+                btn.innerHTML = '<span>&#x25B6;</span> Play';
+            } else {
+                autoPlayInterval = setInterval(() => {
+                    nextSlide();
+                }, 5000);
+                btn.classList.add('active');
+                icon.innerHTML = '&#x23F8;';
+                btn.innerHTML = '<span>&#x23F8;</span> Pause';
+            }
+        }
+
+        // ================= PRESENTATION TIMER =================
+        function updateTimer() {
+            const elapsedSec = Math.floor((Date.now() - presentationStartTime) / 1000);
+            const mins = Math.floor(elapsedSec / 60).toString().padStart(2, '0');
+            const secs = (elapsedSec % 60).toString().padStart(2, '0');
+            document.getElementById('timerText').textContent = `${mins}:${secs}`;
+        }
+        setInterval(updateTimer, 1000);
+
+        // ================= DATA DENDA MODAL =================
+        function rp(val) {
+            return 'Rp ' + val.toLocaleString('id-ID');
+        }
+
+        function renderDendaTable(data) {
+            const tbody = document.getElementById('dendaTableBody');
+            tbody.innerHTML = '';
+            data.forEach((row, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${idx + 1}</td>
+                    <td><strong>${row.nama}</strong></td>
+                    <td>${rp(row.nominal)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const total = data.reduce((s, d) => s + d.nominal, 0);
+            const max = data.length ? Math.max(...data.map(d => d.nominal)) : 0;
+            document.getElementById('dendaTotalKaryawan').textContent = data.length;
+            document.getElementById('dendaTotalNominal').textContent = rp(total);
+            document.getElementById('dendaMaxNominal').textContent = rp(max);
+        }
+
+        function filterDendaTable() {
+            const q = document.getElementById('dendaSearchInput').value.trim().toLowerCase();
+            const filtered = dendaData.filter(d => d.nama.toLowerCase().includes(q));
+            renderDendaTable(filtered);
+        }
+
+        function openDendaModal() {
+            renderDendaTable(dendaData);
+            document.getElementById('dendaModal').classList.add('open');
+        }
+
+        function closeDendaModal() {
+            document.getElementById('dendaModal').classList.remove('open');
+        }
+
+        // ================= LIGHTBOX PREVIEW =================
+        function openLightbox(src) {
+            const img = document.getElementById('lightboxImg');
+            img.src = src;
+            document.getElementById('lightboxModal').classList.add('open');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.remove('open');
+        }
+
+        // ================= KEYBOARD HELP =================
+        function openHelpModal() {
+            document.getElementById('helpModal').classList.add('open');
+        }
+
+        function closeHelpModal() {
+            document.getElementById('helpModal').classList.remove('open');
+        }
+
+        // ================= KEYBOARD LISTENER =================
+        document.addEventListener('keydown', (e) => {
+            // Close modals on Escape
+            if (e.key === 'Escape') {
+                closeDendaModal();
+                closeLightbox();
+                closeHelpModal();
+                toggleDrawer(false);
+                if (document.getElementById('overviewOverlay').classList.contains('open')) {
+                    toggleOverview(false);
+                }
+                return;
+            }
+
+            // Don't intercept when typing in search input
+            if (document.activeElement && document.activeElement.tagName === 'INPUT') {
+                return;
+            }
+
+            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(1);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(totalSlides);
+            } else if (e.key.toLowerCase() === 'f') {
+                e.preventDefault();
+                toggleFullscreen();
+            } else if (e.key.toLowerCase() === 'o') {
+                e.preventDefault();
+                toggleOverview();
+            } else if (e.key.toLowerCase() === 't') {
+                e.preventDefault();
+                openDendaModal();
+            } else if (e.key.toLowerCase() === 'a') {
+                e.preventDefault();
+                toggleAutoPlay();
+            } else if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+                e.preventDefault();
+                openHelpModal();
+            }
+        });
+
+        // ================= TOUCH SWIPE SUPPORT =================
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const viewport = document.getElementById('slideViewport');
+
+        viewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide(); // swipe left -> next
+                } else {
+                    prevSlide(); // swipe right -> prev
+                }
+            }
+        }
+
+        // ================= INITIALIZATION =================
+        initDrawer();
+        initOverview();
+        updateControls();
     </script>
 </body>
 
