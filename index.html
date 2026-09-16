@@ -9,16 +9,22 @@
     <title>Weekly Report MIS | PT. Sinar Cemaramas Abadi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Urbanist:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         :root {
-            --teal-950: #041f1c;
+            --ppt-yellow: #EBA925;
+            --ppt-yellow-dark: #d49315;
+            --ppt-yellow-light: #fdf5e6;
             --teal-900: #072e29;
             --teal-800: #0d463f;
             --teal-700: #0f5b52;
@@ -26,43 +32,26 @@
             --teal-500: #19988b;
             --teal-400: #29b8a8;
             --teal-300: #57d4c6;
-            --teal-200: #93ebe0;
-            --teal-100: #caf5ef;
-            --teal-50: #edfbf9;
-            
+
             --gold-500: #f59e0b;
-            --gold-400: #fbbf24;
             --gold-600: #d97706;
-            --gold-50: #fef3c7;
-            --amber-accent: #eba925;
 
-            --blue-500: #3b82f6;
-            --blue-600: #2563eb;
-            --blue-50: #eff6ff;
-            
-            --purple-500: #8b5cf6;
-            --purple-50: #f5f3ff;
+            --bg-dark: #0f1615;
+            --bg-stage: #151e1d;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
 
-            --bg-dark: #0a1413;
-            --bg-stage: #0f1c1a;
-            --card-dark: #122421;
-            --card-dark-border: rgba(41, 184, 168, 0.2);
-            --text-white: #ffffff;
-            --text-light: #e6f4f2;
-            --text-muted: #8ca8a4;
-            --border-subtle: rgba(255, 255, 255, 0.1);
-            
-            --radius-lg: 20px;
-            --radius-md: 14px;
+            --radius-lg: 18px;
+            --radius-md: 12px;
             --radius-sm: 8px;
-            --shadow-slide: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
-            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.25);
+            --shadow-slide: 0 25px 65px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Urbanist', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-dark);
-            color: var(--text-light);
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -72,10 +61,10 @@
 
         /* ===== TOP APP BAR ===== */
         .app-header {
-            height: 56px;
-            background: rgba(7, 46, 41, 0.85);
+            height: 54px;
+            background: rgba(15, 22, 21, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(41, 184, 168, 0.2);
+            border-bottom: 1px solid rgba(235, 169, 37, 0.25);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -91,35 +80,33 @@
         }
 
         .header-logo-badge {
-            background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+            background: linear-gradient(135deg, var(--ppt-yellow), #f39c12);
             color: #000;
-            font-weight: 800;
+            font-weight: 900;
             font-size: 11px;
-            padding: 4px 8px;
+            padding: 4px 9px;
             border-radius: 6px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
         .header-title {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             color: #ffffff;
-            letter-spacing: 0.2px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .header-divider {
-            color: rgba(255, 255, 255, 0.25);
-            font-weight: 300;
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .header-subtitle {
             font-size: 12px;
-            color: var(--teal-200);
-            font-weight: 500;
+            color: var(--ppt-yellow);
+            font-weight: 600;
         }
 
         .header-actions {
@@ -130,8 +117,8 @@
 
         .btn-header {
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
             padding: 6px 12px;
             border-radius: 8px;
             font-size: 12px;
@@ -145,21 +132,23 @@
         }
 
         .btn-header:hover {
-            background: rgba(41, 184, 168, 0.2);
-            border-color: var(--teal-400);
+            background: rgba(235, 169, 37, 0.2);
+            border-color: var(--ppt-yellow);
             color: #ffffff;
         }
 
         .btn-header.active {
-            background: var(--teal-600);
-            border-color: var(--teal-300);
-            color: #ffffff;
+            background: var(--ppt-yellow);
+            border-color: var(--ppt-yellow);
+            color: #000000;
+            font-weight: 800;
         }
 
         .btn-header.highlight {
-            background: linear-gradient(135deg, #00897b, #004d40);
-            border-color: var(--teal-300);
-            color: #fff;
+            background: linear-gradient(135deg, var(--ppt-yellow), #d49315);
+            border-color: var(--ppt-yellow);
+            color: #000000;
+            font-weight: 800;
         }
 
         /* ===== MAIN PRESENTATION STAGE ===== */
@@ -168,10 +157,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 24px;
+            padding: 14px 24px;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(circle at center, #132a26 0%, #081211 100%);
+            background: radial-gradient(circle at center, #1b2725 0%, #0c1211 100%);
         }
 
         /* 16:9 Aspect Ratio Slide Canvas */
@@ -179,15 +168,15 @@
             width: 100%;
             max-width: 1280px;
             aspect-ratio: 16 / 9;
-            max-height: calc(100vh - 130px);
+            max-height: calc(100vh - 124px);
             position: relative;
-            background: #ffffff;
+            background: var(--ppt-yellow);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-slide);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            color: #1a2e2c;
+            color: var(--text-dark);
         }
 
         /* Slide item */
@@ -196,11 +185,11 @@
             inset: 0;
             display: none;
             flex-direction: column;
-            background: #ffffff;
+            background: var(--ppt-yellow);
             overflow: hidden;
             opacity: 0;
-            transform: scale(0.985);
-            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.99);
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .slide-item.active {
@@ -210,12 +199,58 @@
             z-index: 2;
         }
 
-        /* Slide Template Master Banner & Top Accent */
+        /* Top Yellow Header Bar (matching PPTX Slide 2-14) */
+        .slide-top-bar {
+            height: 48px;
+            padding: 0 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 5;
+            background: var(--ppt-yellow);
+        }
+
+        .slide-top-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 900;
+            color: #1a202c;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .slide-top-category {
+            font-size: 12px;
+            font-weight: 800;
+            background: rgba(0, 0, 0, 0.12);
+            color: #1a202c;
+            padding: 3px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* White Inner Card Sheet (matching PPTX rounded rectangle) */
+        .slide-white-sheet {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+
         .slide-header-strip {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 24px 44px 12px;
+            padding: 22px 38px 10px;
             position: relative;
             z-index: 10;
         }
@@ -224,10 +259,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
         }
 
         .slide-category-tag.berjalan {
@@ -235,11 +270,11 @@
         }
 
         .slide-category-tag.berjalan .dot {
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
-            background: #14b8a6;
-            box-shadow: 0 0 10px #14b8a6;
+            background: #0d9488;
+            box-shadow: 0 0 8px #0d9488;
         }
 
         .slide-category-tag.dikembangkan {
@@ -247,20 +282,20 @@
         }
 
         .slide-category-tag.dikembangkan .dot {
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
-            background: #f59e0b;
-            box-shadow: 0 0 10px #f59e0b;
+            background: var(--ppt-yellow);
+            box-shadow: 0 0 8px var(--ppt-yellow);
         }
 
         .slide-dept-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #f0fdfa;
-            color: #0f766e;
-            border: 1px solid #ccfbf1;
+            background: #f8fafc;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
             font-size: 11px;
             font-weight: 700;
             padding: 4px 10px;
@@ -270,7 +305,7 @@
 
         .slide-content-body {
             flex: 1;
-            padding: 4px 44px 28px;
+            padding: 0 38px 20px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -279,20 +314,20 @@
         }
 
         .slide-main-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             color: #0f2c28;
             line-height: 1.25;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+            letter-spacing: -0.4px;
             font-family: 'Urbanist', 'Plus Jakarta Sans', sans-serif;
         }
 
         .slide-footer-strip {
-            height: 36px;
-            padding: 0 44px;
+            height: 34px;
+            padding: 0 38px;
             border-top: 1px solid #f1f5f9;
-            background: #fcfdfd;
+            background: #fafcfc;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -305,7 +340,19 @@
 
         .slide-footer-strip .author {
             color: #0f766e;
-            font-weight: 700;
+            font-weight: 800;
+        }
+
+        /* Slide Corner Watermark Logo (image2.png from PPTX) */
+        .slide-watermark {
+            position: absolute;
+            bottom: 12px;
+            right: 24px;
+            width: 120px;
+            height: auto;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
         }
 
         /* Corner Decorative Elements */
@@ -699,7 +746,7 @@
             padding: 20px 24px;
             border: 1.5px solid #e2e8f0;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-            margin-top: auto;
+            margin-top: 100px;
         }
 
         .progress-box-title {
@@ -810,9 +857,18 @@
             height: 8px;
             border-radius: 50%;
         }
-        .frame-dot.red { background: #ef4444; }
-        .frame-dot.yellow { background: #f59e0b; }
-        .frame-dot.green { background: #10b981; }
+
+        .frame-dot.red {
+            background: #ef4444;
+        }
+
+        .frame-dot.yellow {
+            background: #f59e0b;
+        }
+
+        .frame-dot.green {
+            background: #10b981;
+        }
 
         .desktop-frame-img {
             width: 100%;
@@ -866,7 +922,7 @@
             text-align: center;
             flex: 1;
             max-width: 220px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
         }
 
         .diagram-node.source {
@@ -931,7 +987,7 @@
             max-width: 200px;
             height: auto;
             margin-bottom: 24px;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
         }
 
         .thankyou-title {
@@ -1319,8 +1375,15 @@
         }
 
         @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .modal-header {
@@ -1346,92 +1409,6 @@
             flex: 1;
         }
 
-        /* Denda Stats Grid */
-        .denda-stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-bottom: 20px;
-        }
-
-        .denda-stat-box {
-            background: #f0fdfa;
-            border: 1px solid #ccfbf1;
-            border-radius: 12px;
-            padding: 14px 18px;
-        }
-
-        .denda-stat-lbl {
-            font-size: 11px;
-            font-weight: 700;
-            color: #0f766e;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .denda-stat-num {
-            font-size: 20px;
-            font-weight: 900;
-            color: #134e4a;
-        }
-
-        /* Denda Table */
-        .denda-table-wrap {
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .denda-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .denda-table th {
-            background: #0f766e;
-            color: #ffffff;
-            padding: 10px 16px;
-            font-size: 12px;
-            font-weight: 700;
-            text-align: left;
-            letter-spacing: 0.5px;
-        }
-
-        .denda-table th:last-child {
-            text-align: right;
-        }
-
-        .denda-table td {
-            padding: 10px 16px;
-            font-size: 13px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .denda-table tr:nth-child(even) td {
-            background: #f8fafc;
-        }
-
-        .denda-table td:last-child {
-            text-align: right;
-            font-weight: 800;
-            color: #0f766e;
-        }
-
-        .denda-search {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 10px;
-            font-size: 13px;
-            font-family: inherit;
-            margin-bottom: 14px;
-            outline: none;
-        }
-
-        .denda-search:focus {
-            border-color: #0f766e;
-        }
-
         /* Lightbox Image Preview Modal */
         .lightbox-modal {
             position: fixed;
@@ -1452,7 +1429,7 @@
             max-width: 90vw;
             max-height: 85vh;
             border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
         }
 
         /* Keyboard Help Modal */
@@ -1489,51 +1466,65 @@
             .app-header {
                 padding: 0 12px;
             }
+
             .header-subtitle {
                 display: none;
             }
+
             .stage-container {
                 padding: 8px;
             }
+
             .slide-header-strip {
                 padding: 14px 20px 8px;
             }
+
             .slide-content-body {
                 padding: 4px 20px 16px;
             }
+
             .slide-main-title {
                 font-size: 20px;
                 margin-bottom: 12px;
             }
+
             .slide-footer-strip {
                 padding: 0 20px;
             }
+
             .timeline-grid {
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
+
             .agenda-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
             }
+
             .slide-cover {
                 flex-direction: column;
                 padding: 24px;
                 text-align: center;
             }
+
             .cover-left {
                 padding-right: 0;
                 margin-bottom: 20px;
             }
+
             .cover-title {
                 font-size: 28px;
             }
+
             .cover-company {
                 font-size: 18px;
             }
+
             .cover-right {
                 display: none;
             }
+
             .showcase-split-grid {
                 grid-template-columns: 1fr;
             }
@@ -1555,16 +1546,15 @@
         </div>
 
         <div class="header-actions">
-            <button class="btn-header highlight" onclick="openDendaModal()" title="Lihat Rekap Data Denda Step Counter">
-                <span>&#x1F4B8;</span> Data Denda
-            </button>
             <button class="btn-header" id="btnDrawer" onclick="toggleDrawer()" title="Daftar Slide">
                 <span>&#x2630;</span> Slides
             </button>
-            <button class="btn-header" id="btnOverview" onclick="toggleOverview()" title="Tampilan Grid Semua Slide (O)">
+            <button class="btn-header" id="btnOverview" onclick="toggleOverview()"
+                title="Tampilan Grid Semua Slide (O)">
                 <span>&#x229E;</span> Grid
             </button>
-            <button class="btn-header" id="btnAutoPlay" onclick="toggleAutoPlay()" title="Auto-Play Slideshow (Space/A)">
+            <button class="btn-header" id="btnAutoPlay" onclick="toggleAutoPlay()"
+                title="Auto-Play Slideshow (Space/A)">
                 <span id="autoPlayIcon">&#x25B6;</span> Play
             </button>
             <button class="btn-header" onclick="toggleFullscreen()" title="Fullscreen Mode (F)">
@@ -1581,22 +1571,32 @@
         <div class="slide-viewport" id="slideViewport">
 
             <!-- ================= SLIDE 1: COVER ================= -->
-            <section class="slide-item active slide-cover" data-slide="1">
+            <section class="slide-item active slide-cover" data-slide="1"
+                style="background: url('assets/image1.png') no-repeat center center; background-size: cover;">
                 <div class="cover-left">
-                    <div class="cover-badge">&#x1F4CB; WEEKLY REPORT PRESENTATION</div>
-                    <h1 class="cover-title">Weekly <span>Report</span></h1>
+                    <div class="cover-badge"
+                        style="background: rgba(235, 169, 37, 0.2); border-color: #EBA925; color: #EBA925;">&#x1F4CB;
+                        WEEKLY REPORT PRESENTATION</div>
+                    <h1 class="cover-title">Weekly <span
+                            style="background: linear-gradient(135deg, #EBA925, #f39c12); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Report</span>
+                    </h1>
                     <div class="cover-company">PT. Sinar Cemaramas Abadi</div>
-                    <div class="cover-meta-card">
-                        <div class="cover-meta-icon">&#x1F4BB;</div>
+                    <div class="cover-meta-card"
+                        style="background: rgba(0, 0, 0, 0.4); border-color: rgba(235, 169, 37, 0.3);">
+                        <div class="cover-meta-icon"
+                            style="background: linear-gradient(135deg, #EBA925, #d49315); color: #000;">&#x1F4BB;</div>
                         <div>
                             <div class="cover-meta-dept">DIVISI MIS</div>
-                            <div class="cover-meta-role">IT Software Engineer &nbsp;&middot;&nbsp; 17 September 2026</div>
+                            <div class="cover-meta-role" style="color: #EBA925;">IT Software Engineer
+                                &nbsp;&middot;&nbsp; 17 September 2026</div>
                         </div>
                     </div>
                 </div>
                 <div class="cover-right">
                     <div class="cover-graphic-wrap">
-                        <div class="cover-glow"></div>
+                        <div class="cover-glow"
+                            style="background: radial-gradient(circle, rgba(235, 169, 37, 0.3) 0%, transparent 70%);">
+                        </div>
                         <img src="assets/image3.png" alt="MIS SCMA Graphic" class="cover-img">
                     </div>
                 </div>
@@ -1604,834 +1604,943 @@
 
             <!-- ================= SLIDE 2: KLASIFIKASI PORTOFOLIO ================= -->
             <section class="slide-item" data-slide="2">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag berjalan">
-                        <span class="dot"></span>
-                        Overview Portofolio
-                    </div>
-                    <div class="slide-dept-badge">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">&#x1F4CA; PT. Sinar Cemaramas Abadi &middot; Divisi MIS</div>
+                    <div class="slide-top-category">Overview Portofolio</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Klasifikasi Portofolio Project</h2>
-                    <div class="agenda-grid">
-                        <!-- Kolom 1: Project Sedang Berjalan -->
-                        <div class="agenda-card berjalan">
-                            <div class="agenda-card-header">
-                                <div class="agenda-card-title">
-                                    <span>&#x1F680;</span> Project Sedang Berjalan
-                                </div>
-                                <span class="agenda-badge-count">4 Project</span>
-                            </div>
-                            <ul class="agenda-list">
-                                <li class="agenda-item" onclick="goToSlide(3)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Update Pengiriman Penjualan DO IPE</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(4)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Create Mobile POS IPE</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(6)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Update Step Counter HRIS SCMA</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(5)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Update Sistem HRIS Multipress Web</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                            </ul>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag berjalan">
+                            <span class="dot"></span>
+                            Agenda Portofolio
                         </div>
+                        <div class="slide-dept-badge">IT Software Engineer</div>
+                    </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Klasifikasi Portofolio Project</h2>
+                        <div class="agenda-grid">
+                            <!-- Kolom 1: Project Sedang Berjalan -->
+                            <div class="agenda-card berjalan">
+                                <div class="agenda-card-header">
+                                    <div class="agenda-card-title">
+                                        <span>&#x1F680;</span> Project Sedang Berjalan
+                                    </div>
+                                    <span class="agenda-badge-count">4 Project</span>
+                                </div>
+                                <ul class="agenda-list">
+                                    <li class="agenda-item" onclick="goToSlide(3)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Update Pengiriman Penjualan DO IPE</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(4)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Create Mobile POS IPE</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(6)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Update Step Counter HRIS SCMA</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(5)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Update Sistem HRIS Multipress Web</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <!-- Kolom 2: Project Sedang Dikembangkan -->
-                        <div class="agenda-card dikembangkan">
-                            <div class="agenda-card-header">
-                                <div class="agenda-card-title">
-                                    <span>&#x2699;</span> Project Sedang Dikembangkan
+                            <!-- Kolom 2: Project Sedang Dikembangkan -->
+                            <div class="agenda-card dikembangkan">
+                                <div class="agenda-card-header">
+                                    <div class="agenda-card-title">
+                                        <span>&#x2699;</span> Project Sedang Dikembangkan
+                                    </div>
+                                    <span class="agenda-badge-count">6 Project</span>
                                 </div>
-                                <span class="agenda-badge-count">6 Project</span>
+                                <ul class="agenda-list">
+                                    <li class="agenda-item" onclick="goToSlide(8)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Update fitur Monitoring Tugas HRIS SCMA</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(9)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Update fitur KPI pada sistem HRIS SCMA</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(10)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Create fitur sistem HRIS Multipress</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(11)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Migrasi server backup data sistem Magic</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(12)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Migrasi server backup data sistem SISCA</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                    <li class="agenda-item" onclick="goToSlide(13)">
+                                        <div class="agenda-item-left">
+                                            <span class="agenda-item-bullet"></span>
+                                            <span>Create fitur peminjaman kendaraan</span>
+                                        </div>
+                                        <span class="agenda-jump-arrow">&#x2192;</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="agenda-list">
-                                <li class="agenda-item" onclick="goToSlide(8)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Update fitur Monitoring Tugas HRIS SCMA</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(9)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Update fitur KPI pada sistem HRIS SCMA</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(10)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Create fitur sistem HRIS Multipress</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(11)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Migrasi server backup data sistem Magic</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(12)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Migrasi server backup data sistem SISCA</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                                <li class="agenda-item" onclick="goToSlide(13)">
-                                    <div class="agenda-item-left">
-                                        <span class="agenda-item-bullet"></span>
-                                        <span>Create fitur peminjaman kendaraan</span>
-                                    </div>
-                                    <span class="agenda-jump-arrow">&#x2192;</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 02 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 02 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 3: UPDATE PENGIRIMAN PENJUALAN DO IPE ================= -->
             <section class="slide-item" data-slide="3">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag berjalan">
-                        <span class="dot"></span>
-                        Project Sedang Berjalan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; IT Software Engineer</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Berjalan.</div>
+                    <div class="slide-top-category">DO IPE</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Update Pengiriman Penjualan DO IPE.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card done">
-                            <div>
-                                <div class="timeline-phase">&#x2714; Development</div>
-                                <div class="timeline-date">2026-09-10</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag berjalan">
+                            <span class="dot"></span>
+                            Project Sedang Berjalan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-10 s/d 2026-09-12</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
-                        </div>
-                        <div class="timeline-card production done">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Production</div>
-                                <div class="timeline-date">2026-09-12</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; IT Software Engineer</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Update Pengiriman Penjualan DO IPE.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F4CB; Status Detail Project</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x2705;</span>
-                                <div>Fitur update pengiriman penjualan Delivery Order (DO) IPE telah berhasil diselesaikan, melalui tahap testing, dan sudah <strong>resmi dirilis ke production</strong> pada 12 September 2026.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card done">
+                                <div>
+                                    <div class="timeline-phase">&#x2714; Development</div>
+                                    <div class="timeline-date">2026-09-10</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                            </div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-10 s/d 2026-09-12</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                            </div>
+                            <div class="timeline-card production done">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Production</div>
+                                    <div class="timeline-date">2026-09-12</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F4CB; Status Detail Project</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x2705;</span>
+                                    <div>Fitur update pengiriman penjualan Delivery Order (DO) IPE telah berhasil
+                                        diselesaikan, melalui tahap testing, dan sudah <strong>resmi dirilis ke
+                                            production</strong> pada 12 September 2026.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 03 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 03 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 4: CREATE MOBILE POS IPE ================= -->
             <section class="slide-item" data-slide="4">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag berjalan">
-                        <span class="dot"></span>
-                        Project Sedang Berjalan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; Mobile Development</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Berjalan.</div>
+                    <div class="slide-top-category">Mobile POS IPE</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Create Mobile POS IPE.</h2>
-                    
-                    <div class="showcase-layout">
-                        <div style="display:flex; flex-direction:column; gap:16px;">
-                            <div class="timeline-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
-                                <div class="timeline-card done">
-                                    <div class="timeline-card-header">
-                                        <span class="timeline-phase">&#x2714; Done Development</span>
-                                        <span class="timeline-date">2026-09-10</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag berjalan">
+                            <span class="dot"></span>
+                            Project Sedang Berjalan
+                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; Mobile Development</div>
+                    </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Create Mobile POS IPE.</h2>
+
+                        <div class="showcase-layout">
+                            <div style="display:flex; flex-direction:column; gap:16px;">
+                                <div class="timeline-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
+                                    <div class="timeline-card done">
+                                        <div class="timeline-card-header">
+                                            <span class="timeline-phase">&#x2714; Done Development</span>
+                                            <span class="timeline-date">2026-09-10</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-card testing">
+                                        <div class="timeline-card-header">
+                                            <span class="timeline-phase">&#x1F9EA; Testing</span>
+                                            <span class="timeline-date">2026-09-10 s/d 2026-09-15</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-card production done">
+                                        <div class="timeline-card-header">
+                                            <span class="timeline-phase">&#x1F680; Rilis to Production</span>
+                                            <span class="timeline-date">2026-09-16</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="timeline-card testing">
-                                    <div class="timeline-card-header">
-                                        <span class="timeline-phase">&#x1F9EA; Testing</span>
-                                        <span class="timeline-date">2026-09-10 s/d 2026-09-15</span>
-                                    </div>
-                                </div>
-                                <div class="timeline-card production done">
-                                    <div class="timeline-card-header">
-                                        <span class="timeline-phase">&#x1F680; Rilis to Production</span>
-                                        <span class="timeline-date">2026-09-16</span>
+
+                                <div class="progress-box">
+                                    <div class="progress-box-title">&#x1F4F1; Informasi Aplikasi</div>
+                                    <div class="progress-points-list">
+                                        <div class="progress-point-item">
+                                            <span class="progress-point-icon">&#x2705;</span>
+                                            <div>Aplikasi Mobile Point of Sales (POS) IPE telah melewati serangkaian
+                                                user testing dan telah <strong>dirilis ke lingkungan Production</strong>
+                                                pada tanggal 16 September 2026.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="progress-box">
-                                <div class="progress-box-title">&#x1F4F1; Informasi Aplikasi</div>
-                                <div class="progress-points-list">
-                                    <div class="progress-point-item">
-                                        <span class="progress-point-icon">&#x2705;</span>
-                                        <div>Aplikasi Mobile Point of Sales (POS) IPE telah melewati serangkaian user testing dan telah <strong>dirilis ke lingkungan Production</strong> pada tanggal 16 September 2026.</div>
-                                    </div>
+                            <!-- Mobile Device Preview -->
+                            <div style="text-align:center;">
+                                <div class="showcase-phone-frame" onclick="openLightbox('assets/image4.jpeg')"
+                                    title="Klik untuk memperbesar gambar">
+                                    <img src="assets/image4.jpeg" alt="Mobile POS IPE Screenshot"
+                                        class="showcase-phone-img">
                                 </div>
+                                <div style="font-size:11px; color:#64748b; margin-top:8px; font-weight:600;">&#x1F50D;
+                                    Klik gambar untuk zoom preview</div>
                             </div>
-                        </div>
-
-                        <!-- Mobile Device Preview -->
-                        <div style="text-align:center;">
-                            <div class="showcase-phone-frame" onclick="openLightbox('assets/image4.jpeg')" title="Klik untuk memperbesar gambar">
-                                <img src="assets/image4.jpeg" alt="Mobile POS IPE Screenshot" class="showcase-phone-img">
-                            </div>
-                            <div style="font-size:11px; color:#64748b; margin-top:8px; font-weight:600;">&#x1F50D; Klik gambar untuk zoom preview</div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 04 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 04 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 5: UPDATE SISTEM HRIS MULTIPRESS WEB ================= -->
             <section class="slide-item" data-slide="5">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag berjalan">
-                        <span class="dot"></span>
-                        Project Sedang Berjalan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Berjalan.</div>
+                    <div class="slide-top-category">HRIS Multipress Web</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Update Sistem HRIS Multipress Web.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card done">
-                            <div>
-                                <div class="timeline-phase">&#x2714; Development</div>
-                                <div class="timeline-date">2026-09-10</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag berjalan">
+                            <span class="dot"></span>
+                            Project Sedang Berjalan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-10 s/d 2026-09-12</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
-                        </div>
-                        <div class="timeline-card production done">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Production</div>
-                                <div class="timeline-date">2026-09-12</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Update Sistem HRIS Multipress Web.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F4CA; Update Progress Web HRIS Multipress</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x2728;</span>
-                                <div><strong>Update fitur laporan Absensi Payroll:</strong> Menyediakan rekap data absensi yang terintegrasi secara otomatis dengan modul penggajian karyawan multipress.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card done">
+                                <div>
+                                    <div class="timeline-phase">&#x2714; Development</div>
+                                    <div class="timeline-date">2026-09-10</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                            </div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-10 s/d 2026-09-12</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                            </div>
+                            <div class="timeline-card production done">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Production</div>
+                                    <div class="timeline-date">2026-09-12</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F4CA; Update Progress Web HRIS Multipress</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x2728;</span>
+                                    <div><strong>Update fitur laporan Absensi Payroll:</strong> Menyediakan rekap data
+                                        absensi yang terintegrasi secara otomatis dengan modul penggajian karyawan
+                                        multipress.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 05 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 05 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 6: UPDATE STEP COUNTER HRIS ================= -->
             <section class="slide-item" data-slide="6">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag berjalan">
-                        <span class="dot"></span>
-                        Project Sedang Berjalan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Berjalan.</div>
+                    <div class="slide-top-category">Step Counter HRIS</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Update Step Counter HRIS.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card done">
-                            <div>
-                                <div class="timeline-phase">&#x2714; Development</div>
-                                <div class="timeline-date">2026-09-12</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag berjalan">
+                            <span class="dot"></span>
+                            Project Sedang Berjalan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-12 s/d 2026-09-14</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-15</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">&#x23F3; Est. Rilis Production</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Update Step Counter HRIS.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F3C3; Integrasi Step Counter</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F504;</span>
-                                <div>Penyelarasan logika kalkulasi target langkah harian dan sinkronisasi nominal denda keterlambatan / kekurangan langkah otomatis ke sistem HRIS.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card done">
+                                <div>
+                                    <div class="timeline-phase">&#x2714; Development</div>
+                                    <div class="timeline-date">2026-09-12</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                            </div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-12 s/d 2026-09-14</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                            </div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-15</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">&#x23F3; Est. Rilis Production</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F3C3; Integrasi Step Counter</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F504;</span>
+                                    <div>Penyelarasan logika kalkulasi target langkah harian dan sinkronisasi nominal
+                                        denda keterlambatan / kekurangan langkah otomatis ke sistem HRIS.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 06 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 06 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 7: UPDATE FITUR STEP COUNTER HRIS (ATURAN DENDA) ================= -->
             <section class="slide-item" data-slide="7">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag berjalan">
-                        <span class="dot"></span>
-                        Project Sedang Berjalan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Berjalan.</div>
+                    <div class="slide-top-category">Fitur Step Counter & Denda</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Update Fitur Step Counter HRIS.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card done">
-                            <div>
-                                <div class="timeline-phase">&#x2714; Development</div>
-                                <div class="timeline-date">2026-09-14</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag berjalan">
+                            <span class="dot"></span>
+                            Project Sedang Berjalan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-14 s/d 2026-09-16</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
-                        </div>
-                        <div class="timeline-card production done">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Rilis Production</div>
-                                <div class="timeline-date">2026-09-16</div>
-                            </div>
-                            <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Update Fitur Step Counter HRIS.</h2>
 
-                    <div class="progress-box" style="border-left: 5px solid #d97706;">
-                        <div class="progress-box-title" style="color: #b45309;">&#x26A0;&#xFE0F; Update Progress & Aturan Cut-Off Input</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item amber">
-                                <span class="progress-point-icon">&#x1F6AB;</span>
-                                <div><strong>Aturan Input Tanggal &le; 25:</strong> Tidak bisa lagi input step counter di bawah tanggal 25 jika sudah melewati tanggal 25.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card done">
+                                <div>
+                                    <div class="timeline-phase">&#x2714; Development</div>
+                                    <div class="timeline-date">2026-09-14</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Done Development</span>
                             </div>
-                            <div class="progress-point-item amber">
-                                <span class="progress-point-icon">&#x1F4C5;</span>
-                                <div><strong>Khusus Tanggal 25:</strong> Sudah tidak bisa input di tanggal 26 karena <strong>data nominal denda ditarik pada tanggal 26 pagi</strong>.</div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-14 s/d 2026-09-16</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Testing Selesai</span>
+                            </div>
+                            <div class="timeline-card production done">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Rilis Production</div>
+                                    <div class="timeline-date">2026-09-16</div>
+                                </div>
+                                <span class="timeline-status-pill status-done">&#x2714; Rilis Production</span>
                             </div>
                         </div>
-                        <div style="margin-top: 14px; text-align: right;">
-                            <button class="btn-header highlight" onclick="openDendaModal()" style="padding: 8px 16px; font-size: 13px;">
-                                &#x1F4B8; Buka Rekap Nominal Denda Karyawan &rarr;
-                            </button>
+
+                        <div class="progress-box" style="border-left: 5px solid #d97706;">
+                            <div class="progress-box-title" style="color: #b45309;">&#x26A0;&#xFE0F; Update Progress &
+                                Aturan Cut-Off Input</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item amber">
+                                    <span class="progress-point-icon">&#x1F6AB;</span>
+                                    <div><strong>Aturan Input Tanggal &le; 25:</strong> Tidak bisa lagi input step
+                                        counter di bawah tanggal 25 jika sudah melewati tanggal 25.</div>
+                                </div>
+                                <div class="progress-point-item amber">
+                                    <span class="progress-point-icon">&#x1F4C5;</span>
+                                    <div><strong>Khusus Tanggal 25:</strong> Sudah tidak bisa input di tanggal 26 karena
+                                        <strong>data nominal denda ditarik pada tanggal 26 pagi</strong>.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 07 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 07 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 8: MONITORING TUGAS HRIS ================= -->
             <section class="slide-item" data-slide="8">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">Monitoring Tugas HRIS</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Update Fitur Monitoring Tugas HRIS.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card">
-                            <div>
-                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
-                                <div class="timeline-date">2026-09-13</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-13 s/d 2026-09-15</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Testing</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-15</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; HRIS System</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Update Fitur Monitoring Tugas HRIS.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F916; Update Progress & Logika Otomatisasi</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item blue">
-                                <span class="progress-point-icon">&#x1F504;</span>
-                                <div>Untuk monitoring tugas yang sudah dibatalkan dendanya oleh <strong>&ldquo;Yang Memberikan Tugas&rdquo;</strong>, maka secara otomatis sistem akan mengupdate status tugas menjadi <strong>&ldquo;Selesai&rdquo;</strong>.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card">
+                                <div>
+                                    <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                    <div class="timeline-date">2026-09-13</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">Development</span>
+                            </div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-13 s/d 2026-09-15</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Testing</span>
+                            </div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-15</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F916; Update Progress & Logika Otomatisasi</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item blue">
+                                    <span class="progress-point-icon">&#x1F504;</span>
+                                    <div>Untuk monitoring tugas yang sudah dibatalkan dendanya oleh <strong>&ldquo;Yang
+                                            Memberikan Tugas&rdquo;</strong>, maka secara otomatis sistem akan
+                                        mengupdate status tugas menjadi <strong>&ldquo;Selesai&rdquo;</strong>.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 08 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 08 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 9: KPI PADA SISTEM HRIS SCMA ================= -->
             <section class="slide-item" data-slide="9">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; Performance System</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">Fitur KPI HRIS SCMA</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Update fitur KPI pada sistem HRIS SCMA.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card">
-                            <div>
-                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
-                                <div class="timeline-date">2026-09-19</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-19 s/d 2026-09-22</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Testing</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-22</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; Performance System</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Update fitur KPI pada sistem HRIS SCMA.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F4CA; Update Progress Modul KPI</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F527;</span>
-                                <div><strong>Update inputan master KPI:</strong> Disesuaikan dengan penambahan komponen dan indikator penilaian baru.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card">
+                                <div>
+                                    <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                    <div class="timeline-date">2026-09-19</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">Development</span>
                             </div>
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F9EE;</span>
-                                <div><strong>Update formula perhitungan KPI:</strong> Menyelaraskan bobot dan scoring otomatis karyawan.</div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-19 s/d 2026-09-22</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Testing</span>
                             </div>
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x2705;</span>
-                                <div><strong>Create fitur verifikasi:</strong> Alur approval dan validasi berjenjang untuk setiap inputan KPI.</div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-22</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F4CA; Update Progress Modul KPI</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F527;</span>
+                                    <div><strong>Update inputan master KPI:</strong> Disesuaikan dengan penambahan
+                                        komponen dan indikator penilaian baru.</div>
+                                </div>
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F9EE;</span>
+                                    <div><strong>Update formula perhitungan KPI:</strong> Menyelaraskan bobot dan
+                                        scoring otomatis karyawan.</div>
+                                </div>
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x2705;</span>
+                                    <div><strong>Create fitur verifikasi:</strong> Alur approval dan validasi berjenjang
+                                        untuk setiap inputan KPI.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 09 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 09 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 10: FITUR SISTEM HRIS MULTIPRESS ================= -->
             <section class="slide-item" data-slide="10">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; HRIS Multipress</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">HRIS Multipress</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Create fitur sistem HRIS Multipress.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card">
-                            <div>
-                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
-                                <div class="timeline-date">2026-09-15</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-15 s/d 2026-09-19</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Testing</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-19</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; HRIS Multipress</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Create fitur sistem HRIS Multipress.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x23F0; Update Progress Modul Lembur</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F4DD;</span>
-                                <div><strong>Create fitur input lembur:</strong> Form pengajuan lembur mandiri oleh karyawan dengan validasi shift kerja.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card">
+                                <div>
+                                    <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                    <div class="timeline-date">2026-09-15</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">Development</span>
                             </div>
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F44D;</span>
-                                <div><strong>Create fitur approval lembur:</strong> Dashboard persetujuan lembur terintegrasi untuk Supervisor / HR.</div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-15 s/d 2026-09-19</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Testing</span>
+                            </div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-19</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x23F0; Update Progress Modul Lembur</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F4DD;</span>
+                                    <div><strong>Create fitur input lembur:</strong> Form pengajuan lembur mandiri oleh
+                                        karyawan dengan validasi shift kerja.</div>
+                                </div>
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F44D;</span>
+                                    <div><strong>Create fitur approval lembur:</strong> Dashboard persetujuan lembur
+                                        terintegrasi untuk Supervisor / HR.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 10 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 10 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 11: MIGRASI SERVER BACKUP MAGIC ================= -->
             <section class="slide-item" data-slide="11">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; Infrastructure & Backup</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">Migrasi Server Magic</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Migrasi server backup data sistem Magic.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card">
-                            <div>
-                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
-                                <div class="timeline-date">2026-09-15</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-15 s/d 2026-09-16</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Testing</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-17</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; Infrastructure & Backup</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Migrasi server backup data sistem Magic.</h2>
 
-                    <!-- Migration Architecture Diagram -->
-                    <div class="migration-diagram">
-                        <div class="diagram-node source">
-                            <div class="diagram-node-icon">&#x1F5C4;&#xFE0F;</div>
-                            <div class="diagram-node-title">Server Cloud Mandiri</div>
-                            <div class="diagram-node-sub">Local Cloud Storage (Old)</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card">
+                                <div>
+                                    <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                    <div class="timeline-date">2026-09-15</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">Development</span>
+                            </div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-15 s/d 2026-09-16</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Testing</span>
+                            </div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-17</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                            </div>
                         </div>
-                        <div class="diagram-arrow">
-                            <span>MIGRASI</span>
-                            &rarr;
-                        </div>
-                        <div class="diagram-node target">
-                            <div class="diagram-node-icon">&#x2601;&#xFE0F;</div>
-                            <div class="diagram-node-title">Google Drive Enterprise</div>
-                            <div class="diagram-node-sub">Automated Secure Backup (New)</div>
-                        </div>
-                    </div>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F4BE; Update Progress</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F504;</span>
-                                <div>Yang awalnya untuk backup data di server cloud-nya sendiri, maka akan <strong>dimigrasikan ke Google Drive</strong> untuk backup data otomatis dan redundansi yang lebih aman.</div>
+                        <!-- Migration Architecture Diagram -->
+                        <div class="migration-diagram">
+                            <div class="diagram-node source">
+                                <div class="diagram-node-icon">&#x1F5C4;&#xFE0F;</div>
+                                <div class="diagram-node-title">Server Cloud Mandiri</div>
+                                <div class="diagram-node-sub">Local Cloud Storage (Old)</div>
+                            </div>
+                            <div class="diagram-arrow">
+                                <span>MIGRASI</span>
+                                &rarr;
+                            </div>
+                            <div class="diagram-node target">
+                                <div class="diagram-node-icon">&#x2601;&#xFE0F;</div>
+                                <div class="diagram-node-title">Google Drive Enterprise</div>
+                                <div class="diagram-node-sub">Automated Secure Backup (New)</div>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F4BE; Update Progress</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F504;</span>
+                                    <div>Yang awalnya untuk backup data di server cloud-nya sendiri, maka akan
+                                        <strong>dimigrasikan ke Google Drive</strong> untuk backup data otomatis dan
+                                        redundansi yang lebih aman.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 11 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 11 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 12: MIGRASI SERVER BACKUP SISCA ================= -->
             <section class="slide-item" data-slide="12">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; Infrastructure & Backup</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">Migrasi Server SISCA</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Migrasi server backup data sistem SISCA.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card">
-                            <div>
-                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
-                                <div class="timeline-date">2026-09-15</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-15 s/d 2026-09-16</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Testing</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-17</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; Infrastructure & Backup</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Migrasi server backup data sistem SISCA.</h2>
 
-                    <!-- Migration Architecture Diagram -->
-                    <div class="migration-diagram">
-                        <div class="diagram-node source">
-                            <div class="diagram-node-icon">&#x1F5C4;&#xFE0F;</div>
-                            <div class="diagram-node-title">Server SISCA Mandiri</div>
-                            <div class="diagram-node-sub">Local Cloud Storage (Old)</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card">
+                                <div>
+                                    <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                    <div class="timeline-date">2026-09-15</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">Development</span>
+                            </div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-15 s/d 2026-09-16</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Testing</span>
+                            </div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-17</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Est. Rilis</span>
+                            </div>
                         </div>
-                        <div class="diagram-arrow">
-                            <span>MIGRASI</span>
-                            &rarr;
-                        </div>
-                        <div class="diagram-node target">
-                            <div class="diagram-node-icon">&#x2601;&#xFE0F;</div>
-                            <div class="diagram-node-title">Google Drive Enterprise</div>
-                            <div class="diagram-node-sub">Automated Secure Backup (New)</div>
-                        </div>
-                    </div>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F4BE; Update Progress</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F504;</span>
-                                <div>Yang awalnya untuk backup data di server cloud-nya sendiri, maka akan <strong>dimigrasikan ke Google Drive</strong> untuk backup data otomatis dan redundansi yang lebih aman.</div>
+                        <!-- Migration Architecture Diagram -->
+                        <div class="migration-diagram">
+                            <div class="diagram-node source">
+                                <div class="diagram-node-icon">&#x1F5C4;&#xFE0F;</div>
+                                <div class="diagram-node-title">Server SISCA Mandiri</div>
+                                <div class="diagram-node-sub">Local Cloud Storage (Old)</div>
+                            </div>
+                            <div class="diagram-arrow">
+                                <span>MIGRASI</span>
+                                &rarr;
+                            </div>
+                            <div class="diagram-node target">
+                                <div class="diagram-node-icon">&#x2601;&#xFE0F;</div>
+                                <div class="diagram-node-title">Google Drive Enterprise</div>
+                                <div class="diagram-node-sub">Automated Secure Backup (New)</div>
+                            </div>
+                        </div>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F4BE; Update Progress</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F504;</span>
+                                    <div>Yang awalnya untuk backup data di server cloud-nya sendiri, maka akan
+                                        <strong>dimigrasikan ke Google Drive</strong> untuk backup data otomatis dan
+                                        redundansi yang lebih aman.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 12 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 12 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 13: FITUR PEMINJAMAN KENDARAAN (TIMELINE) ================= -->
             <section class="slide-item" data-slide="13">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Divisi MIS &middot; Operational Tools</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">Peminjaman Kendaraan</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title">Create fitur peminjaman kendaraan.</h2>
-                    
-                    <div class="timeline-grid">
-                        <div class="timeline-card">
-                            <div>
-                                <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
-                                <div class="timeline-date">2026-09-16</div>
-                            </div>
-                            <span class="timeline-status-pill status-active">Development</span>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
-                        <div class="timeline-card testing">
-                            <div>
-                                <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
-                                <div class="timeline-date">2026-09-16 s/d 2026-09-21</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Testing</span>
-                        </div>
-                        <div class="timeline-card production">
-                            <div>
-                                <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
-                                <div class="timeline-date">2026-09-21</div>
-                            </div>
-                            <span class="timeline-status-pill status-pending">Est. Rilis</span>
-                        </div>
+                        <div class="slide-dept-badge">Divisi MIS &middot; Operational Tools</div>
                     </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title">Create fitur peminjaman kendaraan.</h2>
 
-                    <div class="progress-box">
-                        <div class="progress-box-title">&#x1F697; Ruang Lingkup Sistem Peminjaman Kendaraan</div>
-                        <div class="progress-points-list">
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F4CB;</span>
-                                <div>Form pengajuan peminjaman kendaraan operasional kantor secara online dan realtime.</div>
+                        <div class="timeline-grid">
+                            <div class="timeline-card">
+                                <div>
+                                    <div class="timeline-phase">&#x23F3; Est. Done Dev</div>
+                                    <div class="timeline-date">2026-09-16</div>
+                                </div>
+                                <span class="timeline-status-pill status-active">Development</span>
                             </div>
-                            <div class="progress-point-item">
-                                <span class="progress-point-icon">&#x1F511;</span>
-                                <div>Pengecekan ketersediaan armada mobil/motor, driver, jadwal perjalanan, serta pencatatan kilometer (KM) dan kondisi armada.</div>
+                            <div class="timeline-card testing">
+                                <div>
+                                    <div class="timeline-phase">&#x1F9EA; Testing Phase</div>
+                                    <div class="timeline-date">2026-09-16 s/d 2026-09-21</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Testing</span>
+                            </div>
+                            <div class="timeline-card production">
+                                <div>
+                                    <div class="timeline-phase">&#x1F680; Est. Rilis Production</div>
+                                    <div class="timeline-date">2026-09-21</div>
+                                </div>
+                                <span class="timeline-status-pill status-pending">Est. Rilis</span>
                             </div>
                         </div>
-                        <div style="margin-top: 14px; text-align: right;">
-                            <button class="btn-header highlight" onclick="goToSlide(14)" style="padding: 8px 16px; font-size: 13px;">
-                                &#x1F3AC; Lihat Showcase UI & Video Demo &rarr;
-                            </button>
+
+                        <div class="progress-box">
+                            <div class="progress-box-title">&#x1F697; Ruang Lingkup Sistem Peminjaman Kendaraan</div>
+                            <div class="progress-points-list">
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F4CB;</span>
+                                    <div>Form pengajuan peminjaman kendaraan operasional kantor secara online dan
+                                        realtime.</div>
+                                </div>
+                                <div class="progress-point-item">
+                                    <span class="progress-point-icon">&#x1F511;</span>
+                                    <div>Pengecekan ketersediaan armada mobil/motor, driver, jadwal perjalanan, serta
+                                        pencatatan kilometer (KM) dan kondisi armada.</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 14px; text-align: right;">
+                                <button class="btn-header highlight" onclick="goToSlide(14)"
+                                    style="padding: 8px 16px; font-size: 13px;">
+                                    &#x1F3AC; Lihat Showcase UI & Video Demo &rarr;
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 13 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 13 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 14: FITUR PEMINJAMAN KENDARAAN (MEDIA SHOWCASE) ================= -->
             <section class="slide-item" data-slide="14">
-                <div class="decor-top-right"></div>
-                <div class="slide-header-strip">
-                    <div class="slide-category-tag dikembangkan">
-                        <span class="dot"></span>
-                        Project Sedang Dikembangkan
-                    </div>
-                    <div class="slide-dept-badge">Showcase & Video Demo</div>
+                <div class="slide-top-bar">
+                    <div class="slide-top-brand">Project Sedang Dikembangkan.</div>
+                    <div class="slide-top-category">Showcase Peminjaman Kendaraan</div>
                 </div>
-                <div class="slide-content-body">
-                    <h2 class="slide-main-title" style="margin-bottom: 12px;">Create fitur peminjaman kendaraan.</h2>
-                    
-                    <div class="showcase-split-grid">
-                        <!-- Desktop UI Frame -->
-                        <div>
-                            <div class="showcase-desktop-frame" onclick="openLightbox('assets/image5.png')" title="Klik untuk zoom screenshot">
-                                <div class="desktop-frame-bar">
-                                    <span class="frame-dot red"></span>
-                                    <span class="frame-dot yellow"></span>
-                                    <span class="frame-dot green"></span>
-                                    <span style="font-size:10px; color:#64748b; margin-left:6px; font-weight:600;">Form Peminjaman Kendaraan</span>
-                                </div>
-                                <img src="assets/image5.png" alt="UI Peminjaman Kendaraan" class="desktop-frame-img">
-                            </div>
-                            <div style="font-size:11px; color:#64748b; margin-top:6px; font-weight:600;">&#x1F50D; Klik screenshot untuk memperbesar</div>
+                <div class="slide-white-sheet">
+                    <div class="slide-header-strip">
+                        <div class="slide-category-tag dikembangkan">
+                            <span class="dot"></span>
+                            Project Sedang Dikembangkan
                         </div>
+                        <div class="slide-dept-badge">Showcase & Video Demo</div>
+                    </div>
+                    <div class="slide-content-body">
+                        <h2 class="slide-main-title" style="margin-bottom: 12px;">Create fitur peminjaman kendaraan.
+                        </h2>
 
-                        <!-- Embedded Video Player -->
-                        <div>
-                            <div class="video-player-container">
-                                <video id="slideVideo" controls playsinline poster="assets/image5.png">
-                                    <source src="assets/media1.mp4" type="video/mp4">
-                                    <source src="assets/media1.mov" type="video/quicktime">
-                                    Browser Anda tidak mendukung HTML5 video tag.
-                                </video>
+                        <div class="showcase-split-grid">
+                            <!-- Desktop UI Frame -->
+                            <div>
+                                <div class="showcase-desktop-frame" onclick="openLightbox('assets/image5.png')"
+                                    title="Klik untuk zoom screenshot">
+                                    <div class="desktop-frame-bar">
+                                        <span class="frame-dot red"></span>
+                                        <span class="frame-dot yellow"></span>
+                                        <span class="frame-dot green"></span>
+                                        <span
+                                            style="font-size:10px; color:#64748b; margin-left:6px; font-weight:600;">Form
+                                            Peminjaman Kendaraan</span>
+                                    </div>
+                                    <img src="assets/image5.png" alt="UI Peminjaman Kendaraan"
+                                        class="desktop-frame-img">
+                                </div>
+                                <div style="font-size:11px; color:#64748b; margin-top:6px; font-weight:600;">&#x1F50D;
+                                    Klik screenshot untuk memperbesar</div>
                             </div>
-                            <div style="font-size:11px; color:#0f766e; margin-top:6px; font-weight:700;">&#x1F3AC; Video Rekaman Interaksi Fitur Peminjaman Kendaraan</div>
+
+                            <!-- Embedded Video Player -->
+                            <div>
+                                <div class="video-player-container">
+                                    <video id="slideVideo" controls playsinline poster="assets/image5.png">
+                                        <source src="assets/media1.mp4" type="video/mp4">
+                                        <source src="assets/media1.mov" type="video/quicktime">
+                                        Browser Anda tidak mendukung HTML5 video tag.
+                                    </video>
+                                </div>
+                                <div style="font-size:11px; color:#0f766e; margin-top:6px; font-weight:700;">&#x1F3AC;
+                                    Video Rekaman Interaksi Fitur Peminjaman Kendaraan</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer-strip">
-                    <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
-                    <span>Slide 14 / 15</span>
+                    <img src="assets/image2.png" alt="SCMA MIS Watermark" class="slide-watermark">
+                    <div class="slide-footer-strip">
+                        <span class="author">PT. Sinar Cemaramas Abadi &middot; Divisi MIS</span>
+                        <span>Slide 14 / 15</span>
+                    </div>
                 </div>
             </section>
 
             <!-- ================= SLIDE 15: THANK YOU ================= -->
-            <section class="slide-item slide-thankyou" data-slide="15">
+            <section class="slide-item slide-thankyou" data-slide="15"
+                style="background: url('assets/image6.png') no-repeat center center; background-size: cover;">
                 <img src="assets/image7.png" alt="SCMA MIS Logo" class="thankyou-logo">
                 <h1 class="thankyou-title">THANK YOU!</h1>
-                <p class="thankyou-sub">Weekly Report &middot; PT. Sinar Cemaramas Abadi &middot; Divisi MIS</p>
+                <p class="thankyou-sub" style="color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Weekly Report
+                    &middot; PT. Sinar Cemaramas Abadi &middot; Divisi MIS</p>
                 <div style="display:flex; gap:12px;">
                     <button class="thankyou-action-btn" onclick="goToSlide(1)">
                         <span>&#x21BA;</span> Ulangi Presentasi
-                    </button>
-                    <button class="thankyou-action-btn" style="background:#ffffff; color:#0f766e;" onclick="openDendaModal()">
-                        <span>&#x1F4B8;</span> Lihat Data Denda Karyawan
                     </button>
                 </div>
             </section>
@@ -2458,7 +2567,8 @@
             <button class="nav-btn" id="btnPrev" onclick="prevSlide()" title="Slide Sebelumnya (&larr; / PageUp)">
                 &#x2190;
             </button>
-            <button class="nav-btn primary" id="btnNext" onclick="nextSlide()" title="Slide Selanjutnya (&rarr; / Space)">
+            <button class="nav-btn primary" id="btnNext" onclick="nextSlide()"
+                title="Slide Selanjutnya (&rarr; / Space)">
                 &#x2192;
             </button>
         </div>
@@ -2501,51 +2611,6 @@
         </div>
     </div>
 
-    <!-- DATA DENDA MODAL -->
-    <div class="modal-overlay" id="dendaModal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <span>&#x1F4B8;</span> Data Nominal Denda Step Counter Karyawan
-                </div>
-                <button class="btn-header" onclick="closeDendaModal()" style="background:rgba(255,255,255,0.2); border:none; color:#fff;">&times; Tutup</button>
-            </div>
-            <div class="modal-body">
-                <div class="denda-stats-row">
-                    <div class="denda-stat-box">
-                        <div class="denda-stat-lbl">Total Karyawan</div>
-                        <div class="denda-stat-num" id="dendaTotalKaryawan">23</div>
-                    </div>
-                    <div class="denda-stat-box">
-                        <div class="denda-stat-lbl">Total Nominal Denda</div>
-                        <div class="denda-stat-num" id="dendaTotalNominal">Rp 995.000</div>
-                    </div>
-                    <div class="denda-stat-box">
-                        <div class="denda-stat-lbl">Denda Tertinggi</div>
-                        <div class="denda-stat-num" id="dendaMaxNominal">Rp 170.000</div>
-                    </div>
-                </div>
-
-                <input type="text" id="dendaSearchInput" class="denda-search" placeholder="Cari nama karyawan..." oninput="filterDendaTable()">
-
-                <div class="denda-table-wrap">
-                    <table class="denda-table">
-                        <thead>
-                            <tr>
-                                <th style="width: 60px;">No</th>
-                                <th>Nama Karyawan</th>
-                                <th>Nominal Denda</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dendaTableBody">
-                            <!-- Populated dynamically -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- LIGHTBOX IMAGE MODAL -->
     <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
         <img src="" alt="Preview Zoom" class="lightbox-img" id="lightboxImg">
@@ -2556,17 +2621,18 @@
         <div class="modal-container" style="max-width: 540px;">
             <div class="modal-header">
                 <div class="modal-title">&#x2328;&#xFE0F; Pintasan Keyboard</div>
-                <button class="btn-header" onclick="closeHelpModal()" style="background:rgba(255,255,255,0.2); border:none; color:#fff;">&times;</button>
+                <button class="btn-header" onclick="closeHelpModal()"
+                    style="background:rgba(255,255,255,0.2); border:none; color:#fff;">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="kbd-list">
-                    <div class="kbd-item"><span>Slide Selanjutnya</span> <span class="kbd-badge">&rarr; / Space</span></div>
+                    <div class="kbd-item"><span>Slide Selanjutnya</span> <span class="kbd-badge">&rarr; / Space</span>
+                    </div>
                     <div class="kbd-item"><span>Slide Sebelumnya</span> <span class="kbd-badge">&larr;</span></div>
                     <div class="kbd-item"><span>Toggle Fullscreen</span> <span class="kbd-badge">F</span></div>
                     <div class="kbd-item"><span>Overview Grid</span> <span class="kbd-badge">O / Esc</span></div>
                     <div class="kbd-item"><span>Slide Pertama</span> <span class="kbd-badge">Home</span></div>
                     <div class="kbd-item"><span>Slide Terakhir</span> <span class="kbd-badge">End</span></div>
-                    <div class="kbd-item"><span>Data Denda Modal</span> <span class="kbd-badge">T</span></div>
                     <div class="kbd-item"><span>Auto-Play Slideshow</span> <span class="kbd-badge">A</span></div>
                 </div>
             </div>
@@ -2598,37 +2664,10 @@
         let autoPlayInterval = null;
         let presentationStartTime = Date.now();
 
-        // ================= DENDA DATA =================
-        const dendaData = [
-            { nama: 'Adnan TA SCMA', nominal: 5000 },
-            { nama: 'Aga Sales IPE', nominal: 165000 },
-            { nama: 'Alfian CW IPE', nominal: 100000 },
-            { nama: 'Alma HRD SCMA', nominal: 5000 },
-            { nama: 'Ashab MIS SCMA', nominal: 20000 },
-            { nama: 'Aura LAB SCMA', nominal: 5000 },
-            { nama: 'Baariq TA SCMA JKT', nominal: 40000 },
-            { nama: 'Cleolansya CA SCMA', nominal: 50000 },
-            { nama: 'Diana ACC SCMA', nominal: 35000 },
-            { nama: 'Dimas Sales IPE', nominal: 55000 },
-            { nama: 'Dinda ADM MARKETPLACE IPE', nominal: 100000 },
-            { nama: 'Ditya HRGA JKT', nominal: 5000 },
-            { nama: 'Evanda WRH IPE', nominal: 170000 },
-            { nama: 'Fahmi HRD SCMA', nominal: 165000 },
-            { nama: 'Hasiah TA SCMA JKT', nominal: 50000 },
-            { nama: 'Nita CC IPE', nominal: 5000 },
-            { nama: 'Rama HRD SCMA', nominal: 45000 },
-            { nama: 'Reksa MIS SCMA', nominal: 80000 },
-            { nama: 'Romy MIS SCMA', nominal: 10000 },
-            { nama: 'Sandi Digmar SCMA', nominal: 50000 },
-            { nama: 'Shofi TA SCMA JKT', nominal: 50000 },
-            { nama: 'Vendi SATPAM SCMA', nominal: 5000 },
-            { nama: 'Zen MIS SCMA', nominal: 15000 }
-        ];
-
         // ================= SLIDE NAVIGATION =================
         function goToSlide(slideNum) {
             if (slideNum < 1 || slideNum > totalSlides) return;
-            
+
             // Pause video on slide 14 if leaving it
             if (currentSlide === 14 && slideNum !== 14) {
                 const vid = document.getElementById('slideVideo');
@@ -2810,46 +2849,6 @@
         }
         setInterval(updateTimer, 1000);
 
-        // ================= DATA DENDA MODAL =================
-        function rp(val) {
-            return 'Rp ' + val.toLocaleString('id-ID');
-        }
-
-        function renderDendaTable(data) {
-            const tbody = document.getElementById('dendaTableBody');
-            tbody.innerHTML = '';
-            data.forEach((row, idx) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${idx + 1}</td>
-                    <td><strong>${row.nama}</strong></td>
-                    <td>${rp(row.nominal)}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-
-            const total = data.reduce((s, d) => s + d.nominal, 0);
-            const max = data.length ? Math.max(...data.map(d => d.nominal)) : 0;
-            document.getElementById('dendaTotalKaryawan').textContent = data.length;
-            document.getElementById('dendaTotalNominal').textContent = rp(total);
-            document.getElementById('dendaMaxNominal').textContent = rp(max);
-        }
-
-        function filterDendaTable() {
-            const q = document.getElementById('dendaSearchInput').value.trim().toLowerCase();
-            const filtered = dendaData.filter(d => d.nama.toLowerCase().includes(q));
-            renderDendaTable(filtered);
-        }
-
-        function openDendaModal() {
-            renderDendaTable(dendaData);
-            document.getElementById('dendaModal').classList.add('open');
-        }
-
-        function closeDendaModal() {
-            document.getElementById('dendaModal').classList.remove('open');
-        }
-
         // ================= LIGHTBOX PREVIEW =================
         function openLightbox(src) {
             const img = document.getElementById('lightboxImg');
@@ -2874,7 +2873,6 @@
         document.addEventListener('keydown', (e) => {
             // Close modals on Escape
             if (e.key === 'Escape') {
-                closeDendaModal();
                 closeLightbox();
                 closeHelpModal();
                 toggleDrawer(false);
@@ -2907,9 +2905,6 @@
             } else if (e.key.toLowerCase() === 'o') {
                 e.preventDefault();
                 toggleOverview();
-            } else if (e.key.toLowerCase() === 't') {
-                e.preventDefault();
-                openDendaModal();
             } else if (e.key.toLowerCase() === 'a') {
                 e.preventDefault();
                 toggleAutoPlay();
